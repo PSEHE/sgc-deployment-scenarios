@@ -36,7 +36,7 @@ nodes_proj, edges_proj = ox.graph_to_gdfs(graph_proj, nodes=True, edges=True)
 # Calculating distances between hubs and block groups
 for census_lat,census_lon in zip(bg_gdf["INTPTLAT"],bg_gdf["INTPTLON"]):
     # Find all hubs within max_D km
-    # Find the tracts/block groups that are within
+
     for hub_lat,hub_lon in zip(hubs_gdf["INTPTLAT"],hubs_gdf["INTPTLON"]):
 
 
