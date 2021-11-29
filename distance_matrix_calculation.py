@@ -11,33 +11,59 @@ import networkx as nx
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
+import os
+import shapely
 
 place_name = "Contra Costa County, California, USA"
 max_D = 100
-####### COMMENTED OUT FOLLOWING TWO LINES FOR CHOOSING NEW GRAPH ###########
+####### COMMENTED OUT FOLLOWING TWO LINES ARE FOR CHOOSING NEW GRAPH ###########
 # graph = ox.graph_from_place(place_name, network_type='drive')
-# ox.io.save_graphml(graph,"./data/"+place_name)
-graph = ox.io.load_graphml("./data/"+place_name)
+# ox.io.save_graphml(graph,os.path.join(os.getcwd(),"./data/",place_name))
+graph = ox.io.load_graphml(os.path.join(os.getcwd(),"./data/",place_name))
 # Load in candidate sites
-hubs = pd.read_csv(r"C:\Users\yunus\github\sgc-deployment-scenarios\data\candidate_site_campuses_2021-11-17\candidate_site_campuses.csv")
+hubs = pd.read_csv(os.path.join(os.getcwd(),"./data/candidate_site_campuses_2021-11-17/candidate_site_campuses.csv"))
 hubs = hubs[hubs["cat_site"]!="X"]
-hubs_gdf = gpd.GeoDataFrame(hubs[["id_site","SQFT_ROOF"]], geometry=gpd.points_from_xy(hubs.LON, hubs.LAT))
-bg_gdf = gpd.read_file(r"C:\Users\yunus\github\sgc-deployment-scenarios\data\bg_ca_19\blockgroup_CA_19.shp")
+hubs_gdf = gpd.GeoDataFrame(hubs[["id_site","SQFT_ROOF","LON","LAT"]],
+                            geometry=gpd.points_from_xy(hubs.LON, hubs.LAT),
+                            crs = "epsg:4326")
+bg_gdf = gpd.read_file(os.path.join(os.getcwd(),"./data/bg_ca_19/blockgroup_CA_19.shp"))
+bg_gdf = bg_gdf.to_crs(hubs_gdf.crs)
 # impute speed on all edges missing data
 graph = ox.add_edge_speeds(graph)
 # calculate travel time (seconds) for all edges
 graph = ox.add_edge_travel_times(graph)
-
 # %% codecell
-fig, ax = ox.plot_graph(ox.project_graph(graph))
 graph_proj = ox.project_graph(graph)
 nodes_proj, edges_proj = ox.graph_to_gdfs(graph_proj, nodes=True, edges=True)
+fig, ax = ox.plot_graph(ox.project_graph(graph))
 # %% codecell
-# Calculating distances between hubs and block groups
-for census_lat,census_lon in zip(bg_gdf["INTPTLAT"],bg_gdf["INTPTLON"]):
-    # Find all hubs within max_D km
+# Now to only consider hubs and blockgroups within above graph...
+ # (temporary step for debugging just one county before doing all of California)
+min_lon = nodes_proj["lon"].min()
+max_lon = nodes_proj["lon"].max()
+min_lat = nodes_proj["lat"].min()
+max_lat = nodes_proj["lat"].max()
+bb_polygon = shapely.geometry.Polygon([(min_lon,min_lat),
+                      (min_lon,max_lat),
+                      (max_lon,max_lat),
+                      (max_lon,min_lat)])
+hubs_gdf = hubs_gdf[hubs_gdf.within(bb_polygon)]
+bg_gdf = bg_gdf[bg_gdf.centroid.within(bb_polygon)]
+# %% codecell
 
-    for hub_lat,hub_lon in zip(hubs_gdf["INTPTLAT"],hubs_gdf["INTPTLON"]):
+# distance_matrix = pd.DataFrame(np.nan,index = bg_gdf["GISJOIN"],columns = hubs["id_site"]
+distance_matrix = np.NaN*np.zeros((len(bg_gdf),len(hubs_gdf))) # Initialize array to keep track of distances
+# Calculating distances between hubs and block groups
+for census_lat,census_lon,bg_idx in zip(bg_gdf["INTPTLAT"],bg_gdf["INTPTLON"],range(len(bg_gdf))):
+    # Find all hubs within max_D km
+    # TODO: MODIFY FOLLOWING LOOP TO ONLY DO CLOSEBY HUB
+    for hub_lat,hub_lon,hub_idx in zip(hubs_gdf["LAT"],hubs_gdf["LON"],range(len(hubs_gdf))):
+        distance_matrix[bg_idx,hub_idx] = 5
+
+distance_matrix_df = pd.DataFrame(distance_matrix, index=bg_gdf["GISJOIN"],columns = hubs_gdf["id_site"])
+
+
 
 
 
