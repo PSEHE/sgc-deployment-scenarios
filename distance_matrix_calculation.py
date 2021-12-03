@@ -17,6 +17,8 @@ import shapely
 
 place_name = "Contra Costa County, California, USA"
 max_D = 100
+
+print('x')
 ####### COMMENTED OUT FOLLOWING TWO LINES ARE FOR CHOOSING NEW GRAPH ###########
 # graph = ox.graph_from_place(place_name, network_type='drive')
 # ox.io.save_graphml(graph,os.path.join(os.getcwd(),"./data/",place_name))
