@@ -53,8 +53,8 @@ warnings.filterwarnings('ignore')
 graph_raw = ox.graph_from_place(location, network_type = 'drive', simplify = True)
 
 graph = ox.project_graph(graph_raw, to_crs = nad83)
-graph = ox.add_edge_speeds(graph)
-graph = ox.add_edge_travel_times(graph)
+graph = ox.speed.add_edge_speeds(graph)
+graph = ox.speed.add_edge_travel_times(graph)
 
 graph_nodes_gdf, graph_edges_gdf = ox.graph_to_gdfs(graph, nodes = True, edges = True)
 
@@ -138,6 +138,7 @@ cengeos_buffer_gdf_bbox = cengeos_buffer_gdf_bbox.to_crs(nad83)
 ##########################################
 # %% codecell
 n_cengeos = len(cengeos_pt_gdf_bbox)
+n_hubs = len(hubs_gdf_bbox)
 
 ##########################################
 # %% codecell
@@ -204,9 +205,6 @@ for cengeo in range(0, n_cengeos):
     for hub in range(0, n_hubs_nearby):
 
         node_target = get_coords_and_nearest_node(hub, hubs_gdf_bbox)
+        travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'travel_time')
 
-        route_bt_nodes = nx.shortest_path(graph, node_origin, node_target, weight = 'travel_time')
-        travel_times = ox.utils_graph.get_route_edge_attributes(graph, route_bt_nodes, 'travel_time')
-        travel_time = round(sum(travel_times)/60, 2)
-
-        dist_to_hub_df.loc[id_cengeo].iloc[hub] = travel_time
+        dist_to_hub_df.loc[id_cengeo].iloc[hub] = round(travel_dist_m)/1609.344
