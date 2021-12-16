@@ -10,6 +10,8 @@
 from pyomo.environ import *
 import random
 
+from distance_matrix_calculation import dist_to_hub_df
+
 number_of_hubs = 10000
 
 random.seed(1000)
