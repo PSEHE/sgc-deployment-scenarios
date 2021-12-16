@@ -35,3 +35,4 @@ model.distances = Param(model.nearby_blockgroups_hubs,
                         initialize = set_distance)
 model.distances.pprint()
 model.ishub = Var(model.hubs,within=Binary)
+model.fraction_pop = Var(model.nearby_blockgroups_hubs,within=Reals,bounds=(0,1))
