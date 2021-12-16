@@ -5,3 +5,4 @@ Optimizing resilience hub deployment for overall population coverage, climate vu
 * Resilience hub locations based on prior PSE analysis with geofabrik OSM data
 * Coverage maximized for climate vulnerabilities using various public datasets on air, fire, EJ, etc.
 * Users should save large datasets that must be stored locally one directory up from this repo and write code accordingly
+* Useful tutorial for using pyomo framework: https://www.osti.gov/servlets/purl/1376827
