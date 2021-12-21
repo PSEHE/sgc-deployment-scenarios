@@ -75,4 +75,46 @@ https://www.youtube.com/watch?v=cjMkVHjhSBI
   * Params, vars feed constraints and Objective
   * Constraints, objective, params, variables can be fed in as sets - set must be defined first
     * There is a nice chronology diagram at 6:40
+
+
+## _ND Pyomo Cookbook_
+https://jckantor.github.io/ND-Pyomo-Cookbook/
+
+### Overview
+* Model consists of:
+  * Decision variables
+  * Constraints
+  * Objective
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.

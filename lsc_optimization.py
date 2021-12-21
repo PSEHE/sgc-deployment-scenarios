@@ -3,8 +3,6 @@
 # Audrey: Get a list of capacities, input is as parameter
 # Audrey: Input blockgroup popluations as a parameter
 # Audrey: Code constraint parameter
-# Yunus: Define a fraction variable (x_ij)
-# Yunus: Handle the NaN issue
 #
 # model.blockgroups
 # model.hubs
@@ -17,92 +15,88 @@
 ###### IMPORT PACKAGES AND DATA
 # %% codecell
 import pandas as pd
+import numpy as np
+
 from pyomo.environ import *
 
-from distance_matrix_calculation import dist_to_hub_df
-from distance_matrix_calculation import hubs_gdf
+from data_cleaning import hub_occ_df
+from data_cleaning import dist_to_hub_dict
 
-##########################################
-###### GENERATE SITE CAPACITY DATA
-# %%codecell
-#https://ccpia.org/occupancy-load-signs/
-occ_limits = pd.DataFrame({'cat_site':['W', 'CC', 'Pri', 'Sec', 'Coll'], 'sqft_pp':[15, 15, 50, 50, 50]})
-
-hub_occ_df = pd.merge(hubs_gdf, occ_limits, on = 'cat_site')
-hub_occ_df['occ_site'] = hub_occ_df['SQFT_ROOF']/hub_occ_df['sqft_pp']
-hub_occ_df = hub_occ_df.loc[:, ['id_site', 'cat_site', 'occ_site']]
+cengeo_pop_df = pd.read_csv('data/bg_ca_19/blockgroup_pop_CA_19.csv')
 
 ##########################################
 ###### DEFINE MODEL
 # %%codecell
 model = ConcreteModel()
 
-model.dist_to_hub_df = dist_to_hub_df
-model.hub_occ_df = hub_occ_df
+model.set_cengeos = Set(initialize = np.unique([key[0] for key in dist_to_hub_dict.keys()]))
+model.set_hubs = Set(initialize = np.unique([key[1] for key in dist_to_hub_dict.keys()]))
 
-model.max_dist = 1.5
-model.max_hubs = 5
+model.var_hub_yn = Var(model.set_hubs, within = Binary)
+model.var_prop_served = Var(model.set_cengeos, model.set_hubs, bounds = (0.0, 1.0))
 
-model.cengeos = Set(initialize = dist_to_hub_df.index)
-model.hubs = Set(initialize = dist_to_hub_df.columns)
-
-##########################################
-###### DEFINE PARAMETERS AND ATTACH TO MODEL
-# %%codecell
-def set_distance(model, cengeo, hub):
-    return model.dist_to_hub_df.loc[cengeo, hub]
-
-model.distances = Param(model.cengeos, model.hubs, initialize = set_distance)
-model.distances.pprint()
-
-def set_capacities(model, hub):
-    return model.hub_occ_df.loc[hub]
-
-model.capacity = Param(model.hubs, initialize = set_capacities)
+model.obj_min_dist = Objective(expr = sum(dist_to_hub_dict[key[0], key[1]] * model.var_prop_served[key[0], key[1]] * model.var_hub_yn[key[1]] for key in dist_to_hub_dict))
 
 ##########################################
-###### DEFINE VARIABLES AND ATTACH TO MODEL
-# %%codecell
-model.ishub = Var(model.hubs, within=Binary)
-model.ishub.pprint()
+###### DEFINE PARAMETERS
+model.param_dist_to_hub = Param()
 
+model.param_hub_capacity = Param()
 
-model.capacities = Param(model.hubs,initialize = set_capacities)
-model.capacities.pprint()
+model.param_cengeo_pop = Param()
 
-def max_capacity(model, hub):
-    return sum(model.fraction[blockgroup,hub]*model.population[blockgroup] for blockgroup in model.blockgroups) <= model.capacities[hub])
-model.demand = Constraint(model.hubs, rule=max_capacity)
+##########################################
+###### DEFINE VARIABLES
 
 
 ##########################################
-# %% codecell
-### Define model
-model = pe.ConcreteModel()
+###### DEFINE OBJECTIVE
 
-model.cengeos = Set(initialize=cengeos)
-model.hubs = Set(initialize=hubs)
-model.travel_max = travel_max
+model.wt_dist_tot = Objective(expr = sum(model.var_cengeo_prop_served * model.param_cengeo_pop * model.param_dist_to_hub), sense = minimize)
 
 ##########################################
-# %% codecell
+###### DEFINE CONSTRAINTS
+model.constraints = ConstraintList()
+
+model.constraints.add(expr = sum(model.var_cengeo_prop_served * model.param_cengeo_pop) >= 0.75) #At least 75 of Richmond pop must be assigned to hub
+model.constraints.add(expr = sum(model.var_cengeo_prop_served * model.param_cengeo_pop) <= model.param_hub_capacity) #Pop assigned to given hub cannot exceed hub capacity
+model.constraints.add(expr = model.param_dist_to_hub <= 1.5) #Drive distance from centroid to hub cannot exceed 1.5 miles
 
 
-from pyomo.environ import *
-import random
 
-number_of_hubs = 10000
 
-random.seed(1000)
 
-model.distances = Param(model.blockgroups,model.hubs,distance_matrix)
-model.ishub = Var(model.hubs,within=Binary)
-# model.capacity_hub = Var(model.hubs,within=PositiveIntegers)
 
-def max_number_hubs(model, number_of_hubs):
-    return sum(model.ishub[hub] for hub in model.hubs) <= number_of_hubs
-model.demand = Constraint(model.N, rule=max_number_hubs)
 
-def cost_(model):
-    return somefunction for hub in model.hub for cengeo in model.blockgroups)
-model.cost = Objective(rule=cost_, sense="Minimize")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
