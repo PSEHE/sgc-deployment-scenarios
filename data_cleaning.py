@@ -17,10 +17,32 @@ hub_occ_df = pd.merge(hubs_gdf, occ_limits, on = 'cat_site')
 hub_occ_df['occ_site'] = hub_occ_df['SQFT_ROOF']/hub_occ_df['sqft_pp']
 hub_occ_df = hub_occ_df.loc[:, ['id_site', 'cat_site', 'occ_site']]
 
+hub_occ_dict = {}
+
+for i in range(len(hub_occ_df)):
+
+    id_site = hub_occ_df.iloc[i].loc['id_site']
+    occ_site = hub_occ_df.iloc[i].loc['occ_site']
+
+    hub_occ_dict[id_site] = occ_site
+
 ##########################################
 ###### GET POPULATION DATA
 # %%codecell
+cengeo_pop_df = pd.read_csv('data/bg_ca_19/blockgroup_pop_CA_19.csv')
 
+cengeo_pop_dict = {}
+
+for i in range(len(cengeo_pop_df)):
+
+    cengeo = cengeo_pop_df.iloc[i].loc['GISJOIN']
+    pop = cengeo_pop_df.iloc[i].loc['POP']
+
+    cengeo_pop_dict[cengeo] = pop
+
+##########################################
+###### MAKE DICTIONARY WITH CENGEO, HUB PAIR TUPLE AS KEY
+# %%codecell
 from distance_matrix_calculation import dist_to_hub_df
 
 dist_to_hub_dict = {}
