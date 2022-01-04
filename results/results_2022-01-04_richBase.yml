@@ -1,0 +1,177 @@
+# ==========================================================
+# = Solver Results                                         =
+# ==========================================================
+# ----------------------------------------------------------
+#   Problem Information
+# ----------------------------------------------------------
+Problem: 
+- Name: unknown
+  Lower bound: 2223.03093682892
+  Upper bound: 2223.03093682892
+  Number of objectives: 1
+  Number of constraints: 3
+  Number of variables: 1607
+  Number of nonzeros: 1607
+  Sense: minimize
+# ----------------------------------------------------------
+#   Solver Information
+# ----------------------------------------------------------
+Solver: 
+- Status: ok
+  Termination condition: optimal
+  Statistics: 
+    Branch and bound: 
+      Number of bounded subproblems: 1
+      Number of created subproblems: 1
+  Error rc: 0
+  Time: 0.06300616264343262
+# ----------------------------------------------------------
+#   Solution Information
+# ----------------------------------------------------------
+Solution: 
+- number of solutions: 1
+  number of solutions displayed: 1
+- Gap: 0.0
+  Status: optimal
+  Message: None
+  Objective:
+    objective:
+      Value: 2223.0309368289186
+  Variable:
+    var_hub_yn['166435596']:
+      Value: 1
+    var_hub_yn['232019756']:
+      Value: 1
+    var_hub_yn['237881575']:
+      Value: 1
+    var_hub_yn['24030940']:
+      Value: 1
+    var_hub_yn['250909848']:
+      Value: 1
+    var_prop_served[G06001303620003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303680012,'166435596']:
+      Value: 1
+    var_prop_served[G06001303680013,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690012,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690013,'166436530']:
+      Value: 0.542541058394161
+    var_prop_served[G06001303690014,'166436530']:
+      Value: 1
+    var_prop_served[G06001303700001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303700002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303700003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303710001,'30358759']:
+      Value: 1
+    var_prop_served[G06001303710004,'294779081']:
+      Value: 1
+    var_prop_served[G06001303710005,'237881575']:
+      Value: 1
+    var_prop_served[G06001303710005,'294779081']:
+      Value: 1
+    var_prop_served[G06001303720002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720005,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720005,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720005,'221319847']:
+      Value: 1
+    var_prop_served[G06001303720006,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720006,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720007,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720007,'166436530']:
+      Value: 1
+    var_prop_served[G06001303730001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303740001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303740002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303740002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303740002,'310530911']:
+      Value: 1
+    var_prop_served[G06001303740003,'221319847']:
+      Value: 1
+    var_prop_served[G06001303740003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303740003,'310530911']:
+      Value: 1
+    var_prop_served[G06001303740004,'221319847']:
+      Value: 1
+    var_prop_served[G06001303750001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303760001,'37623738']:
+      Value: 1
+    var_prop_served[G06001303760002,'444783776']:
+      Value: 1
+    var_prop_served[G06001303760003,'444783776']:
+      Value: 1
+    var_prop_served[G06001303760003,'464044699']:
+      Value: 1
+    var_prop_served[G06001303760004,'444783776']:
+      Value: 1
+    var_prop_served[G06001303770003,'222473836']:
+      Value: 1
+    var_prop_served[G06001303770003,'444783776']:
+      Value: 1
+    var_prop_served[G06001303770004,'222473836']:
+      Value: 1
+    var_prop_served[G06001303790001,'250909848']:
+      Value: 1
+    var_prop_served[G06001303790002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303790002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303790003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303790003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303790003,'35560444']:
+      Value: 1
+    var_prop_served[G06001303790004,'222473836']:
+      Value: 1
+    var_prop_served[G06001303810001,'294779081']:
+      Value: 1
+    var_prop_served[G06001303810002,'32935760']:
+      Value: 1
+    var_prop_served[G06001303810004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303810004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303810004,'310530911']:
+      Value: 1
+    var_prop_served[G06001303810005,'223125608']:
+      Value: 1
+    var_prop_served[G06001303810005,'310530911']:
+      Value: 1
+    var_prop_served[G06001303820001,'32935760']:
+      Value: 1
+    var_prop_served[G06001303820002,'32935760']:
+      Value: 1
+    var_prop_served[G06001303820003,'304485786']:
+      Value: 1
+    var_prop_served[G06001303840001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303840002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303840003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303840004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303852001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303860002,'304485786']:
+      Value: 1
+  Constraint: No values

@@ -15,28 +15,25 @@ from data_cleaning import cengeo_pop_dict
 # %%codecell
 model = ConcreteModel()
 
-model.set_cengeos = Set(initialize = np.unique([key[0] for key in dist_to_hub_dict.keys()]))
-model.set_hubs = Set(initialize = np.unique([key[1] for key in dist_to_hub_dict.keys()]))
+model.cengeos = np.unique([key[0] for key in dist_to_hub_dict.keys()])
+model.hubs = np.unique([key[1] for key in dist_to_hub_dict.keys()])
 
-model.data_dist_to_hubs = dist_to_hub_dict
-model.data_hub_capacity = hub_occ_dict
-model.data_cengeo_pop = cengeo_pop_dict
+model.var_hub_yn = Var(model.hubs, initialize = 0, within = Binary)
+model.var_prop_served = Var(model.cengeos, model.hubs, initialize = 0.0, bounds = (0.0, 1.0))
 
-model.var_hub_yn = Var(model.set_hubs, within = Binary)
-model.var_prop_served = Var(model.set_cengeos, model.set_hubs, bounds = (0.0, 1.0))
-
-model.obj_min_dist = Objective(expr = sum(dist_to_hub_dict[key[0], key[1]] * cengeo_pop_dict[key[0]] * model.var_prop_served[key[0], key[1]] * model.var_hub_yn[key[1]] for key in dist_to_hub_dict))
+model.objective = Objective(expr = sum(dist_to_hub_dict[cg_hub] * cengeo_pop_dict[cg_hub[0]] * model.var_prop_served[cg_hub] for cg_hub in dist_to_hub_dict.keys()), sense = minimize)
 
 ##########################################
 ###### DEFINE CONSTRAINTS
-model.constraints = ConstraintList()
-
-model.constraints.add(expr = sum(model.var_cengeo_prop_served * model.param_cengeo_pop) >= 0.75) #At least 75 of Richmond pop must be assigned to hub
-model.constraints.add(expr = sum(model.var_cengeo_prop_served * model.param_cengeo_pop) <= model.param_hub_capacity) #Pop assigned to given hub cannot exceed hub capacity
-model.constraints.add(expr = model.param_dist_to_hub <= 1.5) #Drive distance from centroid to hub cannot exceed 1.5 miles
+model.con_min_coverage = Constraint(expr = sum(cengeo_pop_dict[cg_hub[0]]*model.var_prop_served[cg_hub] for cg_hub in dist_to_hub_dict.keys()) >= 0.75*sum(cengeo_pop_dict[cg] for cg in model.cengeos))
+model.con_max_hubs = Constraint(expr = sum(model.var_hub_yn[hub] for hub in model.hubs) == 5)
 
 
 
+
+#model.constraints.add(expr = sum(model.var_prop_served * model.param_cengeo_pop) >= 0.75) #At least 75 of Richmond pop must be assigned to hub
+#model.constraints.add(expr = sum(model.var_prop_served * model.param_cengeo_pop) <= model.param_hub_capacity) #Pop assigned to given hub cannot exceed hub capacity
+#model.constraints.add(expr = model.param_dist_to_hub <= 1.5) #Drive distance from centroid to hub cannot exceed 1.5 miles
 
 
 
