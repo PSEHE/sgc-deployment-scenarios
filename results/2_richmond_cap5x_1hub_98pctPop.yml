@@ -1,0 +1,27 @@
+# ==========================================================
+# = Solver Results                                         =
+# ==========================================================
+# ----------------------------------------------------------
+#   Problem Information
+# ----------------------------------------------------------
+Problem: 
+- Name: unknown
+  Lower bound: -inf
+  Upper bound: inf
+  Number of objectives: 1
+  Number of constraints: 3963
+  Number of variables: 3961
+  Number of nonzeros: 15706
+  Sense: minimize
+# ----------------------------------------------------------
+#   Solver Information
+# ----------------------------------------------------------
+Solver: 
+- Status: ok
+  Termination condition: infeasible
+  Statistics: 
+    Branch and bound: 
+      Number of bounded subproblems: 45
+      Number of created subproblems: 45
+  Error rc: 0
+  Time: 1.1313316822052002

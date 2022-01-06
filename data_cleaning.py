@@ -51,3 +51,10 @@ for cengeo in dist_to_hub_df.index:
     for hub in dist_to_hub_df.columns:
         if dist_to_hub_df.loc[cengeo, hub] == dist_to_hub_df.loc[cengeo, hub]:
             dist_to_hub_dict[tuple([cengeo, hub])] = dist_to_hub_df.loc[cengeo, hub]
+
+##########################################
+###### FILL NAs in DIST TO HUB DF WITH UNREASONABLY LARGE DISTANCE
+# %%codecell
+dist_to_hub_df.fillna(value = 500, inplace = True)
+
+##########################################
