@@ -55,6 +55,6 @@ for cengeo in dist_to_hub_df.index:
 ##########################################
 ###### FILL NAs in DIST TO HUB DF WITH UNREASONABLY LARGE DISTANCE
 # %%codecell
-dist_to_hub_df.fillna(value = 500, inplace = True)
+#dist_to_hub_df.fillna(value = 500, inplace = True)
 
 ##########################################
