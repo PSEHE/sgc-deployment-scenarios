@@ -15,7 +15,7 @@ occ_limits = pd.DataFrame({'cat_site':['W', 'CC', 'Pri', 'Sec', 'Coll'], 'sqft_p
 
 hub_occ_df = pd.merge(hubs_gdf, occ_limits, on = 'cat_site')
 hub_occ_df['occ_site'] = hub_occ_df['SQFT_ROOF']/hub_occ_df['sqft_pp']
-hub_occ_df = hub_occ_df.loc[:, ['id_site', 'cat_site', 'occ_site']]
+hub_occ_df = hub_occ_df.loc[:, ['id_site', 'SQFT_ROOF', 'cat_site', 'occ_site']]
 
 hub_occ_dict = {}
 
@@ -25,6 +25,15 @@ for i in range(len(hub_occ_df)):
     occ_site = hub_occ_df.iloc[i].loc['occ_site']
 
     hub_occ_dict[id_site] = occ_site
+
+hub_sqft_dict = {}
+
+for i in range(len(hub_occ_df)):
+
+    id_site = hub_occ_df.iloc[i].loc['id_site']
+    occ_site = hub_occ_df.iloc[i].loc['SQFT_ROOF']
+
+    hub_sqft_dict[id_site] = occ_site
 
 ##########################################
 ###### GET POPULATION DATA
@@ -53,8 +62,49 @@ for cengeo in dist_to_hub_df.index:
             dist_to_hub_dict[tuple([cengeo, hub])] = dist_to_hub_df.loc[cengeo, hub]
 
 ##########################################
-###### FILL NAs in DIST TO HUB DF WITH UNREASONABLY LARGE DISTANCE
+###### READ HEAT DAY DATA
 # %%codecell
-#dist_to_hub_df.fillna(value = 500, inplace = True)
+heatdays_df = pd.read_csv('data/bg_ca_19/bg19_heatdays_avg00to13.csv')
+
+heatdays_df = heatdays_df.loc[:, ['GISJOIN', 'MEAN']].sort_values('MEAN', ascending = False)
 
 ##########################################
+
+region_df = pd.read_csv('data/candidate_site_campuses_2021-11-17/candidate_sites_campuses.csv')
+region_df = region_df.loc[region_df['cat_site'] != 'X', ['id_site', 'REGION']]
+
+site_region_df = region_df.merge(hub_occ_df, on = 'id_site')
+
+site_region_df.groupby('REGION').mean()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##

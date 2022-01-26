@@ -64,7 +64,7 @@ graph_edges_gdf_reset.rename(columns = {'u':'from_node', 'v':'to_node'}, inplace
 #ox.plot_graph(graph)
 ##########################################
 # %% codecell
-hubs_path = os.path.join(os.getcwd(), 'data', 'candidate_site_campuses_2021-11-17', 'candidate_site_campuses.csv')
+hubs_path = os.path.join(os.getcwd(), 'data', 'candidate_site_campuses_2021-11-17', 'candidate_sites_campuses.csv')
 
 hubs_df_raw = pd.read_csv(hubs_path)
 hubs_df_raw = hubs_df_raw.loc[hubs_df_raw['cat_site'] != 'X', ['id_site', 'cat_site', 'SQFT_ROOF', 'LON', 'LAT']]

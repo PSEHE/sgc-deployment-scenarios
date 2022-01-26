@@ -1,0 +1,1767 @@
+# ==========================================================
+# = Solver Results                                         =
+# ==========================================================
+# ----------------------------------------------------------
+#   Problem Information
+# ----------------------------------------------------------
+Problem: 
+- Name: unknown
+  Lower bound: 147312.187139605
+  Upper bound: 147312.187139605
+  Number of objectives: 1
+  Number of constraints: 1622
+  Number of variables: 1621
+  Number of nonzeros: 4813
+  Sense: minimize
+# ----------------------------------------------------------
+#   Solver Information
+# ----------------------------------------------------------
+Solver: 
+- Status: ok
+  Termination condition: optimal
+  Statistics: 
+    Branch and bound: 
+      Number of bounded subproblems: 5
+      Number of created subproblems: 5
+  Error rc: 0
+  Time: 0.14716792106628418
+# ----------------------------------------------------------
+#   Solution Information
+# ----------------------------------------------------------
+Solution: 
+- number of solutions: 1
+  number of solutions displayed: 1
+- Gap: 0.0
+  Status: optimal
+  Message: None
+  Objective:
+    obj_min_agg_dist:
+      Value: 147312.18713960488
+  Variable:
+    var_hub_yn['166435596']:
+      Value: 1
+    var_hub_yn['166436530']:
+      Value: 1
+    var_hub_yn['221319847']:
+      Value: 1
+    var_hub_yn['222473836']:
+      Value: 1
+    var_hub_yn['223125608']:
+      Value: 1
+    var_hub_yn['223289015']:
+      Value: 1
+    var_hub_yn['223289016']:
+      Value: 1
+    var_hub_yn['232019756']:
+      Value: 1
+    var_hub_yn['237881575']:
+      Value: 1
+    var_hub_yn['24030940']:
+      Value: 1
+    var_prop_served[G06001303620001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303620001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303620001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303620001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303620001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303620001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303620001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303620001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303620001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303620002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303620002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303620002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303620002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303620002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303620002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303620002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303620002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303620002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303620003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303620003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303620003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303620003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303620003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303620003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303620003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303620003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303620003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303620003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303650021,'166435596']:
+      Value: 1
+    var_prop_served[G06001303650021,'166436530']:
+      Value: 1
+    var_prop_served[G06001303650021,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303650021,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303650021,'223125608']:
+      Value: 1
+    var_prop_served[G06001303650021,'223289015']:
+      Value: 1
+    var_prop_served[G06001303650021,'223289016']:
+      Value: 1
+    var_prop_served[G06001303650022,'166435596']:
+      Value: 1
+    var_prop_served[G06001303650022,'166436530']:
+      Value: 1
+    var_prop_served[G06001303650022,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303650022,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303650022,'223125608']:
+      Value: 1
+    var_prop_served[G06001303650022,'223289015']:
+      Value: 1
+    var_prop_served[G06001303650022,'223289016']:
+      Value: 1
+    var_prop_served[G06001303650022,'232019756']:
+      Value: 1
+    var_prop_served[G06001303650022,'237881575']:
+      Value: 1
+    var_prop_served[G06001303650022,'24030940']:
+      Value: 1
+    var_prop_served[G06001303650022,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303680011,'166435596']:
+      Value: 1
+    var_prop_served[G06001303680011,'166436530']:
+      Value: 1
+    var_prop_served[G06001303680011,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303680011,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303680011,'223125608']:
+      Value: 1
+    var_prop_served[G06001303680011,'223289015']:
+      Value: 1
+    var_prop_served[G06001303680011,'223289016']:
+      Value: 1
+    var_prop_served[G06001303680011,'232019756']:
+      Value: 1
+    var_prop_served[G06001303680011,'237881575']:
+      Value: 1
+    var_prop_served[G06001303680011,'24030940']:
+      Value: 1
+    var_prop_served[G06001303680011,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303680012,'166435596']:
+      Value: 1
+    var_prop_served[G06001303680012,'166436530']:
+      Value: 1
+    var_prop_served[G06001303680012,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303680012,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303680012,'223125608']:
+      Value: 1
+    var_prop_served[G06001303680012,'223289015']:
+      Value: 1
+    var_prop_served[G06001303680012,'223289016']:
+      Value: 1
+    var_prop_served[G06001303680012,'232019756']:
+      Value: 1
+    var_prop_served[G06001303680012,'237881575']:
+      Value: 1
+    var_prop_served[G06001303680012,'24030940']:
+      Value: 1
+    var_prop_served[G06001303680012,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303680013,'166435596']:
+      Value: 1
+    var_prop_served[G06001303680013,'166436530']:
+      Value: 1
+    var_prop_served[G06001303680013,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303680013,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303680013,'223125608']:
+      Value: 1
+    var_prop_served[G06001303680013,'223289015']:
+      Value: 1
+    var_prop_served[G06001303680013,'223289016']:
+      Value: 1
+    var_prop_served[G06001303680013,'232019756']:
+      Value: 1
+    var_prop_served[G06001303680013,'237881575']:
+      Value: 1
+    var_prop_served[G06001303680013,'24030940']:
+      Value: 1
+    var_prop_served[G06001303680014,'166435596']:
+      Value: 1
+    var_prop_served[G06001303680014,'166436530']:
+      Value: 1
+    var_prop_served[G06001303680014,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303680014,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303680014,'223125608']:
+      Value: 1
+    var_prop_served[G06001303680014,'223289015']:
+      Value: 1
+    var_prop_served[G06001303680014,'223289016']:
+      Value: 1
+    var_prop_served[G06001303680014,'232019756']:
+      Value: 1
+    var_prop_served[G06001303680014,'237881575']:
+      Value: 1
+    var_prop_served[G06001303680014,'24030940']:
+      Value: 1
+    var_prop_served[G06001303680014,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303680022,'166435596']:
+      Value: 1
+    var_prop_served[G06001303680022,'166436530']:
+      Value: 1
+    var_prop_served[G06001303680022,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303680022,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303680022,'223125608']:
+      Value: 1
+    var_prop_served[G06001303680022,'223289015']:
+      Value: 1
+    var_prop_served[G06001303680022,'223289016']:
+      Value: 1
+    var_prop_served[G06001303680022,'232019756']:
+      Value: 1
+    var_prop_served[G06001303680022,'237881575']:
+      Value: 1
+    var_prop_served[G06001303690011,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690011,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690011,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303690011,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303690011,'223125608']:
+      Value: 1
+    var_prop_served[G06001303690011,'223289015']:
+      Value: 1
+    var_prop_served[G06001303690011,'223289016']:
+      Value: 1
+    var_prop_served[G06001303690011,'232019756']:
+      Value: 1
+    var_prop_served[G06001303690011,'237881575']:
+      Value: 1
+    var_prop_served[G06001303690011,'24030940']:
+      Value: 1
+    var_prop_served[G06001303690011,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303690012,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690012,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690012,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303690012,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303690012,'223125608']:
+      Value: 1
+    var_prop_served[G06001303690012,'223289015']:
+      Value: 1
+    var_prop_served[G06001303690012,'223289016']:
+      Value: 1
+    var_prop_served[G06001303690012,'232019756']:
+      Value: 1
+    var_prop_served[G06001303690012,'237881575']:
+      Value: 1
+    var_prop_served[G06001303690012,'24030940']:
+      Value: 1
+    var_prop_served[G06001303690013,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690013,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690013,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303690013,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303690013,'223125608']:
+      Value: 1
+    var_prop_served[G06001303690013,'223289015']:
+      Value: 1
+    var_prop_served[G06001303690013,'223289016']:
+      Value: 1
+    var_prop_served[G06001303690013,'232019756']:
+      Value: 1
+    var_prop_served[G06001303690013,'237881575']:
+      Value: 1
+    var_prop_served[G06001303690013,'24030940']:
+      Value: 1
+    var_prop_served[G06001303690014,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690014,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690014,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303690014,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303690014,'223125608']:
+      Value: 1
+    var_prop_served[G06001303690014,'223289015']:
+      Value: 1
+    var_prop_served[G06001303690014,'223289016']:
+      Value: 1
+    var_prop_served[G06001303690014,'232019756']:
+      Value: 1
+    var_prop_served[G06001303690021,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690021,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690021,'221319847']:
+      Value: 1
+    var_prop_served[G06001303690022,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690022,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690022,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303690022,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303690023,'166435596']:
+      Value: 1
+    var_prop_served[G06001303690023,'166436530']:
+      Value: 1
+    var_prop_served[G06001303690023,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303690023,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303690023,'223125608']:
+      Value: 1
+    var_prop_served[G06001303690023,'223289015']:
+      Value: 1
+    var_prop_served[G06001303690023,'223289016']:
+      Value: 1
+    var_prop_served[G06001303690023,'232019756']:
+      Value: 1
+    var_prop_served[G06001303690023,'237881575']:
+      Value: 1
+    var_prop_served[G06001303690023,'24030940']:
+      Value: 1
+    var_prop_served[G06001303690023,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303700001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303700001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303700001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303700001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303700001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303700001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303700001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303700001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303700001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303700001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303700001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303700002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303700002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303700002,'221319847']:
+      Value: 1
+    var_prop_served[G06001303700002,'222473836']:
+      Value: 1
+    var_prop_served[G06001303700002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303700002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303700002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303700002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303700002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303700002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303700002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303700003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303700003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303700003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303700003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303700003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303700003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303700003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303700003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303700003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303700003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303700003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303710001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303710001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303710001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303710001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303710001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303710001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303710001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303710001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303710001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303710001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303710001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303710002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303710002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303710002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303710002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303710002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303710002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303710002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303710002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303710002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303710002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303710002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303710003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303710003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303710003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303710003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303710003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303710003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303710003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303710003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303710003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303710003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303710003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303710004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303710004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303710004,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303710004,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303710004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303710004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303710004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303710004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303710004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303710004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303710004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303710005,'166435596']:
+      Value: 1
+    var_prop_served[G06001303710005,'166436530']:
+      Value: 1
+    var_prop_served[G06001303710005,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303710005,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303710005,'223125608']:
+      Value: 1
+    var_prop_served[G06001303710005,'223289015']:
+      Value: 1
+    var_prop_served[G06001303710005,'223289016']:
+      Value: 1
+    var_prop_served[G06001303710005,'232019756']:
+      Value: 1
+    var_prop_served[G06001303710005,'237881575']:
+      Value: 1
+    var_prop_served[G06001303710005,'24030940']:
+      Value: 1
+    var_prop_served[G06001303710005,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303710006,'166435596']:
+      Value: 1
+    var_prop_served[G06001303710006,'166436530']:
+      Value: 1
+    var_prop_served[G06001303710006,'221319847']:
+      Value: 1
+    var_prop_served[G06001303710006,'222473836']:
+      Value: 1
+    var_prop_served[G06001303710006,'223125608']:
+      Value: 1
+    var_prop_served[G06001303710006,'223289015']:
+      Value: 1
+    var_prop_served[G06001303710006,'223289016']:
+      Value: 1
+    var_prop_served[G06001303710006,'232019756']:
+      Value: 1
+    var_prop_served[G06001303710006,'237881575']:
+      Value: 1
+    var_prop_served[G06001303710006,'24030940']:
+      Value: 1
+    var_prop_served[G06001303710006,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303720001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303720001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303720001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303720001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303720001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303720001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303720001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303720001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303720001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303720002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720002,'221319847']:
+      Value: 1
+    var_prop_served[G06001303720002,'222473836']:
+      Value: 1
+    var_prop_served[G06001303720002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303720002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303720002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303720002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303720002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303720002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303720002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303720003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720003,'221319847']:
+      Value: 1
+    var_prop_served[G06001303720003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303720003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303720003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303720003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303720003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303720003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303720003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303720003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303720004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720004,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303720004,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303720004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303720004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303720004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303720004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303720004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303720004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303720004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303720005,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720005,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720005,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303720005,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303720005,'223125608']:
+      Value: 1
+    var_prop_served[G06001303720005,'223289015']:
+      Value: 1
+    var_prop_served[G06001303720005,'223289016']:
+      Value: 1
+    var_prop_served[G06001303720005,'232019756']:
+      Value: 1
+    var_prop_served[G06001303720005,'237881575']:
+      Value: 1
+    var_prop_served[G06001303720005,'24030940']:
+      Value: 1
+    var_prop_served[G06001303720005,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303720006,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720006,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720006,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303720006,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303720006,'223125608']:
+      Value: 1
+    var_prop_served[G06001303720006,'223289015']:
+      Value: 1
+    var_prop_served[G06001303720006,'223289016']:
+      Value: 1
+    var_prop_served[G06001303720006,'232019756']:
+      Value: 1
+    var_prop_served[G06001303720006,'237881575']:
+      Value: 1
+    var_prop_served[G06001303720006,'24030940']:
+      Value: 1
+    var_prop_served[G06001303720006,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303720007,'166435596']:
+      Value: 1
+    var_prop_served[G06001303720007,'166436530']:
+      Value: 1
+    var_prop_served[G06001303720007,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303720007,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303720007,'223125608']:
+      Value: 1
+    var_prop_served[G06001303720007,'223289015']:
+      Value: 1
+    var_prop_served[G06001303720007,'223289016']:
+      Value: 1
+    var_prop_served[G06001303720007,'232019756']:
+      Value: 1
+    var_prop_served[G06001303720007,'237881575']:
+      Value: 1
+    var_prop_served[G06001303720007,'24030940']:
+      Value: 1
+    var_prop_served[G06001303720007,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303730001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303730001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303730001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303730001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303730001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303730001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303730001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303730001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303730001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303730001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303730001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303730002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303730002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303730002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303730002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303730002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303730002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303730002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303730002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303730002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303730002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303730002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303730003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303730003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303730003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303730003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303730003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303730003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303730003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303730003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303730003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303730003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303730003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303740001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303740001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303740001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303740001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303740001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303740001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303740001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303740001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303740001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303740001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303740001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303740002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303740002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303740002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303740002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303740002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303740002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303740002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303740002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303740002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303740002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303740002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303740003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303740003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303740003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303740003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303740003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303740003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303740003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303740003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303740003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303740003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303740003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303740004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303740004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303740004,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303740004,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303740004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303740004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303740004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303740004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303740004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303740004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303740004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303750001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303750001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303750001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303750001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303750001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303750001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303750001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303750001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303750001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303750001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303750001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303750002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303750002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303750002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303750002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303750002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303750002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303750002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303750002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303750002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303750002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303750002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303750003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303750003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303750003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303750003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303750003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303750003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303750003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303750003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303750003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303750003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303750003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303760001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303760001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303760001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303760001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303760001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303760001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303760001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303760001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303760001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303760001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303760001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303760002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303760002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303760002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303760002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303760002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303760002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303760002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303760002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303760002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303760002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303760002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303760003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303760003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303760003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303760003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303760003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303760003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303760003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303760003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303760003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303760003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303760003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303760004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303760004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303760004,'221319847']:
+      Value: 1
+    var_prop_served[G06001303760004,'222473836']:
+      Value: 1
+    var_prop_served[G06001303760004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303760004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303760004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303760004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303760004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303760004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303760004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303770001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303770001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303770001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303770001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303770001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303770001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303770001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303770001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303770001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303770001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303770001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303770002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303770002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303770002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303770002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303770002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303770002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303770002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303770002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303770002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303770002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303770002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303770003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303770003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303770003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303770003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303770003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303770003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303770003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303770003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303770003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303770003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303770003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303770004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303770004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303770004,'221319847']:
+      Value: 1
+    var_prop_served[G06001303770004,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303770004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303770004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303770004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303770004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303770004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303770004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303770004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303770005,'166435596']:
+      Value: 1
+    var_prop_served[G06001303770005,'166436530']:
+      Value: 1
+    var_prop_served[G06001303770005,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303770005,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303770005,'223125608']:
+      Value: 1
+    var_prop_served[G06001303770005,'223289015']:
+      Value: 1
+    var_prop_served[G06001303770005,'223289016']:
+      Value: 1
+    var_prop_served[G06001303770005,'232019756']:
+      Value: 1
+    var_prop_served[G06001303770005,'237881575']:
+      Value: 1
+    var_prop_served[G06001303770005,'24030940']:
+      Value: 1
+    var_prop_served[G06001303770005,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303780002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303780002,'166436530']:
+      Value: 0.560233558696989
+    var_prop_served[G06001303780002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303790001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303790001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303790001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303790001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303790001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303790001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303790001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303790001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303790001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303790001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303790001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303790002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303790002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303790002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303790002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303790002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303790002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303790002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303790002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303790002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303790002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303790002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303790003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303790003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303790003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303790003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303790003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303790003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303790003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303790003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303790003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303790003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303790003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303790004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303790004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303790004,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303790004,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303790004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303790004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303790004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303790004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303790004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303790004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303790004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303800002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303800002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303800002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303800002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303800003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303800003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303800003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303800003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303800003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303800003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303800003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303800003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303800003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303800003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303800003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303810001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303810001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303810001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303810001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303810001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303810001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303810001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303810001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303810001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303810001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303810001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303810002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303810002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303810002,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303810002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303810002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303810002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303810002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303810002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303810002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303810002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303810002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303810003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303810003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303810003,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303810003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303810003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303810003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303810003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303810003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303810003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303810003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303810003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303810004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303810004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303810004,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303810004,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303810004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303810004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303810004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303810004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303810004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303810004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303810004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303810005,'166435596']:
+      Value: 1
+    var_prop_served[G06001303810005,'166436530']:
+      Value: 1
+    var_prop_served[G06001303810005,'221319847']:
+      Value: 1
+    var_prop_served[G06001303810005,'222473836']:
+      Value: 1
+    var_prop_served[G06001303810005,'223125608']:
+      Value: 1
+    var_prop_served[G06001303810005,'223289015']:
+      Value: 1
+    var_prop_served[G06001303810005,'223289016']:
+      Value: 1
+    var_prop_served[G06001303810005,'232019756']:
+      Value: 1
+    var_prop_served[G06001303810005,'237881575']:
+      Value: 1
+    var_prop_served[G06001303810005,'24030940']:
+      Value: 1
+    var_prop_served[G06001303810005,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303820001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303820001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303820001,'221319847']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303820001,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303820001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303820001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303820001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303820001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303820001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303820001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303820001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303820002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303820002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303820002,'221319847']:
+      Value: 1
+    var_prop_served[G06001303820002,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303820002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303820002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303820002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303820002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303820002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303820002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303820002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303820003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303820003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303820003,'221319847']:
+      Value: 1
+    var_prop_served[G06001303820003,'222473836']:
+      Value: 0.999999999999998
+    var_prop_served[G06001303820003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303820003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303820003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303820003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303820003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303820003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303820003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303820004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303820004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303820004,'221319847']:
+      Value: 1
+    var_prop_served[G06001303820004,'222473836']:
+      Value: 1
+    var_prop_served[G06001303820004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303820004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303820004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303830001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303830001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303830001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303830001,'222473836']:
+      Value: 1
+    var_prop_served[G06001303830001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303830001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303830001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303830001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303830001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303830001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303830002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303830002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303830002,'221319847']:
+      Value: 1
+    var_prop_served[G06001303830002,'222473836']:
+      Value: 1
+    var_prop_served[G06001303830002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303830002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303830002,'223289016']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303830002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303830003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303830003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303830003,'221319847']:
+      Value: 1
+    var_prop_served[G06001303830003,'222473836']:
+      Value: 1
+    var_prop_served[G06001303830003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303830003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303840001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303840001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303840001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303840001,'222473836']:
+      Value: 1
+    var_prop_served[G06001303840001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303840001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303840001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303840001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303840001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303840001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303840002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303840002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303840002,'221319847']:
+      Value: 1
+    var_prop_served[G06001303840002,'222473836']:
+      Value: 1
+    var_prop_served[G06001303840002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303840002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303840002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303840002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303840002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303840002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303840002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303840003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303840003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303840003,'221319847']:
+      Value: 1
+    var_prop_served[G06001303840003,'222473836']:
+      Value: 1
+    var_prop_served[G06001303840003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303840003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303840003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303840003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303840003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303840003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303840003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303840004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303840004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303840004,'221319847']:
+      Value: 1
+    var_prop_served[G06001303840004,'222473836']:
+      Value: 1
+    var_prop_served[G06001303840004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303840004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303840004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303840004,'232019756']:
+      Value: 0.999999999999999
+    var_prop_served[G06001303840004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303840004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303840004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303852001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303852001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303852001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303852001,'222473836']:
+      Value: 1
+    var_prop_served[G06001303852001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303852001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303852001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303852001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303852001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303852001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303852001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303852002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303852002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303852002,'221319847']:
+      Value: 1
+    var_prop_served[G06001303852002,'222473836']:
+      Value: 1
+    var_prop_served[G06001303852002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303852002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303852002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303852002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303852002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303852002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303852002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303860001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303860001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303860001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303860001,'222473836']:
+      Value: 1
+    var_prop_served[G06001303860001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303860001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303860001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303860001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303860001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303860001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303860001,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303860002,'166435596']:
+      Value: 1
+    var_prop_served[G06001303860002,'166436530']:
+      Value: 1
+    var_prop_served[G06001303860002,'221319847']:
+      Value: 1
+    var_prop_served[G06001303860002,'222473836']:
+      Value: 1
+    var_prop_served[G06001303860002,'223125608']:
+      Value: 1
+    var_prop_served[G06001303860002,'223289015']:
+      Value: 1
+    var_prop_served[G06001303860002,'223289016']:
+      Value: 1
+    var_prop_served[G06001303860002,'232019756']:
+      Value: 1
+    var_prop_served[G06001303860002,'237881575']:
+      Value: 1
+    var_prop_served[G06001303860002,'24030940']:
+      Value: 1
+    var_prop_served[G06001303860002,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303860003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303860003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303860003,'221319847']:
+      Value: 1
+    var_prop_served[G06001303860003,'222473836']:
+      Value: 1
+    var_prop_served[G06001303860003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303860003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303860003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303860003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303860003,'237881575']:
+      Value: 1
+    var_prop_served[G06001303860003,'24030940']:
+      Value: 1
+    var_prop_served[G06001303860003,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303860004,'166435596']:
+      Value: 1
+    var_prop_served[G06001303860004,'166436530']:
+      Value: 1
+    var_prop_served[G06001303860004,'221319847']:
+      Value: 1
+    var_prop_served[G06001303860004,'222473836']:
+      Value: 1
+    var_prop_served[G06001303860004,'223125608']:
+      Value: 1
+    var_prop_served[G06001303860004,'223289015']:
+      Value: 1
+    var_prop_served[G06001303860004,'223289016']:
+      Value: 1
+    var_prop_served[G06001303860004,'232019756']:
+      Value: 1
+    var_prop_served[G06001303860004,'237881575']:
+      Value: 1
+    var_prop_served[G06001303860004,'24030940']:
+      Value: 1
+    var_prop_served[G06001303860004,'294779081']:
+      Value: 1.10198805950656e-15
+    var_prop_served[G06001303870001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303870001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303870001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303870001,'222473836']:
+      Value: 1
+    var_prop_served[G06001303870001,'223125608']:
+      Value: 1
+    var_prop_served[G06001303870001,'223289015']:
+      Value: 1
+    var_prop_served[G06001303870001,'223289016']:
+      Value: 1
+    var_prop_served[G06001303870001,'232019756']:
+      Value: 1
+    var_prop_served[G06001303870001,'237881575']:
+      Value: 1
+    var_prop_served[G06001303870001,'24030940']:
+      Value: 1
+    var_prop_served[G06001303870003,'166435596']:
+      Value: 1
+    var_prop_served[G06001303870003,'166436530']:
+      Value: 1
+    var_prop_served[G06001303870003,'221319847']:
+      Value: 1
+    var_prop_served[G06001303870003,'222473836']:
+      Value: 1
+    var_prop_served[G06001303870003,'223125608']:
+      Value: 1
+    var_prop_served[G06001303870003,'223289015']:
+      Value: 1
+    var_prop_served[G06001303870003,'223289016']:
+      Value: 1
+    var_prop_served[G06001303870003,'232019756']:
+      Value: 1
+    var_prop_served[G06001303892001,'166435596']:
+      Value: 1
+    var_prop_served[G06001303892001,'166436530']:
+      Value: 1
+    var_prop_served[G06001303892001,'221319847']:
+      Value: 1
+    var_prop_served[G06001303892001,'222473836']:
+      Value: 1
+    var_prop_served[G06001303892001,'223125608']:
+      Value: 1
+  Constraint: No values
