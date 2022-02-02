@@ -16,7 +16,7 @@ import os
 
 ##########################################
 # %% codecell
-location = 'Richmond, California, USA'
+location = 'Contra Costa County, California, USA'
 richmond_center = [37.943882, -122.35342]
 
 ca_albers_nad83 = 'NAD_1983_California_Teale_Albers_FtUS'
@@ -205,6 +205,6 @@ for cengeo in range(0, n_cengeos):
     for hub in range(0, n_hubs_nearby):
 
         node_target = get_coords_and_nearest_node(hub, hubs_gdf_bbox)
-        travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'travel_time')
+        travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'length')
 
         dist_to_hub_df.loc[id_cengeo].iloc[hub] = round(travel_dist_m)/1609.344

@@ -1,0 +1,85 @@
+# ==========================================================
+# = Solver Results                                         =
+# ==========================================================
+# ----------------------------------------------------------
+#   Problem Information
+# ----------------------------------------------------------
+Problem: 
+- Name: unknown
+  Lower bound: 0.0
+  Upper bound: 0.0
+  Number of objectives: 1
+  Number of constraints: 1622
+  Number of variables: 1665
+  Number of nonzeros: 3284
+  Sense: minimize
+# ----------------------------------------------------------
+#   Solver Information
+# ----------------------------------------------------------
+Solver: 
+- Status: ok
+  Termination condition: optimal
+  Statistics: 
+    Branch and bound: 
+      Number of bounded subproblems: 1
+      Number of created subproblems: 1
+  Error rc: 0
+  Time: 0.058737993240356445
+# ----------------------------------------------------------
+#   Solution Information
+# ----------------------------------------------------------
+Solution: 
+- number of solutions: 1
+  number of solutions displayed: 1
+- Gap: 0.0
+  Status: optimal
+  Message: None
+  Objective:
+    obj_min_agg_dist:
+      Value: 0
+  Variable:
+    var_hub_yn['166435596']:
+      Value: 1
+    var_hub_yn['232019756']:
+      Value: 1
+    var_hub_yn['237881575']:
+      Value: 1
+    var_popu_served['166435596']:
+      Value: 15198.3310344667
+    var_popu_served['166436530']:
+      Value: 5449.48009436
+    var_popu_served['195870835']:
+      Value: 250.045187566
+    var_popu_served['221319847']:
+      Value: 4571.57618462667
+    var_popu_served['222473836']:
+      Value: 2352.23676126
+    var_popu_served['223125608']:
+      Value: 2951.29231696667
+    var_popu_served['223289015']:
+      Value: 228.666315990667
+    var_popu_served['223289016']:
+      Value: 260.815247232667
+    var_popu_served['232019756']:
+      Value: 2910.05060734
+    var_popu_served['237881575']:
+      Value: 7189.0828458
+    var_popu_served['24030940']:
+      Value: 4661.16028082667
+    var_popu_served['250909848']:
+      Value: 247.82692898
+    var_popu_served['294779081']:
+      Value: 461.584043089333
+    var_popu_served['30358759']:
+      Value: 1084.73478909333
+    var_popu_served['304485786']:
+      Value: 430.839155892
+    var_popu_served['305323076']:
+      Value: 311.326672464667
+    var_popu_served['310530911']:
+      Value: 1598.78195774
+    var_popu_served['32935535']:
+      Value: 3339.58295624
+    var_popu_served['32935760']:
+      Value: 4939.08662006467
+  Constraint: No values

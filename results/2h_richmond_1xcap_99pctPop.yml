@@ -10,8 +10,8 @@ Problem:
   Upper bound: inf
   Number of objectives: 1
   Number of constraints: 1622
-  Number of variables: 1621
-  Number of nonzeros: 4813
+  Number of variables: 1665
+  Number of nonzeros: 3284
   Sense: minimize
 # ----------------------------------------------------------
 #   Solver Information
@@ -24,4 +24,4 @@ Solver:
       Number of bounded subproblems: 0
       Number of created subproblems: 0
   Error rc: 0
-  Time: 0.12300968170166016
+  Time: 0.0651845932006836

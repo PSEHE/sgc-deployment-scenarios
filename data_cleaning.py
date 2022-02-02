@@ -4,6 +4,7 @@
 
 import pandas as pd
 import os
+import matplotlib.pyplot as plt
 
 ##########################################
 ###### GENERATE SITE CAPACITY DATA
@@ -11,7 +12,8 @@ import os
 #https://ccpia.org/occupancy-load-signs/
 from distance_matrix_calculation import hubs_gdf
 
-occ_limits = pd.DataFrame({'cat_site':['W', 'CC', 'Pri', 'Sec', 'Coll'], 'sqft_pp':[15, 15, 50, 50, 50]})
+occ_limits = pd.DataFrame({'cat_site':['W', 'CC', 'Pri', 'Sec', 'Coll'], 'sqft_pp':[15, 15, 15, 15, 15]})
+#occ_limits = pd.DataFrame({'cat_site':['W', 'CC', 'Pri', 'Sec', 'Coll'], 'sqft_pp':[0.85, 0.85, 0.75, 0.75, 0.75]})
 
 hub_occ_df = pd.merge(hubs_gdf, occ_limits, on = 'cat_site')
 hub_occ_df['occ_site'] = hub_occ_df['SQFT_ROOF']/hub_occ_df['sqft_pp']
@@ -75,12 +77,11 @@ region_df = region_df.loc[region_df['cat_site'] != 'X', ['id_site', 'REGION']]
 
 site_region_df = region_df.merge(hub_occ_df, on = 'id_site')
 
-site_region_df.groupby('REGION').mean()
+reg_pop = cengeo_pop_df.groupby('REGION').sum()
+reg_site = site_region_df.groupby('REGION').sum().loc[:,'occ_site']
 
-
-
-
-
+regions = reg_pop.merge(reg_site, on = 'REGION')
+regions['CAP_PP'] = regions['occ_site']/regions['POP']
 
 
 
