@@ -10,6 +10,7 @@ from data_cleaning import hub_occ_dict
 from data_cleaning import hub_sqft_dict
 from data_cleaning import heatdays_df
 from data_cleaning import cengeo_pop_dict
+from data_cleaning import bg_ces_df
 
 dist_to_hub_df = pd.read_csv('data/distmatrix_contracosta.csv')
 
