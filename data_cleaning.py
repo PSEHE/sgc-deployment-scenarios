@@ -83,24 +83,28 @@ reg_site = site_region_df.groupby('REGION').sum().loc[:,'occ_site']
 regions = reg_pop.merge(reg_site, on = 'REGION')
 regions['CAP_PP'] = regions['occ_site']/regions['POP']
 
+##########################################
+##### SCALE CES TO BG
 
+# Derived by selecting cols from CES, NRI spatial join csv, which is too large to push to github
+bg_ces_df_raw = pd.read_csv('data/bg_ca_19/bg19_ces_indicators.csv')
 
+pct_cols = ['PCT_LESSHS', 'PCT_UNEMP', 'PCT_RENT', 'PCT_LINGISO', 'PCT_POV', 'RATE_ASTH', 'RATE_LBW', 'RATE_CVD']
 
+for pct_col in pct_cols:
 
+    pctl_col = 'PCTL_' + pct_col.split('_')[1]
+    bg_ces_df[pctl_col] = 100*bg_ces_df[pct_col].rank(pct = True)
 
+senspop_cols = ['PCTL_ASTH', 'PCTL_CVD', 'PCTL_LBW']
+ses_cols = ['PCTL_LESSHS', 'PCTL_UNEMP', 'PCTL_RENT', 'PCTL_LINGISO', 'PCTL_POV']
 
+bg_ces_df['SCORE_SENSPOP'] = bg_ces_df[senspop_cols].mean(axis = 1)
+bg_ces_df['SCORE_SES'] = bg_ces_df[ses_cols].mean(axis = 1)
+bg_ces_df['SCORE_POP'] = bg_ces_df[['SCORE_SES', 'SCORE_SENSPOP']].mean(axis = 1)/10
 
-
-
-
-
-
-
-
-
-
-
-
+bg_ces_df['SCORE_CI_BG'] = bg_ces_df['SCORE_POP']*bg_ces_df['SCORE_POLLUT']
+bg_ces_df['SCORE_PCTL_CI_BG'] = 100*bg_ces_df['SCORE_CI_BG'].rank(pct = True)
 
 
 
