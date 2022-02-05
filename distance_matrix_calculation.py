@@ -16,7 +16,7 @@ import os
 
 ##########################################
 # %% codecell
-location = 'Contra Costa County, California, USA'
+location = 'Santa Cruz County, California, USA'
 richmond_center = [37.943882, -122.35342]
 
 ca_albers_nad83 = 'NAD_1983_California_Teale_Albers_FtUS'
@@ -116,7 +116,7 @@ hubs_gdf_bbox = hubs_gdf[hubs_gdf.within(bbox_poly)]
 
 ##########################################
 # %% codecell
-cengeos_pt_gdf_bbox = cengeos_pt_gdf[cengeos_pt_gdf.within(bbox_poly)]
+cengeos_pt_gdf_bbox = cengeos_pt_gdf[cengeos_pt_gdf.within(bbox_poly)].reset_index(drop = True)
 
 #plot_gdf_with_background(cengeos_pt_gdf_bbox, center = richmond_center)
 
@@ -124,14 +124,13 @@ cengeos_pt_gdf_bbox = cengeos_pt_gdf[cengeos_pt_gdf.within(bbox_poly)]
 # %% codecell
 cengeos_pt_gdf_bbox_proj = cengeos_pt_gdf_bbox.to_crs(ca_albers_nad83)
 
-cengeos_buffer = cengeos_pt_gdf_bbox_proj.buffer(7920)
+one_mile = 5280
+cengeos_buffer = cengeos_pt_gdf_bbox_proj.buffer(one_mile*5)
 
 cengeos_buffer_gdf_bbox = gpd.GeoDataFrame(cengeos_pt_gdf_bbox['GISJOIN'])
 cengeos_buffer_gdf_bbox['geometry'] = cengeos_buffer
 
 cengeos_buffer_gdf_bbox = cengeos_buffer_gdf_bbox.to_crs(nad83)
-
-#plot_gdf_with_background(cengeos_buffer_gdf_bbox, center = richmond_center)
 
 #### BUILD DISTANCE MATRIX FOR DESIRED AREA
 
@@ -152,16 +151,17 @@ dist_to_hub_df.rename(index = name_index, columns = name_columns, inplace = True
 
 ##########################################
 # %% codecell
-def get_coords_and_nearest_node(in_row, in_pt_gdf, in_graph=graph):
+def get_coords_and_nearest_node(in_pt, in_colname, in_pt_gdf, in_graph=graph):
 
-    pt_coords = [in_pt_gdf.iloc[in_row]['geometry'].y, in_pt_gdf.iloc[in_row]['geometry'].x]
+    pt_geom = in_pt_gdf.loc[in_pt_gdf[in_colname] == in_pt, 'geometry']
+    pt_coords = [float(pt_geom.y), float(pt_geom.x)]
     pt_nearest_node = ox.get_nearest_node(in_graph, pt_coords, method = 'euclidean')
 
     return(pt_nearest_node)
 
-def get_nearby_hubs(in_row, in_cengeo_buffers=cengeos_buffer_gdf_bbox, in_hubs=hubs_gdf_bbox):
+def get_nearby_hubs(in_cengeo, in_cengeo_buffers=cengeos_buffer_gdf_bbox, in_hubs=hubs_gdf_bbox):
 
-    cengeo_buffer = in_cengeo_buffers.iloc[in_row]['geometry']
+    cengeo_buffer = in_cengeo_buffers.loc[in_cengeo_buffers['GISJOIN'] == in_cengeo, 'geometry'].reset_index(drop = True)[0]
     cengeo_nearest_hubs = in_hubs[in_hubs.within(cengeo_buffer)]
 
     return(cengeo_nearest_hubs)
@@ -194,17 +194,16 @@ def get_travel_time(in_steps, in_edges=graph_edges_gdf_reset):
 
 ##########################################
 # %% codecell
-for cengeo in range(0, n_cengeos):
+cengeos_bbox = cengeos_pt_gdf_bbox.loc[:, 'GISJOIN']
 
-    id_cengeo = cengeos_pt_gdf_bbox.iloc[cengeo]['GISJOIN']
+for cengeo in cengeos_bbox:
 
-    node_origin = get_coords_and_nearest_node(cengeo, cengeos_pt_gdf_bbox)
+    node_origin = get_coords_and_nearest_node(cengeo, 'GISJOIN', cengeos_pt_gdf_bbox)
     hubs_nearby_gdf = get_nearby_hubs(cengeo)
-    n_hubs_nearby = len(hubs_nearby_gdf)
+    hubs_nearby = hubs_nearby_gdf.loc[:, 'id_site']
 
-    for hub in range(0, n_hubs_nearby):
+    for hub in hubs_nearby:
 
-        node_target = get_coords_and_nearest_node(hub, hubs_gdf_bbox)
+        node_target = get_coords_and_nearest_node(hub, 'id_site', hubs_gdf_bbox)
         travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'length')
-
-        dist_to_hub_df.loc[id_cengeo].iloc[hub] = round(travel_dist_m)/1609.344
+        dist_to_hub_df.loc[cengeo, hub] = round(travel_dist_m/1609.344, 2)
