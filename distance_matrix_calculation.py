@@ -117,6 +117,8 @@ hubs_gdf_bbox = hubs_gdf[hubs_gdf.within(bbox_poly)]
 ##########################################
 # %% codecell
 cengeos_pt_gdf_bbox = cengeos_pt_gdf[cengeos_pt_gdf.within(bbox_poly)].reset_index(drop = True)
+cengeos_pt_gdf_bbox['CNTY_FIPS'] = cengeos_pt_gdf_bbox['GISJOIN'].str[4:7]
+cengeos_pt_gdf_bbox = cengeos_pt_gdf_bbox.loc[cengeos_pt_gdf_bbox['CNTY_FIPS'] == '013']
 
 #plot_gdf_with_background(cengeos_pt_gdf_bbox, center = richmond_center)
 
@@ -125,24 +127,17 @@ cengeos_pt_gdf_bbox = cengeos_pt_gdf[cengeos_pt_gdf.within(bbox_poly)].reset_ind
 cengeos_pt_gdf_bbox_proj = cengeos_pt_gdf_bbox.to_crs(ca_albers_nad83)
 
 one_mile = 5280
-cengeos_buffer = cengeos_pt_gdf_bbox_proj.buffer(one_mile*5)
+cengeos_buffer = cengeos_pt_gdf_bbox_proj.buffer(one_mile*3)
 
 cengeos_buffer_gdf_bbox = gpd.GeoDataFrame(cengeos_pt_gdf_bbox['GISJOIN'])
 cengeos_buffer_gdf_bbox['geometry'] = cengeos_buffer
 
 cengeos_buffer_gdf_bbox = cengeos_buffer_gdf_bbox.to_crs(nad83)
 
-#### BUILD DISTANCE MATRIX FOR DESIRED AREA
-
 ##########################################
 # %% codecell
-n_cengeos = len(cengeos_pt_gdf_bbox)
-n_hubs = len(hubs_gdf_bbox)
-
-##########################################
-# %% codecell
-name_index = {i:cengeos_pt_gdf_bbox.iloc[i]['GISJOIN'] for i in range(0, n_cengeos)}
-name_columns = {i:hubs_gdf_bbox.iloc[i]['id_site'] for i in range(0, n_hubs)}
+name_index = {i:cengeos_pt_gdf_bbox.iloc[i]['GISJOIN'] for i in range(0, len(cengeos_buffer_gdf_bbox))}
+name_columns = {i:hubs_gdf_bbox.iloc[i]['id_site'] for i in range(0, len(hubs_gdf_bbox))}
 
 dist_to_hub_matrix = np.NaN*np.zeros((len(cengeos_pt_gdf_bbox), len(hubs_gdf_bbox)))
 dist_to_hub_df = pd.DataFrame(dist_to_hub_matrix)
@@ -162,7 +157,7 @@ def get_coords_and_nearest_node(in_pt, in_colname, in_pt_gdf, in_graph=graph):
 def get_nearby_hubs(in_cengeo, in_cengeo_buffers=cengeos_buffer_gdf_bbox, in_hubs=hubs_gdf_bbox):
 
     cengeo_buffer = in_cengeo_buffers.loc[in_cengeo_buffers['GISJOIN'] == in_cengeo, 'geometry'].reset_index(drop = True)[0]
-    cengeo_nearest_hubs = in_hubs[in_hubs.within(cengeo_buffer)]
+    cengeo_nearest_hubs = in_hubs[in_hubs.within(cengeo_buffer)]['id_site']
 
     return(cengeo_nearest_hubs)
 
@@ -200,8 +195,7 @@ no_path_founds = []
 for cengeo in cengeos_bbox:
 
     node_origin = get_coords_and_nearest_node(cengeo, 'GISJOIN', cengeos_pt_gdf_bbox)
-    hubs_nearby_gdf = get_nearby_hubs(cengeo)
-    hubs_nearby = hubs_nearby_gdf.loc[:, 'id_site']
+    hubs_nearby = get_nearby_hubs(cengeo)
 
     for hub in hubs_nearby:
 
@@ -210,6 +204,7 @@ for cengeo in cengeos_bbox:
         try:
             travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'length')
             dist_to_hub_df.loc[cengeo, hub] = round(travel_dist_m/1609.344, 2)
+
         except:
             dist_to_hub_df.loc[cengeo, hub] = None
             no_path_founds.append((cengeo, hub))
