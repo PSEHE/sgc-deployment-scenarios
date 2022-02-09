@@ -197,7 +197,33 @@ def get_travel_time(in_steps, in_edges=graph_edges_gdf_reset):
 cengeos_bbox = cengeos_pt_gdf_bbox.loc[:, 'GISJOIN']
 no_path_founds = []
 
-for cengeo in cengeos_bbox:
+
+
+nodes, edges = ox.graph_to_gdfs(graph)
+
+# %% codecell
+cengeo = "G06000104001001"
+hub =  "104441907"
+# node_origin = get_coords_and_nearest_node(cengeo, 'GISJOIN', cengeos_pt_gdf_bbox)
+pt_geom = cengeos_pt_gdf_bbox.loc[cengeos_pt_gdf_bbox['GISJOIN'] == cengeo, 'geometry']
+pt_coords = [float(pt_geom.y), float(pt_geom.x)]
+pt_nearest_node_cengeo = ox.get_nearest_node(graph, pt_coords, method = 'euclidean')
+
+pt_geom = cengeos_pt_gdf_bbox.loc[cengeos_pt_gdf_bbox['GISJOIN'] == cengeo, 'geometry']
+pt_coords = [float(pt_geom.y), float(pt_geom.x)]
+pt_nearest_node_cengeo = ox.get_nearest_node(graph, pt_coords, method = 'euclidean')
+
+fig, ax1 = plt.subplots(1,1,figsize=(12,8),dpi=300)
+nodes.plot(ax=ax1)
+node = nodes.loc[[pt_nearest_node]]
+node.plot(ax=ax1)
+# cengeos_pt_gdf_bbox.plot(ax=ax1)
+cengeo_point = cengeos_pt_gdf_bbox.loc[cengeos_pt_gdf_bbox['GISJOIN']==cengeo,:]
+cengeo_point.plot(ax=ax1)
+
+# %% codecell
+
+for cengeo in cengeos_bbox[0:10]:
 
     node_origin = get_coords_and_nearest_node(cengeo, 'GISJOIN', cengeos_pt_gdf_bbox)
     hubs_nearby_gdf = get_nearby_hubs(cengeo)
@@ -209,6 +235,9 @@ for cengeo in cengeos_bbox:
 
         try:
             travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'length')
+            if travel_dist_m==0:
+                print(node_origin, node_target, cengeo, hub)
+                break
             dist_to_hub_df.loc[cengeo, hub] = round(travel_dist_m/1609.344, 2)
         except:
             dist_to_hub_df.loc[cengeo, hub] = None
