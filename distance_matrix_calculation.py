@@ -16,7 +16,7 @@ import os
 
 ##########################################
 # %% codecell
-location = 'Santa Cruz County, California, USA'
+location = 'Contra Costa County, California, USA'
 richmond_center = [37.943882, -122.35342]
 
 ca_albers_nad83 = 'NAD_1983_California_Teale_Albers_FtUS'
@@ -195,6 +195,7 @@ def get_travel_time(in_steps, in_edges=graph_edges_gdf_reset):
 ##########################################
 # %% codecell
 cengeos_bbox = cengeos_pt_gdf_bbox.loc[:, 'GISJOIN']
+no_path_founds = []
 
 for cengeo in cengeos_bbox:
 
@@ -205,5 +206,10 @@ for cengeo in cengeos_bbox:
     for hub in hubs_nearby:
 
         node_target = get_coords_and_nearest_node(hub, 'id_site', hubs_gdf_bbox)
-        travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'length')
-        dist_to_hub_df.loc[cengeo, hub] = round(travel_dist_m/1609.344, 2)
+
+        try:
+            travel_dist_m = nx.shortest_path_length(graph, node_origin, node_target, weight = 'length')
+            dist_to_hub_df.loc[cengeo, hub] = round(travel_dist_m/1609.344, 2)
+        except:
+            dist_to_hub_df.loc[cengeo, hub] = None
+            no_path_founds.append((cengeo, hub))
