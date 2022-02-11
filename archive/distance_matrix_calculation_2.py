@@ -192,7 +192,7 @@ def get_travel_time(in_steps, in_edges=graph_edges_gdf_reset):
 cengeos_bbox = cengeos_pt_gdf_bbox.loc[:, 'GISJOIN']
 no_path_founds = []
 
-for cengeo in cengeos_bbox[0:25]:
+for cengeo in cengeos_bbox:
 
     node_origin = get_coords_and_nearest_node(cengeo, 'GISJOIN', cengeos_pt_gdf_bbox)
     hubs_nearby = get_nearby_hubs(cengeo)

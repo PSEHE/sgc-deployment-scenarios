@@ -109,7 +109,7 @@ bg_ces_df['SCORE_POP'] = bg_ces_df[['SCORE_SES', 'SCORE_SENSPOP']].mean(axis = 1
 bg_ces_df['SCORE_CI_BG'] = bg_ces_df['SCORE_POP']*bg_ces_df['SCORE_POLLUT']
 bg_ces_df['SCORE_PCTL_CI_BG'] = 100*bg_ces_df['SCORE_CI_BG'].rank(pct = True)
 
-bg_ces_df.loc[:, ['GISJOIN', 'BLOCKGROUPPOP19', 'SCORE_PCTL_CI_BG']]
+bg_ces_df = bg_ces_df.loc[:, ['GISJOIN', 'SCORE_PCTL_CI_BG']]
 
 
 
