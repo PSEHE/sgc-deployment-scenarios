@@ -13,6 +13,8 @@ from data_cleaning import cengeo_pop_dict
 from data_cleaning import bg_ces_df
 
 dist_to_hub_df = pd.read_csv('data/distmatrix_contracosta.csv')
+dist_to_hub_df.set_index('Unnamed: 0', inplace = True)
+dist_to_hub_df.index.name = None
 
 ##########################################
 ###### DEFINE MODEL
@@ -31,7 +33,7 @@ model.hub_sqft_dict = hub_sqft_dict
 model.dist_to_hub_df = dist_to_hub_df
 
 def filter_to_nearby_hubs(model, cg, hub):
-    return not(np.isnan(model.dist_to_hub_df.loc[cg, hub]))
+    return not np.isnan(model.dist_to_hub_df.loc[cg, hub])
 
 model.cg_hub_nearby_pairs = Set(initialize = model.cengeos*model.hubs, filter = filter_to_nearby_hubs)
 
@@ -85,6 +87,24 @@ def serve_less_than_occ(model, hub):
     return model.var_popu_served[hub] <= model.param_max_occ[hub]
 
 model.con_max_occ = Constraint(model.hubs, rule = serve_less_than_occ)
+
+# Run Model
+from pyomo.opt import SolverFactory
+
+SolverFactory('glpk').solve(model)
+
+var_popu_served = [model.var_popu_served[hub].value for hub in model.hubs]
+var_hub_yn = [model.var_hub_yn[hub].value for hub in model.hubs]
+prop_served_list = []
+
+for cg in model.cengeos:
+    cg_dict = dict()
+    for pair in model.cg_hub_nearby_pairs:
+        if pair[0]==cg:
+            cg_dict[pair[1]] = model.var_prop_served[pair].value
+    prop_served_list.append(cg_dict)
+
+var_prop_served = pd.DataFrame(prop_served_list)
 
 # ALl demand must be met in the hottest block blockgroups
 #cg_area = []
