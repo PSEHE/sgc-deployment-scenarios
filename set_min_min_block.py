@@ -1,4 +1,5 @@
 # %% markdown
+# set_min indicates that this is doing a set minimization by maximizing the population served.
 # min_block indicates that a certain minimum population from each blockgroup must be served.
 
 # %% markdown
@@ -22,7 +23,6 @@ dist_to_hub_df = pd.read_csv('data/distmatrix_bbox.csv')
 dist_to_hub_df.set_index("Unnamed: 0",inplace = True)
 
 dist_to_hub_df[dist_to_hub_df>2] = np.NaN
-dist_to_hub_df = dist_to_hub_df.iloc[0:125,:]
 # blah = dist_to_hub_df.copy()
 blah1 = dist_to_hub_df.notnull().sum(axis=0)==0
 dist_to_hub_df.drop(columns = blah1[blah1].index,inplace=True)
@@ -33,9 +33,8 @@ dist_to_hub_df.drop(index = blah2[blah2].index,inplace=True)
 # # User model parameters
 # %%markdown
 # %% codecell
-max_hubs = 30
+max_hubs = 50
 min_fraction_covered = 0.05
-run_string = "p_med_min_block_125"
 # %% codecell
 
 
@@ -73,8 +72,19 @@ model.var_hub_yn = Var(model.hubs, initialize = 0, within = Binary)
 model.var_prop_served = Var(model.cg_hub_nearby_pairs, bounds = (0.0, 1.0))
 
 
+# Create variable -how many people are served at this hub?
+# model.var_popu_served = Var(model.hubs, initialize = 0.0, within = NonNegativeReals)
+
 # Objective - minimize population weighted travel distance to hubs
-model.obj_min_agg_dist = Objective(expr = sum(model.cg_hub_distance[cg, hub] * cengeo_pop_dict[cg] * model.var_prop_served[cg, hub] for cg, hub in model.cg_hub_nearby_pairs), sense = minimize)
+# model.obj_min_agg_dist = Objective(expr = sum(model.cg_hub_distance[cg, hub] * cengeo_pop_dict[cg] * model.var_prop_served[cg, hub] for cg, hub in model.cg_hub_nearby_pairs), sense = minimize)
+def objective_max_coverage(model,pairs):
+    coverage = 0
+    for pair in pairs:
+        if model.var_hub_yn[pair[1]]:
+            coverage+=model.model.var_prop_served[pair]*cengeo_pop_dict[pair[1]]
+    return coverage
+model.max_coverage = Objective(expr = sum(sum(cengeo_pop_dict[cg] * model.var_prop_served[cg, hub] for cg, hub in model.cg_hub_nearby_pairs if c), sense = minimize)
+
 
 ##########################################
 ###### DEFINE PARAMETERS
@@ -88,13 +98,13 @@ model.param_max_occ = Param(model.hubs, initialize = hub_capacity_dict)
 model.con_max_hubs = Constraint(expr = sum(model.var_hub_yn[hub] for hub in model.hubs) <= max_hubs)
 
 # No one is served at location if it is not a hub
-def open_only(model, cg, hub):
-    return model.var_prop_served[cg, hub] <= model.var_hub_yn[hub]
+# def open_only(model, cg, hub):
+#     return model.var_prop_served[cg, hub] <= model.var_hub_yn[hub]
 
 model.con_open_only = Constraint(model.cg_hub_nearby_pairs, rule = open_only)
 
 # At least some percent Richmond population must be assigned a hub
-# model.con_min_coverage = Constraint(expr = sum(model.var_popu_served[hub] for hub in model.hubs) >= 0.5*sum(cengeo_pop_dict[cg] for cg in model.cengeos))
+model.con_min_coverage = Constraint(expr = sum(model.var_popu_served[hub] for hub in model.hubs) >= 0.5*sum(cengeo_pop_dict[cg] for cg in model.cengeos))
 
 #
 model.coverage_constraints = ConstraintList()
@@ -134,9 +144,8 @@ for hub in model.hubs:
 
 from pyomo.opt import SolverFactory
 SolverFactory('glpk').solve(model)
-# var_popu_served = [model.var_popu_served[hub].value for hub in model.hubs]
+var_popu_served = [model.var_popu_served[hub].value for hub in model.hubs]
 var_hub_yn = [model.var_hub_yn[hub].value for hub in model.hubs]
-var_hub_yn=pd.DataFrame(var_hub_yn,index=model.hubs)
 prop_served_list = []
 for cg in model.cengeos:
     cg_dict = dict()
@@ -146,14 +155,8 @@ for cg in model.cengeos:
     prop_served_list.append(cg_dict)
 var_prop_served = pd.DataFrame(prop_served_list)
 
-import os
-var_prop_served.to_csv(os.path.join("results",run_string+"var_prop_served.csv"))
-var_hub_yn.to_csv(os.path.join("results",run_string+"var_hub_yn.csv"))
-# var_prop_served.to_csv(os.path.join("results",run_string+"var_prop_served.csv"))
-
-
-
-
-
+np.unique(var_popu_served)
+np.unique(var_prop_served)
+np.unique(var_hub_yn)
 
 ###
