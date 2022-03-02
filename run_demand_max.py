@@ -25,15 +25,16 @@ from data_cleaning import hub_sqft_dict
 from data_cleaning import heatdays_df
 from data_cleaning import cengeo_pop_dict
 from data_cleaning import bg_ces_df
+bg_ces_df.columns
+
 
 dist_to_hub_df = pd.read_csv('data/distmatrix_bbox.csv')
 dist_to_hub_df.set_index("Unnamed: 0",inplace = True)
-
 # %% codecell
 import demand_maximization_models as dem_models
 importlib.reload(dem_models)
-max_hubs_list =[25,50,75,100,125,150]
-max_distance_list = [1,2,3,4,5]
+max_hubs_list =[50,100,150]
+max_distance_list = [1,3,5]
 
 prop_served_dict = dict()
 hub_yn_dict = dict()
@@ -63,7 +64,7 @@ for max_hubs in max_hubs_list:
 
 # %% codecell
 import matplotlib.pyplot as plt
-fig, axs = plt.subplots(2,3,figsize = (8,6),dpi=300)
+fig, axs = plt.subplots(1,3,figsize = (8,6),dpi=300)
 axs_counter = 0
 for max_hubs in max_hubs_list:
     prop_df = pd.DataFrame()
@@ -136,7 +137,6 @@ plt.tight_layout()
 plt.savefig("Hub_capacities_built.png")
 # %% codecell
 # %% codecell
-pd.Series(hub_occ_dict,name="Capacity").hist()
 # %% codecell
 # %% codecell
 # %% codecell
