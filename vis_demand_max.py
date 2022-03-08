@@ -13,7 +13,7 @@ import plotly.express as px
 
 run_string = "Contra_100hubs1miles_max"
 
-MAPBOX_API_KEY = "pk.eyJ1IjoieXVudXNraW5rIiwiYSI6ImNrenNrNHlscDcza3gyd25majU1cXozdmYifQ.SYnTOqlbYlBHRkR-odr9fw"
+# MAPBOX_API_KEY = "pk.eyJ1IjoieXVudXNraW5rIiwiYSI6ImNrenNrNHlscDcza3gyd25majU1cXozdmYifQ.SYnTOqlbYlBHRkR-odr9fw"
 
 # px.set_mapbox_access_token(MAPBOX_API_KEY)
 # from data_cleaning import hub_occ_dict
@@ -63,7 +63,6 @@ blockgroup_gdf = blockgroup_gdf.loc[var_prop_served.index.to_list(),:]
 #########
 
 dists = dict()
-r=6
 for r in range(distmatrix_df.shape[0]):
     idx_real = np.where(distmatrix_df.iloc[r,:].notnull())
     dist_dict = dict(distmatrix_df.iloc[r,idx_real[0]])

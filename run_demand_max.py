@@ -46,7 +46,8 @@ for max_hubs in max_hubs_list:
                                    dist_to_hub_df,
                                    hub_sqft_dict,
                                    cengeo_pop_dict,
-                                   hub_occ_dict)
+                                   hub_occ_dict,
+                                   bg_ces_df)
         run_string = "Contra_"+str(max_hubs)+"hubs"+str(max_distance)+"miles_max"
         try:
             os.mkdir(os.path.join("results",run_string))
