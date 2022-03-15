@@ -113,6 +113,8 @@ bg_ces_df['SCORE_PCTL_CI_BG'] = 100*bg_ces_df['SCORE_CI_BG'].rank(pct = True)
 
 bg_ces_df = bg_ces_df.loc[:, ['GISJOIN', 'SCORE_PCTL_CI_BG']]
 
+bg_ces_dict = {bg_ces_df.iloc[row]['GISJOIN']: round(0.01*bg_ces_df.iloc[row]['SCORE_PCTL_CI_BG'], 2) for row in bg_ces_df.index}
+
 
 
 
