@@ -1,0 +1,311 @@
+---
+title: "SGC P-Median Results Analysis"
+author: "Audrey Smith"
+date: '2022-03-24'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, inclue = False}
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+options(scipen = 999)
+```
+
+```{r, inclue = False}
+results.ces <- read.csv('results/p-med/results_log_CES.csv')
+results.nhub <- read.csv('results/p-med/results_log_NHUB.csv')
+results.proptot <- read.csv('results/p-med/results_log_PROPTOT.csv')
+```
+
+```{r}
+data.sites <- read.csv('data/candidate_site_campuses_2021-11-17/candidate_sites_campuses.csv')
+data.acs <- read.csv('../bg_ca_ces_nri_indicators_spatialjoin.csv')
+data.ces <- read.csv('data/bg_ca_19/bg19_ces_indicators.csv')
+
+data.ces %>%
+  mutate(COUNTY = substr(GISJOIN, 4, 7), .after = 'GISJOIN') %>%
+  filter(COUNTY == '0013') %>%
+  group_by(GISJOIN) %>%
+  mutate(AGG_SCORE = SCORE_PCTL_CI_TRACT*0.01*BLOCKGROUPPOP19, .after = 'COUNTY') %>%
+  ungroup() %>%
+  summarize(sum(AGG_SCORE, na.rm = T)/sum(BLOCKGROUPPOP19, na.rm = T))
+```
+
+```{r, incluse = False}
+format.plot <- theme(plot.title = element_text(size = 14, hjust = 0.5, face = 'bold'),
+                     axis.title = element_text(size = 12, hjust = 0.5, face = 'italic'),
+                     axis.text = element_text(size = 11),
+                     legend.title = element_text(size = 11, hjust = 0.5, face = 'italic'),
+                     legend.text = element_text(size = 11))
+
+pse.pal.5 <- c('turquoise3', 'orange2', 'gray60', 'cadetblue4', 'firebrick')
+```
+
+## Maximizing Coverage
+
+```{r, include = False}
+hubyn.50pct50hubs <- read.csv('results/p-med/2022-03-23_1954_hub_yn.csv') %>%
+  mutate(id_site = as.character(site_id))
+
+hubyn.70pct50hubs <- read.csv('results/p-med/2022-03-23_2026_hub_yn.csv') %>%
+  mutate(id_site = as.character(site_id))
+```
+
+_Types of Hubs Needed to Increase Population Coverage_
+```{r, include = False}
+inner_join(hubyn.50pct50hubs, data.sites, by = 'id_site') %>%
+  ggplot() + 
+    geom_bar(aes(x = cat_site), stat = 'count', color = 'gray30', fill = 'gray60') +
+    labs(title = 'Distribution of Hub Type - 50% Population Served', x = 'Site Type', y = 'Count of Hubs') +
+    format.plot
+```
+
+```{r, include = False}
+inner_join(hubyn.70pct50hubs, data.sites, by = 'id_site') %>%
+  ggplot() + 
+    geom_bar(aes(x = cat_site), stat = 'count', color = 'gray30', fill = 'gray60') +
+    labs(title = 'Distribution of Hub Type - 70% Population Served', x = 'Site Type', y = 'Count of Hubs') +
+    format.plot
+```
+
+_Travel Time as N Hub Increases_
+```{r, include = False}
+results.nhub %>%
+  filter(res_dist_traveled < 100000000) %>%
+  mutate(con_pct_tot = as.factor(con_pct_tot)) %>%
+  ggplot() +
+    geom_line(aes(x = con_max_hubs, y = res_avg_dist, color = con_pct_tot), size = 1) +
+    labs(title = 'Travel Time as More Hubs are Built', y = 'Average Travel Time\n', x = '\nNumber of Hubs Built') +
+    scale_color_manual(values = pse.pal.5, name = 'Pct Population \n Assigned a Hub') +
+    format.plot
+```
+
+_CES Score as N Hub Increases_
+```{r}
+results.nhub %>%
+  filter(res_dist_traveled < 100000000) %>%
+  mutate(con_pct_tot = as.factor(con_pct_tot)) %>%
+  ggplot() +
+    geom_line(aes(x = con_max_hubs, y = res_agg_ces_score, color = con_pct_tot), size = 1) +
+    labs(title = 'Pop Served CES Score as More Hubs are Built', y = 'Average CES Score\n', x = '\nNumber of Hubs Built') +
+    scale_color_manual(values = pse.pal.5, name = 'Pct Population \n Assigned a Hub') +
+    format.plot
+```
+
+
+## Prioritizing EJ Populations
+
+* Common critique of CES: 75th percentile is an arbitrary, hard cutoff
+* What if we lowered the minimum cutoff to assure coverage for everyone with above average CES score?
+
+__Scenario: 50 hubs allowed, must cover 50% general population, must cover X% of people above Z percentile CES__
+
+```{r, include = False}
+results.ces %>%
+  mutate(con_min_ces_score = as.factor(con_min_ces_score), res_avg_dist = ifelse(res_avg_dist > 2, 2, res_avg_dist)) %>%
+  ggplot() + geom_path(aes(x = con_min_prop_ej, y = res_avg_dist, color = con_min_ces_score), size = 0.75) +
+  labs(title = 'Travel Times by EJ Population Prioritization', x = '\nMinimum Proportion EJ Populations Assigned Hub', y = 'Average, Pop-Weighted Distance to Hub (miles)\n') +
+  scale_color_manual(name = 'EJ Pop \n Min. CES \nPercentile', values = pse.pal.5) +
+  xlim(c(0.5, 0.9)) + ylim(c(1, 2)) +
+  format.plot
+```
+
+__Contra Costa Demographics__
+```{r, include = False}
+data.acs %>%
+  filter(COUNTYFP == 13) %>%
+  summarize(WHITE = sum(RACE_WHITE, na.rm = T)/sum(RACE_UNIV, na.rm = T), 
+            BLACK = sum(RACE_BLACK, na.rm = T)/sum(RACE_UNIV, na.rm = T),
+            HL = sum(RACE_HL, na.mr = T)/sum(RACE_UNIV, na.rm = T), 
+            AAPI = sum(RACE_AAPI, na.rm = T)/sum(RACE_UNIV, na.rm = T), 
+            INDIG = sum(RACE_INDIG, na.rm = T)/sum(RACE_UNIV, na.rm = T),
+            OTHER = sum(RACE_OTHER, na.rm = T)/sum(RACE_UNIV, na.rm = T)) %>%
+  pivot_longer(cols = everything(), names_to = 'RACE', values_to = 'POP') %>%
+  filter(RACE != 'POP') %>%
+  ggplot() + 
+    geom_bar(aes(x = RACE, y = POP), stat = 'identity', color = 'turquoise4', fill = 'cadetblue2') +
+    labs(title = 'Contra Costa County Total Race Breakdown', x = '\n Race', y = 'Proportion of Population \n') +
+    format.plot
+```
+
+```{r}
+data.acs %>%
+  filter(COUNTYFP == 13) %>%
+  summarize(LOWINC = sum(SES_POV1X + SES_POV2X, na.rm = T)/sum(SES_POV_UNIV, na.rm = T),
+            NOT_LOWINC = 1-LOWINC) %>%
+  pivot_longer(cols = everything(), names_to = 'INCOME', values_to = 'PROP') %>%
+  ggplot() +
+    geom_bar(aes(x = INCOME, y = PROP), stat = 'identity', color = 'turquoise4', fill = 'cadetblue2') +
+    labs(title = 'Contra Costa County Total Low Income Populations', x = '\nRelationship with Federal Poverty Line', y = 'Proportion of Population\n') +
+    format.plot
+```
+
+__75th Percentile, 90 Pct Coverage, 30 hubs__
+```{r, include = False}
+prop.served.90pct75pctl.30 <- read.csv('results/p-med/2022-03-24_1111_prop_served.csv')
+
+hubyn.90pct75pctl.30 <- read.csv('results/p-med/2022-03-24_1111_hub_yn.csv') %>%
+  mutate(id_site = as.character(site_id))
+```
+
+```{r}
+inner_join(hubyn.90pct75pctl.30, data.sites, by = 'id_site') %>%
+  ggplot() + 
+    geom_bar(aes(x = cat_site), stat = 'count', color = 'gray30', fill = 'gray60') +
+    labs(title = 'Distribution of Hub Type - 90% EJ Populations Served', x = 'Site Type', y = 'Count of Hubs') +
+    format.plot
+```
+
+```{r}
+prop.served.90pct75pctl.30 %>%
+  rename('BG'='X') %>%
+  group_by(BG) %>%
+  transmute(BG=BG, PROP_BG = sum(across(.cols = is.numeric))) %>%
+  inner_join(., data.acs, by = c('BG'='GISJOIN')) %>%
+  summarize(POP = RACE_UNIV,
+            WHITE = PROP_BG*RACE_WHITE,
+            BLACK = PROP_BG*RACE_BLACK,
+            HL = PROP_BG*RACE_HL,
+            AAPI = PROP_BG*RACE_AAPI,
+            INDIG = PROP_BG*RACE_INDIG,
+            OTHER = PROP_BG*RACE_OTHER) %>%
+  ungroup() %>%
+  summarize(across(is.numeric, sum)) %>%
+  summarize(across(!starts_with('POP'), ~.x/POP)) %>%
+  pivot_longer(cols = everything(), names_to = 'RACE', values_to = 'POP') %>%
+  ggplot() + 
+    geom_bar(aes(x = RACE, y = POP), stat = 'identity', color = 'orange4', fill = 'orange2') +
+    labs(title = 'Population Assigned to Hubs Race Breakdown', x = '\nRace', y = 'Population\n') +
+    format.plot
+```
+
+```{r}
+prop.served.90pct75pctl.30 %>%
+  rename('BG'='X') %>%
+  group_by(BG) %>%
+  transmute(BG=BG, PROP_BG = sum(across(.cols = is.numeric))) %>%
+  inner_join(., data.acs, by = c('BG'='GISJOIN')) %>%
+  summarize(POP = PROP_BG*SES_POV_UNIV,
+            LOWINC = PROP_BG*(SES_POV1X + SES_POV2X),
+            NOT_LOWINC = PROP_BG*(SES_POV_UNIV - SES_POV1X - SES_POV2X)) %>%
+  ungroup() %>%
+  summarize(LOWINC = sum(LOWINC)/sum(POP), NOT_LOWINC = sum(NOT_LOWINC)/sum(POP)) %>%
+  pivot_longer(cols = everything(), values_to = 'PROP', names_to = 'INCOME') %>%
+  ggplot() +
+    geom_bar(aes(x = INCOME, y = PROP), stat = 'identity', color = 'orange4', fill = 'orange2') +
+    labs(title = 'Population Assigned to Hubs Low Income Breakdown', x = '\nRelationship with Federal Poverty Line', y = 'Proportion of Population\n') +
+    format.plot
+
+```
+
+__75th Percentile, 0 Pct Coverage - 30 hubs__
+```{r, include = False}
+prop.served.0pct75pctl.30 <- read.csv('results/p-med/2022-03-24_1122_prop_served.csv')
+
+hubyn.0pct75pctl.30 <- read.csv('results/p-med/2022-03-24_1122_hub_yn.csv') %>%
+  mutate(id_site = as.character(site_id))
+```
+
+```{r}
+inner_join(hubyn.0pct75pctl.30, data.sites, by = 'id_site') %>%
+  ggplot() + 
+    geom_bar(aes(x = cat_site), stat = 'count', color = 'gray30', fill = 'gray60') +
+    labs(title = 'Distribution of Hub Type - 90% EJ Populations Served', x = 'Site Type', y = 'Count of Hubs') +
+    format.plot
+```
+
+```{r}
+prop.served.0pct75pctl.30 %>%
+  rename('BG'='X') %>%
+  group_by(BG) %>%
+  transmute(BG=BG, PROP_BG = sum(across(.cols = is.numeric))) %>%
+  inner_join(., data.acs, by = c('BG'='GISJOIN')) %>%
+  summarize(POP = RACE_UNIV,
+            WHITE = PROP_BG*RACE_WHITE,
+            BLACK = PROP_BG*RACE_BLACK,
+            HL = PROP_BG*RACE_HL,
+            AAPI = PROP_BG*RACE_AAPI,
+            INDIG = PROP_BG*RACE_INDIG,
+            OTHER = PROP_BG*RACE_OTHER) %>%
+  ungroup() %>%
+  summarize(across(is.numeric, sum)) %>%
+  summarize(across(!starts_with('POP'), ~.x/POP)) %>%
+  pivot_longer(cols = everything(), names_to = 'RACE', values_to = 'POP') %>%
+  ggplot() + 
+    geom_bar(aes(x = RACE, y = POP), stat = 'identity', color = 'orange4', fill = 'orange2') +
+    labs(title = 'Population Assigned to Hubs Race Breakdown', x = '\nRace', y = 'Population\n') +
+    format.plot
+```
+
+```{r}
+prop.served.0pct75pctl.30 %>%
+  rename('BG'='X') %>%
+  group_by(BG) %>%
+  transmute(BG=BG, PROP_BG = sum(across(.cols = is.numeric))) %>%
+  inner_join(., data.acs, by = c('BG'='GISJOIN')) %>%
+  summarize(POP = PROP_BG*SES_POV_UNIV,
+            LOWINC = PROP_BG*(SES_POV1X + SES_POV2X),
+            NOT_LOWINC = PROP_BG*(SES_POV_UNIV - SES_POV1X - SES_POV2X)) %>%
+  ungroup() %>%
+  summarize(LOWINC = sum(LOWINC)/sum(POP), NOT_LOWINC = sum(NOT_LOWINC)/sum(POP)) %>%
+  pivot_longer(cols = everything(), values_to = 'PROP', names_to = 'INCOME') %>%
+  ggplot() +
+    geom_bar(aes(x = INCOME, y = PROP), stat = 'identity', color = 'orange4', fill = 'orange2') +
+    labs(title = 'Population Assigned to Hubs Low Income Breakdown', x = '\nRelationship with Federal Poverty Line', y = 'Proportion of Population\n') +
+    format.plot
+
+```
+
+
+
+```{r}
+data.acs
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
