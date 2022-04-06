@@ -7,10 +7,12 @@ import numpy as np
 from pyomo.environ import *
 import pyomo.opt as pyopt
 
-from data_cleaning import site_occ_dict, blockgroup_pop_dict, bg_ces_dict, dist_to_site_df, dist_to_site_dict
+from data_cleaning import site_occ_dict, blockgroup_pop_dict, bg_ces_dict, dist_to_site_df, dist_to_site_dict, county_prop_ealp_dict
+
+### HERE: CODE TO FILTER EACH OF THE ABOVE TO THE COUNTY OF INTEREST
 
 
-def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_prop_ej, site_occ_dict=site_occ_dict, blockgroup_pop_dict=blockgroup_pop_dict, bg_ces_dict=bg_ces_dict, dist_to_site_df=dist_to_site_df):
+def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_prop_ej, ca_total_spending, county_prop_ealp, site_occ_dict=site_occ_dict, blockgroup_pop_dict=blockgroup_pop_dict, bg_ces_dict=bg_ces_dict, dist_to_site_df=dist_to_site_df):
 
 	##### DEFINE MODEL AND INDICES
 
@@ -59,6 +61,12 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 
 	model.param_site_cap = Param(model.idx_sites, initialize = get_site_capacity)
 
+	# CES Score
+	def get_ces_score(model, bg):
+		return(bg_ces_dict[bg])
+
+	model.param_bg_vuln_ces = Param(model.idx_bgs, within=Any, default = 0, initialize=get_ces_score)
+
 	# Sites within range for each blockgroup
 	bg_sites_in_range = {bg: [] for bg in model.idx_bgs}
 
@@ -89,12 +97,6 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 	    
 	model.param_site_bgs_in_range = Param(model.idx_sites, within=Any, initialize=site_bgs_in_range)
 
-	### CES Score
-	def get_ces_score(model, bg):
-		return(bg_ces_dict[bg])
-
-	model.param_bg_vuln_ces = Param(model.idx_bgs, within=Any, default = 0, initialize=get_ces_score)
-
 	##### DEFINE VARIABLES
 
 	# Is this site a hub?
@@ -102,6 +104,9 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 
 	# What proportion of this blockgroup is served at this site?
 	model.var_prop_bg_at_site = Var(model.idx_bg_site_pairs, initialize = 1.0, bounds = (0.0, 1.0))
+
+	# HERE: VARIABLE DEFINING HOW MUCH MONEY IS SPENT AT EACH HUB
+	##############################################
 
 	##### DEFINE OBJECTIVE
 
@@ -111,6 +116,9 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 	model.obj_min_agg_dist = Objective(expr = agg_dist, sense = minimize)
 
 	##### DEFINE CONSTRAINTS
+
+	# HERE: CONSTRAINT STIPULATING SPENDING PROPORTIONAL TO EALP
+	##############################################
 
 	# Construct set number of sites
 	n_sites = sum(model.var_hub_yn[site] for site in model.idx_sites)
