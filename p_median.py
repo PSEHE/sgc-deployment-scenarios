@@ -7,12 +7,12 @@ import numpy as np
 from pyomo.environ import *
 import pyomo.opt as pyopt
 
-from data_cleaning import blockgroup_pop_dict, bg_ces_dict, dist_to_site_df, dist_to_site_dict, county_prop_ealp_dict
+from data_cleaning import blockgroup_pop_dict, bg_ces_dict, dist_to_site_df, dist_to_site_dict, county_prop_ealp_dict, site_kw_occ_dict
 
 ### HERE: CODE TO FILTER EACH OF THE ABOVE TO THE COUNTY OF INTEREST
 
 
-def define_pmedian(budget_tot, min_service_fraction, ej_cutoff, min_prop_ej, ca_total_spending, county_prop_ealp, site_occ_dict=site_occ_dict, blockgroup_pop_dict=blockgroup_pop_dict, bg_ces_dict=bg_ces_dict, dist_to_site_df=dist_to_site_df):
+def define_pmedian(state_budget_tot, min_service_fraction, ej_cutoff, min_prop_ej, county_prop_ealp, site_cost_dict=site_cost_dict, site_kw_occ_dict=site_kw_occ_dict, blockgroup_pop_dict=blockgroup_pop_dict, bg_ces_dict=bg_ces_dict, dist_to_site_df=dist_to_site_df):
 
 	##### DEFINE MODEL AND INDICES
 
@@ -54,6 +54,18 @@ def define_pmedian(budget_tot, min_service_fraction, ej_cutoff, min_prop_ej, ca_
 		return(dist_to_site_df.loc[bg, site])
 
 	model.param_bg_site_dist = Param(model.idx_bg_site_pairs, initialize = get_bg_site_dist)	
+
+	# Capacity per site based on kw available
+	def get_site_kw_capacity(model, site):
+		return(site_kw_occ_dict[site])
+
+	model.param_site_kw_cap = Param(model.idx_sites, initialize = get_site_kw_capacity)
+
+	# Cost per site based on system size
+	def get_site_cost(model, site):
+		return(site_cost_dict[site])
+
+	model.param_site_cost = Param(model.idx_sites, initialize = get_site_cost)
 
 	# CES Score
 	def get_ces_score(model, bg):
@@ -112,11 +124,23 @@ def define_pmedian(budget_tot, min_service_fraction, ej_cutoff, min_prop_ej, ca_
 	##### DEFINE CONSTRAINTS
 
 	# Spend proportionally to EALP in each county
-	spend_tot = sum(model.param_cost_per_hub[sites]*model.var_hub_yn[site] for site in model.idx_sites)
 
-	model.con_spend_by_ealp = Constraint(expr = budget_tot*0.9 <= spend_tot <= budget_tot*1.1)
+	spend_tot = sum(model.param_site_cost[sites]*model.var_hub_yn[site] for site in model.idx_sites)
 
-	# Do not let anyone go to this site if it is not a hub
+	model.con_spend_by_ealp = Constraint(expr = state_budget_tot*0.9 <= spend_tot <= state_budget_tot*1.1)
+
+	# Do not serve more people than possible based on kw available at site
+	def serve_max_kw_capacity(model, site):
+	    site_tot_cap = model.param_site_kw_cap[site]
+	    site_tot_served = sum(model.param_bg_pop[bg]*model.var_prop_bg_at_site[bg, site] for bg in model.param_site_bgs_in_range[site])
+	    if model.var_hub_yn[site].value != 1:
+	        return((0, site_tot_served, 0))
+	    else:
+	        return((0, site_tot_served, cap_factor*site_tot_cap))
+
+	model.con_serve_max_kw_capacity = Constriant(model.idx_sites, rule = serve_max_kw_capacity)
+
+	#Do not let anyone go to this site if it is not a hub
 
 	def serve_only_at_hubs(model, bg, site):
 		return(model.var_prop_bg_at_site[bg, site] <= model.var_hub_yn[site])
