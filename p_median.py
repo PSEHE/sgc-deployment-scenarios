@@ -7,12 +7,12 @@ import numpy as np
 from pyomo.environ import *
 import pyomo.opt as pyopt
 
-from data_cleaning import site_occ_dict, blockgroup_pop_dict, bg_ces_dict, dist_to_site_df, dist_to_site_dict, county_prop_ealp_dict
+from data_cleaning import blockgroup_pop_dict, bg_ces_dict, dist_to_site_df, dist_to_site_dict, county_prop_ealp_dict
 
 ### HERE: CODE TO FILTER EACH OF THE ABOVE TO THE COUNTY OF INTEREST
 
 
-def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_prop_ej, ca_total_spending, county_prop_ealp, site_occ_dict=site_occ_dict, blockgroup_pop_dict=blockgroup_pop_dict, bg_ces_dict=bg_ces_dict, dist_to_site_df=dist_to_site_df):
+def define_pmedian(budget_tot, min_service_fraction, ej_cutoff, min_prop_ej, ca_total_spending, county_prop_ealp, site_occ_dict=site_occ_dict, blockgroup_pop_dict=blockgroup_pop_dict, bg_ces_dict=bg_ces_dict, dist_to_site_df=dist_to_site_df):
 
 	##### DEFINE MODEL AND INDICES
 
@@ -54,12 +54,6 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 		return(dist_to_site_df.loc[bg, site])
 
 	model.param_bg_site_dist = Param(model.idx_bg_site_pairs, initialize = get_bg_site_dist)	
-
-	# Max capacity per site
-	def get_site_capacity(model, site):
-		return(site_occ_dict[site])
-
-	model.param_site_cap = Param(model.idx_sites, initialize = get_site_capacity)
 
 	# CES Score
 	def get_ces_score(model, bg):
@@ -117,13 +111,10 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 
 	##### DEFINE CONSTRAINTS
 
-	# HERE: CONSTRAINT STIPULATING SPENDING PROPORTIONAL TO EALP
-	##############################################
+	# Spend proportionally to EALP in each county
+	spend_tot = sum(model.param_cost_per_hub[sites]*model.var_hub_yn[site] for site in model.idx_sites)
 
-	# Construct set number of sites
-	n_sites = sum(model.var_hub_yn[site] for site in model.idx_sites)
-
-	model.con_max_sites = Constraint(expr = (1, n_sites, max_sites))
+	model.con_spend_by_ealp = Constraint(expr = budget_tot*0.9 <= spend_tot <= budget_tot*1.1)
 
 	# Do not let anyone go to this site if it is not a hub
 
