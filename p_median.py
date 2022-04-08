@@ -8,7 +8,7 @@ from pyomo.environ import *
 import pyomo.opt as pyopt
 
 from data_cleaning import site_occ_dict, blockgroup_pop_dict, bg_ces_dict, dist_to_site_df, dist_to_site_dict, county_prop_ealp_dict
-
+from data_cleaning import site_sqft_dict
 ### HERE: CODE TO FILTER EACH OF THE ABOVE TO THE COUNTY OF INTEREST
 
 
@@ -37,7 +37,7 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 	        filtered_bgs.append(pair[0])
 	    if pair[1] not in filtered_sites:
 	        filtered_sites.append(pair[1])
-	        
+
 	model.idx_bgs = Set(initialize = filtered_bgs)
 	model.idx_sites = Set(initialize = filtered_sites)
 
@@ -53,7 +53,7 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 	def get_bg_site_dist(model, bg, site):
 		return(dist_to_site_df.loc[bg, site])
 
-	model.param_bg_site_dist = Param(model.idx_bg_site_pairs, initialize = get_bg_site_dist)	
+	model.param_bg_site_dist = Param(model.idx_bg_site_pairs, initialize = get_bg_site_dist)
 
 	# Max capacity per site
 	def get_site_capacity(model, site):
@@ -79,7 +79,7 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 
 	for bg in bg_with_no_hub:
 		del bg_sites_in_range[bg]
-	    
+
 	model.param_bg_sites_in_range = Param(model.idx_bgs, within=Any, initialize=bg_sites_in_range)
 
 	# Blockgroups within range for each site
@@ -94,7 +94,7 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 
 	for site in site_with_no_hub:
 		del site_bgs_in_range[site]
-	    
+
 	model.param_site_bgs_in_range = Param(model.idx_sites, within=Any, initialize=site_bgs_in_range)
 
 	##### DEFINE VARIABLES
@@ -154,10 +154,10 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 	def serve_max_capacity(model, site):
 	    site_tot_cap = model.param_site_cap[site]
 	    site_tot_served = sum(model.param_bg_pop[bg]*model.var_prop_bg_at_site[bg, site] for bg in model.param_site_bgs_in_range[site])
-	    
+
 	    if model.var_hub_yn[site].value != 1:
 	        return((0, site_tot_served, 0))
-	    else:      
+	    else:
 	        return((0, site_tot_served, cap_factor*site_tot_cap))
 
 	model.con_serve_max_capacity = Constraint(model.idx_sites, rule = serve_max_capacity)
@@ -166,9 +166,9 @@ def define_pmedian(max_sites, cap_factor, min_service_fraction, ej_cutoff, min_p
 
 	def serve_ces_pops(model, bg):
 	    bg_ces_score = model.param_bg_vuln_ces[bg]
-	    
+
 	    bg_tot_prop_served = sum(model.var_prop_bg_at_site[bg, site] for site in model.param_bg_sites_in_range[bg])
-	    
+
 	    if bg_ces_score >= ej_cutoff:
 	        return((min_prop_ej, bg_tot_prop_served, 1))
 	    else:
@@ -239,7 +239,7 @@ def save_results_prop_bg_at_site(model, result_path, dist_to_site_df=dist_to_sit
 
 	for bg, hub in result_prop_served_dict.keys():
 	    result_prop_served_df.loc[bg, hub] = result_prop_served_dict[bg, hub]
-	    
+
 	result_prop_served_df.fillna(0, inplace = True)
 
 	result_prop_served_path = result_path + '_prop_served.csv'
@@ -252,22 +252,22 @@ def save_results_dist_traveled(result_prop_served_df, result_prop_served_dict, r
 	result_dist_traveled_df = result_prop_served_df.copy()
 
 	for bg, hub in result_prop_served_dict.keys():
-	        
+
 	    result_dist_traveled_df.loc[bg, hub] = dist_to_site_dict[bg, hub]*result_prop_served_df.loc[bg, hub]*blockgroup_pop_dict[bg]
-	    
+
 	result_dist_traveled_path = result_path + '_dist_traveled.csv'
 	result_dist_traveled_df.to_csv(result_dist_traveled_path)
 
 	return(result_dist_traveled_df.sum().sum())
 
 def save_results_pop_served(result_prop_served_df, result_prop_served_dict, result_path, blockgroup_pop_dict=blockgroup_pop_dict):
-	
+
 	result_pop_df = result_prop_served_df.copy()
 
 	for bg, hub in result_prop_served_dict.keys():
-	        
+
 	    result_pop_df.loc[bg, hub] = result_prop_served_df.loc[bg, hub]*blockgroup_pop_dict[bg]
-	    
+
 	result_pop_path = result_path + '_pop.csv'
 	result_pop_df.to_csv(result_pop_path)
 
@@ -277,28 +277,11 @@ def save_results_ces(result_prop_served_df, result_prop_served_dict, result_pop_
 	result_ces_df = result_prop_served_df.copy()
 
 	for bg, hub in result_prop_served_dict.keys():
-	        
+
 	    result_ces_df.loc[bg, hub] = bg_ces_dict[bg]*result_prop_served_df.loc[bg, hub]*blockgroup_pop_dict[bg]
-	    
+
 	result_ces_path = result_path + '_ces.csv'
 
 	result_ces_df.to_csv(result_ces_path)
 
 	return(result_ces_df.sum().sum()/result_pop_served)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
