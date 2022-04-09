@@ -73,14 +73,14 @@ for i in range(len(cengeo_pop_df)):
     pop = cengeo_pop_df.iloc[i].loc['POP']
 
     cengeo_pop_dict[cengeo] = pop
-
+blockgroup_pop_dict = cengeo_pop_dict
 
 # ### Create dictionary of hub/blockgroup pairwise distances
 
 # In[4]:
 
 
-dist_to_site_df = pd.read_csv('data/distmatrix_contracosta.csv')
+dist_to_site_df = pd.read_csv('data/distmatrix_contracosta.csv',index_col = 0)
 
 dist_to_site_dict = {}
 
@@ -145,19 +145,19 @@ bg_ces_dict = {bg_ces_df.iloc[row]['GISJOIN']: round(0.01*bg_ces_df.iloc[row]['S
 site_cost_dict = dict()
 site_kw_occ_dict = dict()
 
-people_per_kwh = 0.1
+people_per_kwh = 10
 
 for site in site_sqft_dict:
     pv_kw = 0.007*site_sqft_dict[site]
-    
+
     ba_kw = 0.42*pv_kw #This said pv_size originally but I think this is what was meant?
     ba_kwh = 0.046*site_sqft_dict[site]
-    
+
     pv_cost_dollars = 4000*pv_kw*(pv_kw**-0.01)
     ba_cost_dollars = 840*ba_kw + 1000*ba_kwh*(ba_kwh**-0.019)
-    
+
     site_cost_tot = pv_cost_dollars + ba_cost_dollars
-    
+
     site_cost_dict[site] = site_cost_tot
     site_kw_occ_dict[site] = ba_kwh*people_per_kwh
 
@@ -165,7 +165,7 @@ for site in site_sqft_dict:
 # ### National Risk Index: Get Share of Resources to Allocate to Each County
 # Expected annual loss equations on page 45 of NRI technical documentation
 # https://www.fema.gov/sites/default/files/documents/fema_national-risk-index_technical-documentation.pdf
-# 
+#
 # Min-Max Normalized Values: (EAL^0.3 - 0.99*EAL^0.3) / (EAL_max^0.33 - EAL_min^0.33)
 
 # In[ ]:
@@ -176,20 +176,20 @@ for site in site_sqft_dict:
 def calculate_ealt_score(ealt_col):
     ealt_numerator = (ealt_col ** (1/3)) - (0.99*ealt_col.min() ** (1/3))
     ealt_denominator = (ealt_col.max() ** (1/3)) - (ealt_col.min() ** (1/3))
-    
+
     return(ealt_numerator/ealt_denominator)
 
 
 # ###### _Code to go from raw file with all indicators to file with just EAL indicators - the former is too large for github_
 # bg_nri_indicators_all = pd.read_csv('../bg_ca_ces_nri_indicators_spatialjoin.csv')
-# 
+#
 # nri_cols = list(bg_nri_indicators_all.columns)
 # annual_loss_cols = [col for col in nri_cols if str(col)[-4:-1] == 'EAL']
 # annual_loss_cols.append('GISJOIN')
-# 
+#
 # bg_nri_eal_raw = bg_nri_indicators_all.loc[:,annual_loss_cols]
 # bg_nri_eal_raw.fillna(0, inplace = True)
-# 
+#
 # bg_nri_eal_raw.to_csv('data/bg_ca_19/bg19_NRI_annualloss_score.csv', index = False)
 
 # In[ ]:
@@ -220,33 +220,3 @@ county_prop_ealp_dict = {fips_code:county_prop_ealp_df.loc[fips_code] for fips_c
 
 
 # ### National Risk Index: Prioritize by Population Vulnerability and Resilience
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
