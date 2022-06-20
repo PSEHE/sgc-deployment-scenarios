@@ -1,3 +1,16 @@
+# Overview
+We first need to calculate distance matrices. This is done in the script
+`calculate_distance_matrices.py` which calls code from `distance_matrix_functions.py`
+
+We then need to build many different types of models. All the code for building
+models are in `deploment_models.py` while the script `results_analysis.py` contains
+example code for how to run a model as well as a useful function for pulling
+statistics out of the result. `vulnerability_risk_functions.py` is a collection
+of functions in progress that is aimed at easily integrating different vulnerability
+and risk data.
+
+
+
 # sgc-deployment-scenarios
 Optimizing resilience hub deployment for overall population coverage, climate vulnerability, and more.
 
