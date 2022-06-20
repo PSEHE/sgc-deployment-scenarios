@@ -9,6 +9,9 @@ statistics out of the result. `vulnerability_risk_functions.py` is a collection
 of functions in progress that is aimed at easily integrating different vulnerability
 and risk data.
 
+Also, `model_vis_functions.py` has functions for visualizing the results of
+a model on open street maps.
+
 
 
 # sgc-deployment-scenarios
