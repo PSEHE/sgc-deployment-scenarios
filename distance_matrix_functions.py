@@ -18,7 +18,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 ### MAP GEODATAFRAME ON OPENSTREETMAP BASEMAP
-
+# I don't usually plot with this.
 def plot_gdf_with_background(gdf, zoom=12, center = None):
 
     if center is not None:
@@ -34,44 +34,23 @@ def plot_gdf_with_background(gdf, zoom=12, center = None):
 
     return(map_with_background)
 
-### GET GRAPH FOR DESIRED LOCATION
-# import os
-#
-# if False:
-#     graph_raw = ox.graph_from_place("California, USA", network_type = 'drive', simplify = True)
-#     graph = ox.project_graph(graph_raw, to_crs = 'EPSG:4629')
-#     graph = ox.speed.add_edge_speeds(graph)
-#     graph = ox.speed.add_edge_travel_times(graph)
-#     ox.save_graphml(graph, os.path.join(os.getcwd(), 'data', 'graphs', 'graph_California.graphml'))
-#
-# print("Done")
-
 def get_county_drive_graph(in_county, in_crs):
-
     county = in_county + ', California, USA'
     graph_raw = ox.graph_from_place(county, network_type = 'drive', simplify = True)
-
     graph = ox.project_graph(graph_raw, to_crs = in_crs)
     graph = ox.speed.add_edge_speeds(graph)
     graph = ox.speed.add_edge_travel_times(graph)
-
     county_edges_gdf_reset = county_edges_gdf.reset_index()
     county_edges_gdf_reset.rename(columns = {'u':'from_node', 'v':'to_node'}, inplace = True)
 
     return(graph, county_nodes_gdf, county_edges_gdf_reset)
 
+# Get the graph from OSM using a GIS polygon
 def get_county_drive_graph_from_polygon(polygon, in_crs):
-
-    # county = in_county + ', California, USA'
     graph_raw = ox.graph_from_polygon(polygon, network_type = 'drive', simplify = True)
-
     graph = ox.project_graph(graph_raw, to_crs = in_crs)
     graph = ox.speed.add_edge_speeds(graph)
     graph = ox.speed.add_edge_travel_times(graph)
-
-    # county_edges_gdf_reset = county_edges_gdf.reset_index()
-    # county_edges_gdf_reset.rename(columns = {'u':'from_node', 'v':'to_node'}, inplace = True)
-
     return graph
 
 
@@ -92,13 +71,14 @@ def make_county_bbox(in_nodes_gdf):
 
     return(county_bbox)
 
+# Don't think I use this
 def clip_sites_to_county(in_county_bbox, in_sites_gdf):
 
     sites_county_gdf = in_sites_gdf[in_sites_gdf.within(in_county_bbox)]
 
     return(sites_county_gdf)
 
-
+# Don't think I use this
 def clip_bgs_to_county(in_county_bbox, in_bgs_pt_gdf, in_county_fips):
 
     bgs_county_gdf = in_bgs_pt_gdf[in_bgs_pt_gdf.within(in_county_bbox)].reset_index(drop = True)
@@ -107,6 +87,7 @@ def clip_bgs_to_county(in_county_bbox, in_bgs_pt_gdf, in_county_fips):
 
     return(bgs_county_gdf)
 
+# Don't think I use this
 def buffer_bgs(in_bgs_pt_gdf_bbox, in_crs):
     bgs_pt_gdf_bbox_proj = in_bgs_pt_gdf_bbox.to_crs('NAD_1983_California_Teale_Albers_FtUS')
 
@@ -121,9 +102,10 @@ def buffer_bgs(in_bgs_pt_gdf_bbox, in_crs):
     return(bgs_county_buffer_gdf)
 
 ### GET DISTANCE FROM BLOCKGROUP TO SITES
-
+# return the nearest node on thr graph to a certain lat/long. Much of this function is
+# not necessary and should probably not be its own function because it could be done
+# with just the ox.get_nearest_node function.
 def get_coords_and_nearest_node(in_pt, in_colname, in_pt_gdf, in_graph):
-
     pt_geom = in_pt_gdf.loc[in_pt_gdf[in_colname] == in_pt]
 
     latitude = mean(pt_geom.LAT) #Edge case: a small handful of sites have two sets of coords
@@ -134,13 +116,7 @@ def get_coords_and_nearest_node(in_pt, in_colname, in_pt_gdf, in_graph):
 
     return(pt_nearest_node)
 
-# def get_nearby_sites(in_bg, in_bg_buffers, in_sites):
-#
-#     bg_buffer = in_bg_buffers.loc[in_bg_buffers['GISJOIN'] == in_bg, 'geometry'].reset_index(drop = True)[0]
-#     bg_nearest_sites = in_sites[in_sites.within(bg_buffer)]['id_site']
-#
-#     return(bg_nearest_sites)
-
+# Calculate distances in km(?) between a given blockgroup lat/long and a list of site lat/longs
 def calculate_haversine_distances(bg_lat,bg_lon,sites_lats,sites_lons):
     R = 3958.8
 
@@ -152,7 +128,17 @@ def calculate_haversine_distances(bg_lat,bg_lon,sites_lats,sites_lons):
     distances = R * c
     return distances
 
+
 def get_nearby_sites_lat_long(bg_row, sites_county_gdf,k,max_distance):
+    """
+    Get the list of sites that are nearest to a blockgroup
+    bg_row -> a Series (a single row from another geodataframe).
+    sites_county_gdf -> GeoDataFrame of the candidate sites
+    k -> Minimum number of nearest neighbors to find distances between
+    max_distance -> Find all sites at least up to this maximum distance
+    returns
+    bg_nearest_sites -> list of the IDs of the candidate sites that are close enough to the block group
+    """
     distances = calculate_haversine_distances(bg_row["LAT"],bg_row["LON"],
                                               sites_county_gdf["LAT"].to_numpy(),sites_county_gdf["LON"].to_numpy())
     if len(distances)>k:
@@ -169,7 +155,7 @@ def get_nearby_sites_lat_long(bg_row, sites_county_gdf,k,max_distance):
     bg_nearest_sites = sites_county_gdf.loc[distances<max_distance,'id_site'].to_list()
     return bg_nearest_sites
 
-
+# Don't know what the following is for
 def get_steps_in_route(in_route):
 
     steps_in_route = []
