@@ -1,7 +1,5 @@
-# This code is an example of deleting a single edge and single node,
-# followed by an example of taking a point close to an edge, finding what
-# edge it is closest to, and deleting that edge, and a function that takes
-# a point and performs the same action, with implementation.
+# This code is an example of taking a point close to an edge/node, finding what
+# edge/node it is closest to, and deleting that edge/node.
 
 # Import packages
 import osmnx as ox
