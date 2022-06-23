@@ -2,6 +2,8 @@
 # centroids, and particularly compares walking and driving routes for the five
 # longest driving routes.
 
+# ATTEMPT AT MAPBOX MAPPING -- DOES NOT WORK RIGHT NOW
+
 import osmnx as ox
 from osmnx import utils_graph
 import networkx as nx
@@ -12,8 +14,10 @@ import numpy as np
 from statistics import mean
 
 import matplotlib.pyplot as plt
+import plotly.express as px
 import shapely
 import folium
+import plotly.graph_objects as go # or plotly.express as px
 
 import os
 
@@ -103,8 +107,52 @@ def plot_routes(site, bg, site_data, bg_data):
     ax.plot(*walk_path.xy, label='Walk')
     ax.scatter(x = bg_pt[1], y = bg_pt[0], label = 'BG Centroid', color = 'red')
     ax.scatter(x = site_pt[1], y = site_pt[0], label = 'Site', color = 'purple')
-    #ax.axis('equal')
+    ax.set_aspect('equal', adjustable='box')
     plt.legend()
+
+# MAPBOX ATTEMPT -- DOES NOT WORK RIGHT NOW
+# bg_data = bgs_pt_gdf
+# site_data = sites_gdf
+# site = pt_1[0]
+# bg = pt_1[1]
+# bg_pt = locate(bg_data, bg, 'GISJOIN')
+# site_pt = locate(site_data, site, 'id_site')
+#
+# orig_node = get_coords_and_nearest_node(bg, 'GISJOIN', bg_data, drive)
+# dest_node = get_coords_and_nearest_node(site, 'id_site', site_data, drive)
+# drive_path = create_shortest_path(orig_node, dest_node, drive)
+#
+# px.set_mapbox_access_token(open(".mapbox_token").read())
+#
+# df = px.data.carshare()
+# fig = px.scatter_mapbox(df,
+#                         lon = df['centroid_lon'],
+#                         lat = df['centroid_lat'],
+#                         zoom = 3,
+#                         color = df['peak_hour'],
+#                         width = 1200,
+#                         height = 900)
+# fig.update_layout(mapbox_style = "open-street-map")
+# fig.show()
+# fig_map = go.Figure(go.Scattermapbox(lat=hubs_built_df["LAT"], lon=hubs_built_df["LON"],
+#                                  mode='markers',
+#                                 marker=go.scattermapbox.Marker(
+#                                     size=20*np.sqrt(hubs_built_df["kw_occ"])/np.max(np.sqrt(hubs_built_df["kw_occ"])),
+#                                     color='rgb(255, 0, 0)',
+#                                     opacity=0.7,
+#                                     # symbol = "castle"
+#                                 ),
+#                                 name = "Built Hubs",
+#                                 # marker_symbol = 'circle-open',
+#                                 text=hubs_built_df["name_site"],
+#                                 hoverinfo='text'
+#                                  # hovertext=hubs_df["name_site"],
+#                                  # hover_data=["cat_site"],
+#                                  # color_discrete_sequence=["fuchsia"],
+#                                  # zoom=5,
+#                                  # height=600
+#                                  )
+#                 )
 
 # USING FUNCTIONS
 ca_albers_nad83 = 'NAD_1983_California_Teale_Albers_FtUS'
@@ -146,3 +194,24 @@ plot_routes(pt_2[0], pt_2[1], sites_gdf, bgs_pt_gdf)
 plot_routes(pt_3[0], pt_3[1], sites_gdf, bgs_pt_gdf)
 plot_routes(pt_4[0], pt_4[1], sites_gdf, bgs_pt_gdf)
 plot_routes(pt_5[0], pt_5[1], sites_gdf, bgs_pt_gdf)
+
+# Retrieve lat/lon pairs to check route length against Google Maps
+pt_6 = find_max_pos(drive_csv, 400)
+pt_7 = find_max_pos(drive_csv, 450)
+pt_8 = find_max_pos(drive_csv, 500)
+pt_9 = find_max_pos(drive_csv, 550)
+pt_10 = find_max_pos(drive_csv, 600)
+
+def print_info(pt):
+    walk_dist = walk_csv.loc[pt[1]][pt[0]]
+    drive_dist = drive_csv.loc[pt[1]][pt[0]]
+
+    bg_loc = locate(bg_data, pt[1], 'GISJOIN')
+    site_loc = locate(site_data, pt[0], 'id_site')
+    return [walk_dist, drive_dist, bg_loc, site_loc]
+
+print_info(pt_6)
+print_info(pt_7)
+print_info(pt_8)
+print_info(pt_9)
+print_info(pt_10)
