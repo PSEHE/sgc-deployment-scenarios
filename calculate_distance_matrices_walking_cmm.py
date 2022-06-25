@@ -69,10 +69,11 @@ ca_counties = {ca_county_names[i]:ca_county_fips[i] for i in range(len(ca_county
 ca_counties_subset = [ \
                         # 'Alameda', 'Alpine', 'Amador', 'Butte',
                         # 'Calaveras', 'Colusa',
-                        'Contra Costa',
+                        # 'Contra Costa',
                         # 'Del Norte', 'El Dorado', 'Fresno', 'Glenn',
                         # 'Humboldt', 'Imperial', 'Inyo',
-                        # 'Kern', 'Kings', 'Lake', 'Lassen', 'Los Angeles',
+                        # 'Kern', 'Kings', 'Lake', 'Lassen',
+                        'Los Angeles',
                         # 'Madera', 'Marin', 'Mariposa',
                         # 'Mendocino', 'Merced', 'Modoc', 'Mono',
                         # 'Monterey', 'Napa', 'Nevada', 'Orange',
