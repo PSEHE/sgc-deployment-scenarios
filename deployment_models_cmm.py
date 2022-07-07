@@ -9,7 +9,7 @@ import pyomo.opt as pyopt
 
 ### HERE: CODE TO FILTER EACH OF THE ABOVE TO THE COUNTY OF INTEREST
 
-def build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, dist_to_site_df):
+def build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df):
 
 	##### DEFINE MODEL AND INDICES
 
@@ -69,6 +69,13 @@ def build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_c
 		return(bg_ces_dict[bg])
 
 	model.param_bg_vuln_ces = Param(model.idx_bgs, within=Any, default = 0, initialize=get_ces_score)
+
+	# Walkability
+	def get_walkability(model, bg):
+		return(blockgroup_walkability_dict[bg])
+
+	model.param_bg_walkability = Param(model.idx_bgs, initialize = get_walkability)
+
 
 	# Sites within range for each blockgroup
 	bg_sites_in_range = {bg: [] for bg in model.idx_bgs}
@@ -214,6 +221,15 @@ def add_p_median_objective(model):
 	##### DEFINE OBJECTIVE
 	# Minimize aggregate, population-weighted travel distance
 	agg_dist = sum(model.param_bg_pop[bg]*model.var_prop_bg_at_site[bg, site]*model.param_bg_site_dist[bg, site] for bg, site in model.idx_bg_site_pairs)
+	model.obj_min_agg_dist = Objective(expr = agg_dist, sense = minimize)
+	return model
+
+def add_p_median_objective_walkability(model):
+	##### DEFINE OBJECTIVE
+	# Minimize aggregate, population-weighted travel distance scaled by walkability
+	agg_dist = sum((2*(model.param_bg_pop[bg]*model.var_prop_bg_at_site[bg, site]*
+	model.param_bg_site_dist[bg, site]) - ((model.param_bg_walkability[bg]-1)/20)*(model.param_bg_pop[bg]*
+	model.var_prop_bg_at_site[bg, site]*model.param_bg_site_dist[bg, site])) for bg, site in model.idx_bg_site_pairs)
 	model.obj_min_agg_dist = Objective(expr = agg_dist, sense = minimize)
 	return model
 
