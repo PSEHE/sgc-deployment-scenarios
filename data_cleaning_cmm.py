@@ -7,7 +7,7 @@
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 # ### Get site max occupancy
 
@@ -244,5 +244,60 @@ county_prop_ealp_df = bg_nri_ealp.groupby('COUNTY_FIPS').sum()['PROP_EALP']
 
 county_prop_ealp_dict = {fips_code:county_prop_ealp_df.loc[fips_code] for fips_code in county_prop_ealp_df.index}
 
-
 # ### National Risk Index: Prioritize by Population Vulnerability and Resilience
+
+# ### Driving Population by Block Group
+# Retrieve census data on proportion of households with a car, multiply block group
+# population by this proportion to get proportion of people with car access by block group
+driving_pop_path = os.path.join(os.getcwd(), 'data', 'nhgis0037_csv', 'nhgis0037_ds244_20195_blck_grp.csv')
+bg_pop_path = os.path.join(os.getcwd(), 'data', 'bg_ca_19', 'blockgroup_pop_CA_19.csv')
+
+driving_pop_df_raw = pd.read_csv(driving_pop_path)
+
+# get proportion of occupied housing units with no vehicle
+prop_no_car = pd.DataFrame({'GISJOIN': driving_pop_df_raw['GISJOIN'],
+             'prop_no_car': (driving_pop_df_raw['AL0NE003'] + driving_pop_df_raw['AL0NE010'])/driving_pop_df_raw['AL0NE001']})
+
+bg_pop_df_raw = pd.DataFrame(pd.read_csv(bg_pop_path))
+
+no_car_df = bg_pop_df_raw.merge(prop_no_car, on = 'GISJOIN')
+no_car_df['POP_no_car'] = no_car_df['POP']*no_car_df['prop_no_car']
+no_car_df = no_car_df[['GISJOIN', 'POP_no_car']]
+
+no_car_pop_dict = {}
+
+for i in range(len(no_car_df)):
+
+    cengeo = no_car_df.iloc[i].loc['GISJOIN']
+    pop = no_car_df.iloc[i].loc['POP_no_car']
+
+    no_car_pop_dict[cengeo] = pop
+
+blockgroup_no_car_pop_dict = no_car_pop_dict
+
+# ### Walkability scores by block group
+walkability_path = os.path.join(os.getcwd(), 'data', 'EPA_SmartLocationDatabase_V3_Jan_2021_Final.csv')
+walkability_df_raw = pd.read_csv(walkability_path, dtype = {'GEOID10': str})
+
+walkability_df = pd.DataFrame(walkability_df_raw.loc[walkability_df_raw['STATEFP'] == 6])
+
+# Form correct GEOID
+GISJOIN = 'G' + walkability_df['STATEFP'].astype(str).str.rjust(2, '0') + '0' +\
+walkability_df['COUNTYFP'].astype(str).str.rjust(3, '0') + '0' +\
+walkability_df['TRACTCE'].astype(str).str.rjust(6, '0') +\
+walkability_df['BLKGRPCE'].astype(str).str.rjust(1, '0')
+
+walkability_df['GISJOIN'] = GISJOIN
+
+walkability_df = walkability_df[['GISJOIN', 'NatWalkInd']]
+
+walkability_dict = {}
+
+for i in range(len(walkability_df)):
+
+    cengeo = walkability_df.iloc[i].loc['GISJOIN']
+    walkability = walkability_df.iloc[i].loc['NatWalkInd']
+
+    walkability_dict[cengeo] = walkability
+
+blockgroup_walkability_dict = walkability_dict
