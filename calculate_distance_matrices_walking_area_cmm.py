@@ -59,16 +59,27 @@ wilmington_gdf = gpd.read_file(wilmington_path)
 wilmington_gdf['geometry'] = wilmington_gdf['geometry'].unary_union
 del wilmington_gdf['OBJECTID']
 
+# Building Richmond shapefiles
+richmond_path = os.path.join(os.getcwd(), 'data', 'California_cities', 'Cities2015.shp')
+richmond_gdf = gpd.read_file(richmond_path)
+richmond_gdf = richmond_gdf.loc[richmond_gdf['NAME'] == "Richmond"].dissolve()
+richmond_gdf['geometry'] = richmond_gdf['geometry'].unary_union
+
+richmond_gdf = richmond_gdf.rename(columns={"NAME":"name"}).iloc[:, [1,0]]
 
 # names of areas of interest
-ca_areas = ['Wilmington']
+#ca_areas = ['Wilmington']
+ca_areas = ['Richmond']
 
 # dataset of area name, geometry column
-gdf = wilmington_gdf
+#gdf = wilmington_gdf
+gdf = richmond_gdf
 
 area_graph_buffer = 0.1 # Add on this distance to get street nodes/edges from neighboring counties too.
 # county = 'Contra Costa';county_fips = '013'
-area = 'Wilmington'
+#area = 'Wilmington'
+#area = 'Richmond'
+
 for area in ca_areas:
     output_area = area.lower().replace(' ', '')
     output_file_name = os.path.join(os.getcwd(), 'data', 'distance_matrices', 'distmatrix_walk_' + output_area + '.csv')
