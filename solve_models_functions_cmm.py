@@ -23,6 +23,7 @@ import plotly.express as px
 import shapely
 import folium
 import plotly.graph_objects as go # or plotly.express as px
+import seaborn as sns
 
 from data_cleaning_cmm import (blockgroup_pop_dict, blockgroup_walkability_dict, blockgroup_no_car_pop_dict, bg_ces_dict,
                                dist_to_site_contra_costa_df, dist_to_site_contra_costa_dict,
@@ -229,3 +230,18 @@ def boxplot_characteristics(list_bg_ids, data, group_names, characteristic):
     plt.boxplot(list_x, labels = group_names);
     plt.ylabel(characteristic)
     return(plt)
+
+# function that takes an array of arrays of block group ids, data (from CES), group names,
+# and a desired characteristic and creates a histogram
+def histogram_characteristics(list_bg_ids, data, group_names, characteristic):
+    list_x = pd.DataFrame(columns = [characteristic, 'Key'])
+    # create x values for plot
+    for i in np.arange(len(list_bg_ids)):
+        to_append = pd.DataFrame({characteristic: (retrieve_characteristics(list_bg_ids[i], data, characteristic)),
+                              'Key': [group_names[i]]*len(list_bg_ids[i])})
+        list_x = pd.concat([list_x, to_append])
+    list_x.reset_index(level=0, inplace=True)
+    fig = sns.kdeplot(x = list_x[characteristic],
+                  hue = list_x['Key'],
+                  common_norm = True)
+    sns.move_legend(fig, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
