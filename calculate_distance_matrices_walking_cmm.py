@@ -28,7 +28,7 @@ county_gdf = gpd.read_file(os.path.join("data","cb_2018_us_county_500k.zip"))
 county_gdf = county_gdf[county_gdf["STATEFP"]=='06'] #Just california
 
 ca_albers_nad83 = 'NAD_1983_California_Teale_Albers_FtUS'
-nad83 = 'EPSG:4629'
+nad83 = 'EPSG:4269'
 wgs84 = 'EPSG:4326'
 
 # Building candidate sites GeoDataFrame
@@ -69,11 +69,11 @@ ca_counties = {ca_county_names[i]:ca_county_fips[i] for i in range(len(ca_county
 ca_counties_subset = [ \
                         # 'Alameda', 'Alpine', 'Amador', 'Butte',
                         # 'Calaveras', 'Colusa',
-                        # 'Contra Costa',
+                        'Contra Costa',
                         # 'Del Norte', 'El Dorado', 'Fresno', 'Glenn',
                         # 'Humboldt', 'Imperial', 'Inyo',
                         # 'Kern', 'Kings', 'Lake', 'Lassen',
-                        'Los Angeles',
+                        # 'Los Angeles',
                         # 'Madera', 'Marin', 'Mariposa',
                         # 'Mendocino', 'Merced', 'Modoc', 'Mono',
                         # 'Monterey', 'Napa', 'Nevada', 'Orange',
@@ -84,9 +84,8 @@ ca_counties_subset = [ \
                         # 'Tuolumne','Ventura', 'Yolo', 'Yuba'
                         ]
 ca_counties = {county: ca_counties[county] for county in ca_counties_subset}
-
 county_graph_buffer = 0.1 # Add on this distance to get street nodes/edges from neighboring counties too.
-# county = 'Contra Costa';county_fips = '013'
+county = 'Contra Costa';county_fips = '013'
 
 for county, county_fips in ca_counties.items():
     output_county = county.lower().replace(' ', '')
