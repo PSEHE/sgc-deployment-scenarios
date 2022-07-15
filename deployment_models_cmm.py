@@ -243,7 +243,8 @@ def constrain_maximum_agg_distance(model,max_agg_distance):
 
 def add_demand_maximization_objective(model,max_distance = 10000000):
 	##### DEFINE OBJECTIVE
-	model.max_coverage = Objective(expr = sum(model.var_prop_bg_at_site[pair]*model.param_bg_pop[pair[0]] for pair in model.idx_bg_site_pairs if model.param_bg_site_dist[pair]<=max_distance), sense = maximize)
+	model.max_coverage = Objective(expr = sum(model.var_prop_bg_at_site[pair]*\
+	model.param_bg_pop[pair[0]] for pair in model.idx_bg_site_pairs if model.param_bg_site_dist[pair]<=max_distance), sense = maximize)
 	return model
 
 def add_cost_minimzation_objective(model):

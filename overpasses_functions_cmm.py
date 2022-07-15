@@ -24,8 +24,6 @@ overpass_gdf = gpd.read_file(overpass_path)
 # Long: ‎-122.324085
 overpass_gdf = overpass_gdf.loc[overpass_gdf['OBJECTID'] == 2747]
 G = ox.graph_from_point((37.937009, -122.326022), dist = 250, network_type = 'walk')
-ox.plot_graph(G)
-ox.plot_graph(G_delete)
 
 G.graph["crs"]
 # Function to delete edges within "dist" meters of point given by latitude,
@@ -50,7 +48,7 @@ def delete_edges(latitude, longitude, dist, graph, show_graph = False):
     graph_proj = ox.project_graph(graph_proj, G.graph["crs"])
     return graph_proj
 
-G_delete = delete_edges(37.937009, -122.326022, 160.934, G, True)
+G_delete = delete_edges(37.937009, -122.326022, 15, G, True)
 
 # DATASET OF ALL NOT DESIRED OVERPASSES IN RICHMOND
 nad83 = 'EPSG:4269'
@@ -63,11 +61,9 @@ interstate_names = ['INTERSTATE 580', 'I 580 EB', 'I 580 WB','INTERSTATE ROUTE 5
 overpass_richmond = overpass_gdf.loc[overpass_gdf['FAC'].isin(interstate_names) | overpass_gdf['INTERSEC'].isin(interstate_names)]
 overpass_richmond_gdf = gpd.GeoDataFrame(overpass_richmond, geometry=gpd.points_from_xy(overpass_richmond.LON, overpass_richmond.LAT))
 
-overpass_richmond_gdf
 #overpass_richmond_gdf = overpass_richmond_gdf.to_crs(nad83)
 # load Richmond data
 # Building Richmond shapefiles
-richmond_gdf.crs
 
 area_graph_buffer = .1
 richmond_path = os.path.join(os.getcwd(), 'data', 'California_cities', 'Cities2015.shp')
@@ -76,16 +72,32 @@ richmond_gdf = richmond_gdf.loc[richmond_gdf['NAME'] == "Richmond"].dissolve()
 richmond_gdf['geometry'] = richmond_gdf['geometry'].unary_union
 
 richmond_gdf = richmond_gdf.rename(columns={"NAME":"name"}).iloc[:, [1,0]]
-# richmond_gdf = richmond_gdf.to_crs(projected) #transform from nad83 (4269) to 3857 
+# richmond_gdf = richmond_gdf.to_crs(projected) #transform from nad83 (4269) to 3857
 # (commented because the units get changed)
 richmond_gdf['geometry'] = richmond_gdf.buffer(area_graph_buffer)
 richmond_gdf = richmond_gdf.to_crs(nad83) #transform back
 
-richmond_gdf['geometry'].unary_union
-
-overpass_richmond_gdf['in_richmond'] = overpass_richmond_gdf.within(richmond_gdf.unary_union)
-in_richmond = overpass_richmond_gdf.loc[overpass_richmond_gdf['in_richmond']==True]
-
 # intersect Richmond with overpass data
+overpass_richmond_gdf['in_richmond'] = overpass_richmond_gdf.within(richmond_gdf.unary_union)
+
+in_richmond = overpass_richmond_gdf.loc[overpass_richmond_gdf['in_richmond']==True]
+in_richmond = in_richmond[['LAT', 'LON', 'NAME', 'FAC', 'INTERSEC']]
+
+# load Richmond walking graph and filter out all overpasses with 15 m buffer
+# load graph
+
+area = 'richmond'
+graph = ox.load_graphml(os.path.join(os.getcwd(), 'data', 'graphs', 'graph_walk_' + area + '.graphml'))
+graph_deleted = graph
+
+head_in_richmond = in_richmond.iloc[[5, 6]]
+for index, overpass in head_in_richmond.iterrows():
+    graph_deleted = delete_edges(overpass['LAT'], overpass['LON'], 15, graph_deleted, False)
+
+# function that takes a graph and dataset with 'LAT' and 'LON' columns, and
+# takes out all edges of the graph within 'buffer' meters of all 'LAT' 'LON'
+# points, and returns the edited graph
+def take_out_overpasses(graph, overpasses, buffer)
+
 
 # DATASET OF ALL NOT DESIRED OVERPASSES IN WILMINGTON
