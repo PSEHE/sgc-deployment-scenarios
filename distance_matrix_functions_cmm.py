@@ -54,8 +54,16 @@ def get_county_drive_graph_from_polygon(polygon, in_crs):
     return graph
 
 # Get the graph from OSM using a GIS polygon
-def get_county_walk_graph_from_polygon(polygon, in_crs):
-    graph_raw = ox.graph_from_polygon(polygon, network_type = 'walk', simplify = True)
+def get_county_walk_graph_from_polygon(polygon, in_crs, cf = False, simplify = True):
+    if (cf == False):
+        print("No custom filter")
+        graph_raw = ox.graph_from_polygon(polygon, network_type = 'walk', simplify = simplify)
+    else:
+        print("Custom filter")
+        cf = ('''["highway"]["area"!~"yes"]["access"!~"private"]
+                ["highway"~"pedestrian|living_street|tertiary|secondary|primary|residential"]
+                ["service"!~"private"]{}''').format(ox.settings.default_access)
+        graph_raw = ox.graph_from_polygon(polygon, custom_filter=cf, simplify = simplify)
     graph = ox.project_graph(graph_raw, to_crs = in_crs)
     graph = ox.speed.add_edge_speeds(graph)
     graph = ox.speed.add_edge_travel_times(graph)

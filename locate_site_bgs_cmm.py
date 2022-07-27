@@ -30,6 +30,6 @@ bgs_path = os.path.join(os.getcwd(), 'data', 'bg_ca_19', 'shp', 'blockgroup_CA_1
 bgs_gdf = gpd.read_file(bgs_path)
 bgs_gdf = bgs_gdf.to_crs(sites_gdf.crs)
 
-sites_in_bgs = gpd.tools.sjoin(sites_gdf, bgs_gdf, predicate="within", how='left')
+sites_in_bgs = gpd.tools.sjoin(sites_gdf, bgs_gdf, predicate="within", how='inner')
 
-sites_bgs_dict = dict(zip(sites_in_bgs.id_site, sites_in_bgs.GISJOIN))
+sites_bgs_dict = dict(zip(sites_in_bgs['id_site'], sites_in_bgs['GISJOIN']))

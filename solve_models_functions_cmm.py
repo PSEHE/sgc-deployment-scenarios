@@ -38,7 +38,7 @@ import importlib
 importlib.reload(deployment_models_cmm)
 
 # Demand maximization s/t budget, with optional distance, CES score incorporation, and use of the walking population rather than total population
-def model_pop_served_max(dist_to_site_df, max_cost, max_distance = 10000000, CES = False, walk_pop = False):
+def model_pop_served_max(dist_to_site_df, max_cost, max_distance = 10000000, CES = False, walk_pop = False, hub_distance = False):
     # Set up base model
     #     # Set up base model
     #     model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
@@ -59,6 +59,9 @@ def model_pop_served_max(dist_to_site_df, max_cost, max_distance = 10000000, CES
     else:
         model_dict[model_key] = deployment_models_cmm.add_weighted_demand_maximization_objective(model_dict[model_key], max_distance)
 
+    if hub_distance == True:
+        model_dict[model_key] = deployment_models_cmm.constrain_hub_distance(model_dict[model_key])
+        
     results = SolverFactory('gurobi').solve(model_dict[model_key])
 
     var_hub_yn, var_bg_pop, var_prop_served, var_distance_matrix = deployment_models_cmm.get_variables_from_model(model_dict[model_key])
@@ -285,3 +288,38 @@ def histogram_characteristics(list_bg_ids, data, group_names, characteristic):
                   hue = list_x['Key'],
                   common_norm = True)
     sns.move_legend(fig, bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+
+# Scale walkability scores in a hub id:walkability dictionary to be between .5 and 1.5,
+# then scale distance matrix distances by the scaled walkability scores of the sites
+# Formula:
+# Normalize score between .5 and 1.5,
+# with .5 being scores that are higher and
+# 1.5 being scores that are lower
+# .5 + (s-1) * (1.5-.5) / (20 - 1)
+def scale_walkability(walkability_dict, dist_matrix):
+    walkability_dict.update({ k: (.5 + ((21 - v) - 1) * (1.5-.5) / (20 - 1))  for (k,v) in walkability_dict.items()})
+
+    for site in dist_matrix.columns:
+         dist_matrix[site] = walkability_dict[site] * dist_matrix[site]
+    return dist_matrix
+
+# Function that takes an array of yes/no hub built model outcomes, names array of these
+# model types for plotting, and the desired title of the plot, and plots histogram
+# of built resilience hub capacities
+def plot_capacity(data, names, title):
+    for i in np.arange(len(data)):
+        data[i] = data[i].loc[data[i]['BUILT'] == 1]['CAPACITY']
+    plt.hist(data, label = names, alpha = 0.5)
+    plt.legend()
+    plt.xlabel("Hub Capacity")
+    plt.title(title)
+
+# Function that takes an array of yes/no hub built model outcomes, names array of these
+# model types, and gdf of sites containing columns for 'id_site' and 'cat_site', and
+# prints the distribution of site types of built hubs
+def type_dist(data, names, sites):
+    for i in np.arange(len(data)):
+        indices = data[i].loc[data[i]['BUILT']==1].index
+        print("\n", names[i])
+        print(sites[sites['id_site'].isin(indices)]['cat_site'].value_counts(normalize=True))
+        #print(sites[sites['id_site'].isin(indices)]['type_site'].value_counts(normalize=True))

@@ -262,6 +262,16 @@ def constrain_total_cost(model,max_cost):
 	model.max_cost = Constraint(expr = sum(model.var_hub_yn[site]*model.param_site_cost[site] for site in model.idx_sites)<=max_cost)
 	return model
 
+# make it so that people in one block group can't go to more than
+# two different built hubs
+def constrain_hub_distance(model):
+	def limit_close_hubs(model, bg):
+		# get the number of sites used by a block group
+		sites_used = sum(model.var_prop_bg_at_site[bg, site].value !=0 for site in model.param_bg_sites_in_range[bg])
+
+		return((0, sites_used, 2)) # ensure that between 0 and 2 sites are used by the same block group
+
+	model.con_hub_distance = Constraint(model.idx_bgs, rule = limit_close_hubs)
 ##### GET RESULTS FROM SAVED MODEL
 
 def get_variables_from_model(model):
