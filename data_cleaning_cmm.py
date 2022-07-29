@@ -98,6 +98,15 @@ for cengeo in dist_to_site_contra_costa_walk_df.index:
         if dist_to_site_contra_costa_walk_df.loc[cengeo, hub] == dist_to_site_contra_costa_walk_df.loc[cengeo, hub]:
             dist_to_site_contra_costa_walk_dict[tuple([cengeo, hub])] = dist_to_site_contra_costa_walk_df.loc[cengeo, hub]
 
+dist_to_site_contra_costa_walk_cf_df = pd.read_csv('data/distance_matrices/distmatrix_walk_cfcontracosta.csv',index_col = 0)
+
+dist_to_site_contra_costa_walk_cf_dict = {}
+
+for cengeo in dist_to_site_contra_costa_walk_cf_df.index:
+    for hub in dist_to_site_contra_costa_walk_cf_df.columns:
+        if dist_to_site_contra_costa_walk_cf_df.loc[cengeo, hub] == dist_to_site_contra_costa_walk_cf_df.loc[cengeo, hub]:
+            dist_to_site_contra_costa_walk_cf_dict[tuple([cengeo, hub])] = dist_to_site_contra_costa_walk_cf_df.loc[cengeo, hub]
+
 dist_to_site_richmond_df = pd.read_csv('data/distance_matrices/distmatrix_richmond.csv',index_col = 0)
 
 dist_to_site_richmond_dict = {}

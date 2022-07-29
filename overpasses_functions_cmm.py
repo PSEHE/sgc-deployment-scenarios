@@ -16,8 +16,15 @@ import os
 
 import warnings
 
-
 from distance_matrix_functions_cmm import *
+from shapely import validation
+
+nad83 = 'EPSG:4269'
+wgs84 = 'EPSG:4326'
+#projected = 'EPSG:3857'
+projected = 'EPSG:32610'
+
+# Contra Costa Buffer
 county_gdf = gpd.read_file(os.path.join("data","cb_2018_us_county_500k.zip"))
 county_gdf = county_gdf[county_gdf["STATEFP"]=='06'] #Just california
 county_graph_buffer = 0.1 # Add on this distance to get street nodes/edges from neighboring counties too.
@@ -25,27 +32,98 @@ county = 'Contra Costa';county_fips = '013'
 county_bbox = county_gdf.loc[county_gdf["COUNTYFP"]==county_fips,'geometry'].to_crs('EPSG:4326').unary_union
 county_bbox_buffered = county_bbox.buffer(county_graph_buffer)
 
+# Extract motorways
 motorway_cf = ('''["highway"]["area"!~"yes"]["access"!~"private"]
-        ["highway"~"motorway"]
+        ["highway"~"motorway"]["highway"!~"motorway_link"]
         ["service"!~"private"]{}''').format(ox.settings.default_access)
 graph_raw = ox.graph_from_polygon(county_bbox_buffered, custom_filter=motorway_cf, simplify = True) # extract graph of motorways only
-graph = ox.project_graph(graph_raw, to_crs = 'EPSG:4326')
+graph = ox.project_graph(graph_raw, to_crs = nad83)
 highways = ox.graph_to_gdfs(graph, nodes = False)
 
 highways_buffer = highways.to_crs(projected).geometry.buffer(15) # 15 m buffer around highways
 highways_buffer = highways_buffer.to_crs('EPSG:4326')
+
+# highways are correct here
 highways_buffer_union = highways_buffer.unary_union
-county_bbox_buffered = county_bbox_buffered.difference(highways_buffer_union) # take out all highways from graph
+
+#shapely.geometry.Polygon(highways_buffer_union.exterior)
+county_bbox_buffered2 = county_bbox_buffered.difference(highways_buffer_union) # take out all highways from graph
+
+# plot shows the interior polygon that is fully formed from holes and makes the code not work later
+for geom in county_bbox_buffered2.geoms:
+    plt.plot(*geom.exterior.xy)
+list(county_bbox_buffered2.geoms)
+
+# Set (current) axis to be equal before showing plot
+plt.gca().axis("equal")
+plt.show()
+
+# This polygon ends up not being valid, but otherwise I think it would work
+county_bbox_buffered3 = shapely.geometry.Polygon(county_bbox_buffered.exterior.coords, [inner.exterior.coords for inner in highways_buffer])
+county_bbox_buffered3
+shapely.validation.explain_validity(county_bbox_buffered3)
+
+# Shows the exterior problem -- gets rid of an interior highway, and (when joined to the county) gets rid of the middle section
+highways_buffer_union.exterior
+shapely.geometry.Polygon(county_bbox_buffered.exterior.coords, [highways_buffer_union.exterior.coords])
+
+# trying to make a valid polygon
+valid_county_bbox_buffered = shapely.validation.make_valid(county_bbox_buffered3)
+type(valid_county_bbox_buffered)
+# polygon is so long that creating graph from it takes an extremely long time
+len(valid_county_bbox_buffered)
+
 
 cf = ('''["highway"]["area"!~"yes"]["access"!~"private"]
         ["highway"~"pedestrian|living_street|tertiary|secondary|primary|residential"]
         ["service"!~"private"]{}''').format(ox.settings.default_access)
-graph = get_county_walk_graph_from_polygon(county_bbox_buffered, nad83, cf = True, simplify = False) # do not simplify when intersecting with highways
+graph = get_county_walk_graph_from_polygon(valid_county_bbox_buffered, nad83, cf = True, simplify = False) # do not simplify when intersecting with highways (so that overpasses do get taken out)
 graph_s=ox.simplification.simplify_graph(graph)
 
+# Graphs to check whether overpasses were successfully taken out
 bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
-ox.plot_graph(graph_s, node_size = 0, bbox = bbox)
+ox.plot_graph(graph, node_size = 0, bbox = bbox)
 
+bbox = ox.utils_geo.bbox_from_point((37.92355, -122.36079), dist=2000)
+ox.plot_graph(graph, node_size = 0, bbox = bbox)
+
+# SECTION ON TAKING OUT RICHMOND OVERPASSES ONLY
+richmond_path = os.path.join(os.getcwd(), 'data', 'California_cities', 'Cities2015.shp')
+richmond_gdf = gpd.read_file(richmond_path)
+richmond_gdf = richmond_gdf.loc[richmond_gdf['NAME'] == "Richmond"].dissolve()
+richmond_gdf['geometry'] = richmond_gdf['geometry'].unary_union
+
+motorway_cf = ('''["highway"]["area"!~"yes"]["access"!~"private"]
+        ["highway"~"motorway"]["highway"!~"motorway_link"]
+        ["service"!~"private"]{}''').format(ox.settings.default_access)
+richmond_gdf = richmond_gdf.rename(columns={"NAME":"name"}).iloc[:, [1,0]]
+richmond_gdf = richmond_gdf.to_crs('EPSG:4326')
+richmond = richmond_gdf.unary_union
+richmond = richmond.buffer(county_graph_buffer)
+
+graph_raw = ox.graph_from_polygon(richmond, custom_filter=motorway_cf, simplify = False) # extract graph of motorways only
+graph = ox.project_graph(graph_raw, to_crs = nad83)
+highways = ox.graph_to_gdfs(graph, nodes = False)
+
+highways_buffer = highways.to_crs(projected).geometry.buffer(30) # 15 m buffer around highways
+highways_buffer = highways_buffer.to_crs('EPSG:4326')
+# highways are correct here
+highways_buffer_union = highways_buffer.unary_union
+
+difference = county_bbox_buffered.difference(highways_buffer_union) # take out all highways from graph
+cf = ('''["highway"]["area"!~"yes"]["access"!~"private"]
+        ["highway"~"pedestrian|living_street|tertiary|secondary|primary|residential"]
+        ["service"!~"private"]{}''').format(ox.settings.default_access)
+graph = get_county_walk_graph_from_polygon(difference, nad83, cf = True, simplify = False) # do not simplify when intersecting with highways (so that overpasses do get taken out)
+graph_s=ox.simplification.simplify_graph(graph)
+
+# Graphs to check whether overpasses were successfully taken out
+bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
+ox.plot_graph(graph, node_size = 0, bbox = bbox)
+
+bbox = ox.utils_geo.bbox_from_point((37.92355, -122.36079), dist=2000)
+ox.plot_graph(graph, node_size = 0, bbox = bbox)
+## EXTRA CODE/DEPRECATED
 # overpass_path = os.path.join(os.getcwd(), 'data', 'State_Highway_Bridges', 'State_Highway_Bridges.shp')
 # overpass_gdf = gpd.read_file(overpass_path)
 #
@@ -175,73 +253,73 @@ ox.plot_graph(graph_s, node_size = 0, bbox = bbox)
 #merged_multiline = shapely.ops.linemerge(multiline)
 
 #highways_buffer = merged_multiline.to_crs(projected).geometry.buffer(15)
-
-highways_buffer = highways.to_crs(projected).geometry.buffer(25) # 15 m buffer around highways
-highways_buffer = highways_buffer.to_crs(nad83)
-highways_buffer_union = highways_buffer.unary_union
-county_bbox_buffered = county_bbox_buffered.difference(highways_buffer_union) # take out all highways from graph
-
-county_graph = get_county_walk_graph_from_polygon(county_bbox_buffered, nad83, cf = True)
-
-bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
-ox.plot_graph(county_graph, node_size = 0, bbox = bbox)
-
-
-# section where I just try to get overpasses in this region taken out of the graph
-bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
-graph_raw_bbox = ox.graph_from_bbox(bbox[0], bbox[1], bbox[2], bbox[3], custom_filter=motorway_cf, simplify = True) # extract graph of motorways only
-graph = ox.project_graph(graph_raw_bbox, to_crs = nad83)
-highways = ox.graph_to_gdfs(graph, nodes = False)
-
-highways_buffer = highways.to_crs(projected).geometry.buffer(25) # 15 m buffer around highways
-highways_buffer = highways_buffer.to_crs(nad83)
-#highways_buffer = highways_buffer.to_crs('EPSG:4326')
-highways_buffer_union = shapely.ops.unary_union(highways_buffer)
-
-big_buffer = highways.to_crs(projected).geometry.buffer(1000) # 15 m buffer around highways
-big_buffer = big_buffer.to_crs(nad83)
-#big_buffer = big_buffer.to_crs('EPSG:4326')
-big_buffer_union = shapely.ops.unary_union(big_buffer)
-
-difference = big_buffer_union.difference(highways_buffer_union)
-
-
-
-
-# Try to figure out how to make the polygon just outer and inner
-p = shapely.geometry.Polygon(big_buffer_union.exterior.coords, [highways_buffer_union.exterior.coords])
-
-# graph difference on larger plot
-# Plot each polygon shape directly
-for geom in difference.geoms:
-    plt.plot(*geom.exterior.xy)
-list(difference.geoms)[0]
-
-# Set (current) axis to be equal before showing plot
-plt.gca().axis("equal")
-plt.show()
-
-# graph highways buffer union on a larger plot
-plt.plot(*highways_buffer_union.exterior.xy)
-plt.gca().axis("equal")
-plt.show()
-
-
-#county_graph = get_county_walk_graph_from_polygon(difference, nad83, cf = True)
-#county_graph = get_county_walk_graph_from_polygon(p, nad83, cf = True)
-#ounty_graph = get_county_walk_graph_from_polygon(big_buffer_union, nad83, cf = True)
-cf = ('''["highway"]["area"!~"yes"]["access"!~"private"]
-        ["highway"~"pedestrian|living_street|tertiary|secondary|primary|residential"]
-        ["service"!~"private"]{}''').format(ox.settings.default_access)
-graph_over = ox.graph_from_polygon(difference, network_type = 'walk', custom_filter = cf, simplify = False)
-graph_raw = ox.graph_from_polygon(polygon, network_type = 'walk', custom_filter = cf, simplify = True)
-graph_over_s=ox.simplification.simplify_graph(graph_over)
-
-bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
-ox.plot_graph(graph_over_s, node_size = 0, bbox = bbox)
-
-ox.plot_graph(county_graph, node_size = 0, bbox = bbox)
-ox.plot_graph(ounty_graph, node_size = 0, bbox = bbox)
+#
+# highways_buffer = highways.to_crs(projected).geometry.buffer(25) # 15 m buffer around highways
+# highways_buffer = highways_buffer.to_crs(nad83)
+# highways_buffer_union = highways_buffer.unary_union
+# county_bbox_buffered = county_bbox_buffered.difference(highways_buffer_union) # take out all highways from graph
+#
+# county_graph = get_county_walk_graph_from_polygon(county_bbox_buffered, nad83, cf = True)
+#
+# bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
+# ox.plot_graph(county_graph, node_size = 0, bbox = bbox)
+#
+#
+# # section where I just try to get overpasses in this region taken out of the graph
+# bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
+# graph_raw_bbox = ox.graph_from_bbox(bbox[0], bbox[1], bbox[2], bbox[3], custom_filter=motorway_cf, simplify = True) # extract graph of motorways only
+# graph = ox.project_graph(graph_raw_bbox, to_crs = nad83)
+# highways = ox.graph_to_gdfs(graph, nodes = False)
+#
+# highways_buffer = highways.to_crs(projected).geometry.buffer(25) # 15 m buffer around highways
+# highways_buffer = highways_buffer.to_crs(nad83)
+# #highways_buffer = highways_buffer.to_crs('EPSG:4326')
+# highways_buffer_union = shapely.ops.unary_union(highways_buffer)
+#
+# big_buffer = highways.to_crs(projected).geometry.buffer(1000) # 15 m buffer around highways
+# big_buffer = big_buffer.to_crs(nad83)
+# #big_buffer = big_buffer.to_crs('EPSG:4326')
+# big_buffer_union = shapely.ops.unary_union(big_buffer)
+#
+# difference = big_buffer_union.difference(highways_buffer_union)
+#
+#
+#
+#
+# # Try to figure out how to make the polygon just outer and inner
+# p = shapely.geometry.Polygon(big_buffer_union.exterior.coords, [highways_buffer_union.exterior.coords])
+#
+# # graph difference on larger plot
+# # Plot each polygon shape directly
+# for geom in difference.geoms:
+#     plt.plot(*geom.exterior.xy)
+# list(difference.geoms)[0]
+#
+# # Set (current) axis to be equal before showing plot
+# plt.gca().axis("equal")
+# plt.show()
+#
+# # graph highways buffer union on a larger plot
+# plt.plot(*highways_buffer_union.exterior.xy)
+# plt.gca().axis("equal")
+# plt.show()
+#
+#
+# #county_graph = get_county_walk_graph_from_polygon(difference, nad83, cf = True)
+# #county_graph = get_county_walk_graph_from_polygon(p, nad83, cf = True)
+# #ounty_graph = get_county_walk_graph_from_polygon(big_buffer_union, nad83, cf = True)
+# cf = ('''["highway"]["area"!~"yes"]["access"!~"private"]
+#         ["highway"~"pedestrian|living_street|tertiary|secondary|primary|residential"]
+#         ["service"!~"private"]{}''').format(ox.settings.default_access)
+# graph_over = ox.graph_from_polygon(difference, network_type = 'walk', custom_filter = cf, simplify = False)
+# graph_raw = ox.graph_from_polygon(polygon, network_type = 'walk', custom_filter = cf, simplify = True)
+# graph_over_s=ox.simplification.simplify_graph(graph_over)
+#
+# bbox = ox.utils_geo.bbox_from_point((37.9327, -122.32577), dist=2000)
+# ox.plot_graph(graph_over_s, node_size = 0, bbox = bbox)
+#
+# ox.plot_graph(county_graph, node_size = 0, bbox = bbox)
+# ox.plot_graph(ounty_graph, node_size = 0, bbox = bbox)
 #overpass_richmond_gdf = overpass_richmond_gdf.to_crs(nad83)
 # load Richmond data
 # Building Richmond shapefiles
