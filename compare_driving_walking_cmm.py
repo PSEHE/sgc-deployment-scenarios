@@ -35,17 +35,32 @@ walk_csv = pd.read_csv(r'data/distance_matrices/distmatrix_walk_contracosta.csv'
 walk_csv.index.names = [None]
 drive_csv = pd.read_csv(r'data/distance_matrices/distmatrix_contracosta.csv').set_index('Unnamed: 0')
 drive_csv.index.names = [None]
+#walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cfcontracosta.csv').set_index('Unnamed: 0')
+#walk_csv_edited.index.names = [None]
+walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cf_overpasses_contracosta.csv').set_index('Unnamed: 0')
+walk_csv_edited.index.names = [None]
 
-# Calculate the number of differences
+# Calculate the number of differences (walking vs driving)
 walk_tf = walk_csv.notna()
 drive_tf = drive_csv.notna()
 (~walk_tf.eq(drive_tf)).sum().sum()
 
-# Graph sparse matrices
+# Graph sparse matrices (walking vs driving)
 drive_sparse = drive_csv.fillna(0)
 walk_sparse = walk_csv.fillna(0)
 plt.spy(walk_sparse)
 plt.spy(drive_sparse)
+
+# Calculate the number of differences (walking vs custom filter + overpass take out)
+walk_tf = walk_csv.notna()
+walk_cf_tf = walk_csv_edited.notna()
+(~walk_tf.eq(walk_cf_tf)).sum().sum()
+
+# Graph sparse matrices (walking vs custom filter)
+walk_cf_sparse = walk_csv_edited.fillna(0)
+walk_sparse = walk_csv.fillna(0)
+plt.spy(walk_sparse)
+plt.spy(walk_cf_sparse)
 
 # Graph distances walking vs driving
 fig = plt.figure()
@@ -58,11 +73,25 @@ plt.ylim(0, 25)
 plt.plot(range(25), color = 'black')
 plt.show()
 
+
+# Graph distances walking vs walking (cf)
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.scatter(walk_csv,walk_csv_edited)
+plt.xlabel("Walking Distance")
+plt.ylabel("Walking (Custom Filter + No Underpasses) Distance")
+plt.xlim(0, 25)
+plt.ylim(0, 25)
+plt.plot(range(25), color = 'black')
+plt.show()
+
 # Investigate a long driving distance/short walking distance point
 # load graphs
 county = 'contracosta'
 drive = ox.load_graphml(os.path.join(os.getcwd(), 'data/graphs/graph_' + county + '.graphml'))
 walk = ox.load_graphml(os.path.join(os.getcwd(), 'data', 'graphs', 'graph_walk_' + county + '.graphml'))
+cf = ox.load_graphml(os.path.join(os.getcwd(), 'data', 'graphs', 'graph_walk_cf' + county + '.graphml'))
+
 # find long driving/short walking point
 # function to return the row and column names of the nth maximum value of a matrix
 def find_max_pos(data, n):
