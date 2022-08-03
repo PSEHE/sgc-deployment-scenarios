@@ -3,11 +3,12 @@
 
 # In[1]:
 
-
+import geopandas as gpd
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import haversine as hs
 
 # ### Get site max occupancy
 
@@ -328,3 +329,47 @@ for i in range(len(walkability_df)):
     walkability_dict[cengeo] = walkability
 
 blockgroup_walkability_dict = walkability_dict
+
+# ### Wilmington walking distances (weighted average of survey responses)
+survey = pd.read_csv(r'data/survey_cleaned.csv')
+survey = pd.concat([survey, survey['geometry'].str.split(', ', expand=True).rename(columns={0:'Latitude', 1:'Longitude'})], axis = 1)
+nad83 = 'EPSG:4269'
+survey.Latitude = pd.to_numeric(survey.Latitude)
+survey.Longitude = pd.to_numeric(survey.Longitude)
+gdf = gpd.GeoDataFrame(survey, geometry=gpd.points_from_xy(survey.Longitude, survey.Latitude), crs = nad83)
+
+bgs_path = os.path.join(os.getcwd(), 'data', 'bg_ca_19', 'shp', 'blockgroup_CA_19.shp')
+bgs_gdf = gpd.read_file(bgs_path)
+bgs_gdf = bgs_gdf.to_crs(nad83)
+bgs_lons = [float(intpt) for intpt in bgs_gdf['INTPTLON']]
+bgs_lats = [float(intpt) for intpt in bgs_gdf['INTPTLAT']]
+bgs = pd.DataFrame(bgs_gdf[['GISJOIN', 'COUNTYFP']])
+bgs['LON'] = bgs_lons
+bgs['LAT'] = bgs_lats
+bgs_pt_geom = gpd.points_from_xy(x = bgs.LON,y = bgs.LAT, crs = nad83)
+bgs_pt_gdf = gpd.GeoDataFrame(bgs, geometry = bgs_pt_geom, crs = nad83)
+
+# Building Wilmington shapefile
+wilmington_path = os.path.join(os.getcwd(), 'data', 'LA_Times_Neighborhood_Boundaries', 'LA_Times_Neighborhood_Boundaries.shp')
+wilmington_gdf = gpd.read_file(wilmington_path)
+wilmington_gdf['geometry'] = wilmington_gdf['geometry'].unary_union
+del wilmington_gdf['OBJECTID']
+wilmington_shp = wilmington_gdf.unary_union
+
+bgs_area_gdf = bgs_pt_gdf.loc[bgs_pt_gdf.within(wilmington_shp)]
+
+# "Spatial interpolation": Get distances between block group centroids and all survey responses
+# then calculate distance-weighted average of the block groups
+matrix = np.zeros([len(bgs_area_gdf), len(gdf)])
+
+for i in np.arange(len(bgs_area_gdf)):
+    for j in np.arange(len(gdf)):
+        matrix[i,j] = hs.haversine((bgs_area_gdf.iloc[i]['LAT'], bgs_area_gdf.iloc[i]['LON']),(gdf.iloc[j]['Latitude'], gdf.iloc[j]['Longitude']))
+
+# each row of matrix is a block group, each column is that block group's distance to a different survey response
+avg = np.zeros([len(bgs_area_gdf)])
+
+for i in np.arange(len(bgs_area_gdf)): # go through all block groups in matrix, taking weighted average of them
+    avg[i] = np.average(survey['Distance'], weights = 1/matrix[i])
+
+survey_distance_dict = {list(bgs_area_gdf['GISJOIN'])[i]: avg[i] for i in range(len(avg))}

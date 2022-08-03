@@ -30,6 +30,7 @@ from data_cleaning_cmm import (blockgroup_pop_dict, blockgroup_walkability_dict,
                                dist_to_site_contra_costa_walk_df, dist_to_site_contra_costa_walk_dict,
                                dist_to_site_wilmington_df, dist_to_site_wilmington_dict,
                                dist_to_site_wilmington_walk_df, dist_to_site_wilmington_walk_dict,
+                               survey_distance_dict,
                            county_prop_ealp_dict, site_kw_occ_dict,
                            site_sqft_dict, site_cost_dict)
 
@@ -38,7 +39,9 @@ import importlib
 importlib.reload(deployment_models_cmm)
 
 # Demand maximization s/t budget, with optional distance, CES score incorporation, and use of the walking population rather than total population
-def model_pop_served_max(dist_to_site_df, max_cost, max_distance = 10000000, CES = False, walk_pop = False, hub_distance = False):
+def model_pop_served_max(dist_to_site_df, max_cost, max_distance = 10000000, to_build = [], CES = False, walk_pop = False):
+    dist_to_site_df[dist_to_site_df>max_distance]=np.nan #restrict matrix to not have distances farther than max distance
+
     # Set up base model
     #     # Set up base model
     #     model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
@@ -54,14 +57,45 @@ def model_pop_served_max(dist_to_site_df, max_cost, max_distance = 10000000, CES
     model_dict[model_key] = model_base.clone()
     model_dict[model_key] = deployment_models_cmm.constrain_total_cost(model_dict[model_key],max_cost)
 
+    model_dict[model_key] = deployment_models_cmm.constrain_build(model_dict[model_key], to_build)
+
     if CES == False:
         model_dict[model_key] = deployment_models_cmm.add_demand_maximization_objective(model_dict[model_key], max_distance)
     else:
         model_dict[model_key] = deployment_models_cmm.add_weighted_demand_maximization_objective(model_dict[model_key], max_distance)
 
-    if hub_distance == True:
-        model_dict[model_key] = deployment_models_cmm.constrain_hub_distance(model_dict[model_key])
-        
+    results = SolverFactory('gurobi').solve(model_dict[model_key])
+
+    var_hub_yn, var_bg_pop, var_prop_served, var_distance_matrix = deployment_models_cmm.get_variables_from_model(model_dict[model_key])
+
+    return var_hub_yn
+
+# Demand maximization s/t budget, with optional distance, CES score incorporation, and use of the walking population rather than total population
+def model_pop_served_max_survey(dist_to_site_df, max_cost, to_build = [], CES = False, walk_pop = False):
+    for index, row in dist_to_site_df.iterrows():
+        row[row>survey_distance_dict[index]]=np.nan
+    # Set up base model
+    #     # Set up base model
+    #     model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
+    #     model_dict = dict()
+    if walk_pop == False:
+        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
+    else:
+        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_no_car_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
+    model_dict = dict()
+
+    # Demand maximization objective and constraint for total cost and to meet defined proportion of total population
+    model_key = "demand_max"
+    model_dict[model_key] = model_base.clone()
+    model_dict[model_key] = deployment_models_cmm.constrain_total_cost(model_dict[model_key],max_cost)
+
+    model_dict[model_key] = deployment_models_cmm.constrain_build(model_dict[model_key], to_build)
+
+    if CES == False:
+        model_dict[model_key] = deployment_models_cmm.add_demand_maximization_objective(model_dict[model_key], 10000000)
+    else:
+        model_dict[model_key] = deployment_models_cmm.add_weighted_demand_maximization_objective(model_dict[model_key], 10000000)
+
     results = SolverFactory('gurobi').solve(model_dict[model_key])
 
     var_hub_yn, var_bg_pop, var_prop_served, var_distance_matrix = deployment_models_cmm.get_variables_from_model(model_dict[model_key])

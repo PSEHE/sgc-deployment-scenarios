@@ -199,7 +199,13 @@ def constrain_max_blockgroup_pop(model,max_blockgroup_service_fraction,max_multi
 			model.con_max_blockgroup_service_pop.add(expr = sum(model.var_prop_bg_at_site[bg, site] for bg, site in model.idx_bg_site_pairs if bg==idx_bg) <= max_blockgroup_service_fraction[idx_bg]*max_multiplier)
 		return model
 
-
+# constrain to force a build of a certain hub
+def constrain_build(model, hub_ids_to_build):
+	#model.con_build = Constraint(expr = model.var_hub_yn['407808722'] == 1)
+	model.con_build = ConstraintList()
+	for hub_id in hub_ids_to_build:
+		model.con_build.add(expr = model.var_hub_yn[hub_id] == 1)
+	return model
 
 # Prioritze CES populations
 def prioritize_CES(model,min_prop_ej,ej_cutoff):
