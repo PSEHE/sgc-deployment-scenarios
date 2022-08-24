@@ -137,8 +137,11 @@ def calculate_haversine_distances(bg_lat,bg_lon,sites_lats,sites_lons):
     R = 3958.8
 
     # convert decimal degrees to radians
-    bg_lon_c, bg_lat_c, sites_lons_c, sites_lats_c = map(radians, [bg_lon, bg_lat, sites_lons, sites_lats])
-
+    bg_lon_c = np.deg2rad([bg_lon])
+    bg_lat_c = np.deg2rad([bg_lat])
+    sites_lons_c = np.deg2rad(sites_lons)
+    sites_lats_c = np.deg2rad(sites_lats)
+    
     dlons = sites_lons_c - bg_lon_c
     dlats = sites_lats_c - bg_lat_c
 
