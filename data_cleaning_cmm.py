@@ -80,6 +80,28 @@ blockgroup_pop_dict = cengeo_pop_dict
 
 # In[4]:
 
+site_df_worst_case = pd.read_csv(os.path.join("data","ca_sites_df_worst_case_2022-06-17.csv"))
+site_kw_occ_dict_48 = dict()
+for index, row in site_df_worst_case.iterrows():
+    if row["outage_duration"] == 48:
+        site_kw_occ_dict_48[str(row["id_site"])] = row["floor_sqft"]*row["clp"]/40
+
+site_cost_dict_48 = dict()
+for index, row in site_df_worst_case.iterrows():
+    if row["outage_duration"] == 48:
+        site_cost_dict_48[str(row["id_site"])] = row["pv_cost_dollars_95"] + row["ba_cost_dollars_95"]
+
+
+site_df_wilmington = pd.read_csv(os.path.join("data","candidate_site_campuses_2021-11-17", "estimated_square_footages.csv"))
+site_df_wilmington["id_site"] = np.arange(len(site_df_wilmington))
+
+site_kw_occ_dict_wilmington = dict()
+for index, row in site_df_wilmington.iterrows():
+    site_kw_occ_dict_wilmington[str(row["id_site"])] = row["SQFT_ROOF"]/40
+
+site_cost_dict_wilmington = dict()
+for index, row in site_df_wilmington.iterrows():
+    site_cost_dict_wilmington[str(row["id_site"])] = np.median(list(site_cost_dict_48.values()))
 
 dist_to_site_contra_costa_df = pd.read_csv('data/distance_matrices/distmatrix_contracosta.csv',index_col = 0)
 
@@ -108,23 +130,15 @@ for cengeo in dist_to_site_contra_costa_walk_cf_df.index:
         if dist_to_site_contra_costa_walk_cf_df.loc[cengeo, hub] == dist_to_site_contra_costa_walk_cf_df.loc[cengeo, hub]:
             dist_to_site_contra_costa_walk_cf_dict[tuple([cengeo, hub])] = dist_to_site_contra_costa_walk_cf_df.loc[cengeo, hub]
 
-dist_to_site_richmond_df = pd.read_csv('data/distance_matrices/distmatrix_richmond.csv',index_col = 0)
+dist_to_site_contra_costa_walk_cf_transit_df = pd.read_csv('data/distance_matrices/distmatrix_walk_cf_transit_contracosta.csv',index_col = 0)
 
-dist_to_site_richmond_dict = {}
+dist_to_site_contra_costa_walk_cf_transit_dict = {}
 
-for cengeo in dist_to_site_richmond_df.index:
-    for hub in dist_to_site_richmond_df.columns:
-        if dist_to_site_richmond_df.loc[cengeo, hub] == dist_to_site_richmond_df.loc[cengeo, hub]:
-            dist_to_site_richmond_dict[tuple([cengeo, hub])] = dist_to_site_richmond_df.loc[cengeo, hub]
+for cengeo in dist_to_site_contra_costa_walk_cf_transit_df.index:
+    for hub in dist_to_site_contra_costa_walk_cf_transit_df.columns:
+        if dist_to_site_contra_costa_walk_cf_transit_df.loc[cengeo, hub] == dist_to_site_contra_costa_walk_cf_transit_df.loc[cengeo, hub]:
+            dist_to_site_contra_costa_walk_cf_transit_dict[tuple([cengeo, hub])] = dist_to_site_contra_costa_walk_cf_transit_df.loc[cengeo, hub]
 
-dist_to_site_richmond_walk_df = pd.read_csv('data/distance_matrices/distmatrix_walk_richmond.csv',index_col = 0)
-
-dist_to_site_richmond_walk_dict = {}
-
-for cengeo in dist_to_site_richmond_walk_df.index:
-    for hub in dist_to_site_richmond_walk_df.columns:
-        if dist_to_site_richmond_walk_df.loc[cengeo, hub] == dist_to_site_richmond_walk_df.loc[cengeo, hub]:
-            dist_to_site_richmond_walk_dict[tuple([cengeo, hub])] = dist_to_site_richmond_walk_df.loc[cengeo, hub]
 
 dist_to_site_wilmington_df = pd.read_csv('data/distance_matrices/distmatrix_wilmington.csv',index_col = 0)
 
@@ -143,6 +157,15 @@ for cengeo in dist_to_site_wilmington_walk_df.index:
     for hub in dist_to_site_wilmington_walk_df.columns:
         if dist_to_site_wilmington_walk_df.loc[cengeo, hub] == dist_to_site_wilmington_walk_df.loc[cengeo, hub]:
             dist_to_site_wilmington_walk_dict[tuple([cengeo, hub])] = dist_to_site_wilmington_walk_df.loc[cengeo, hub]
+
+dist_to_site_wilmington_walk_transit_df = pd.read_csv('data/distance_matrices/distmatrix_walk_transit_wilmington.csv',index_col = 0)
+
+dist_to_site_wilmington_walk_transit_dict = {}
+
+for cengeo in dist_to_site_wilmington_walk_transit_df.index:
+    for hub in dist_to_site_wilmington_walk_transit_df.columns:
+        if dist_to_site_wilmington_walk_transit_df.loc[cengeo, hub] == dist_to_site_wilmington_walk_transit_df.loc[cengeo, hub]:
+            dist_to_site_wilmington_walk_transit_dict[tuple([cengeo, hub])] = dist_to_site_wilmington_walk_transit_df.loc[cengeo, hub]
 
 # ### Get blockgroup region
 
@@ -370,6 +393,6 @@ for i in np.arange(len(bgs_area_gdf)):
 avg = np.zeros([len(bgs_area_gdf)])
 
 for i in np.arange(len(bgs_area_gdf)): # go through all block groups in matrix, taking weighted average of them
-    avg[i] = np.average(survey['Distance'], weights = 1/matrix[i])
+    avg[i] = np.average(survey['Distance'], weights = 1/(matrix[i]*matrix[i]))
 
 survey_distance_dict = {list(bgs_area_gdf['GISJOIN'])[i]: avg[i] for i in range(len(avg))}

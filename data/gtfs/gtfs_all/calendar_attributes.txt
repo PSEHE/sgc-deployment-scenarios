@@ -1,0 +1,326 @@
+service_id,service_description
+TD:74346,Berkeley/P1.5/P52 (TuTh)
+SI:74999,Daily
+PE:72835,Sunday
+PE:72836,Saturday
+PE:72837,Wednesday
+PE:76180,Monday
+PE:76181,Tuesday
+PE:76182,Thursday
+PE:76183,Friday
+UC:74964,FY22 Spring-Summer Service without School Calendar (20210212-20220911)  (Sunday only)
+UC:74965,FY22 Spring-Summer Service without School Calendar (20210212-20220911)  (Saturday only)
+UC:76872,FY22 Spring-Summer Service without School Calendar (20210212-20220911)  (Weekday)
+EM:72790,Calendar start 02.01.22 (Sunday only)
+EM:72791,Calendar start 02.01.22 (Saturday only)
+EM:72792,Calendar start 02.01.22 (Weekday)
+CE:77596,Thursday
+CE:76177,Weekday
+SS:75014,Weekday
+CT:72981,CALENDAR A (Weekend)
+CT:72982,CALENDAR A (Weekday)
+CT:77078,CALENDAR C (Weekday)
+CT:77157,CALENDAR D (Weekend)
+RV:72849,Year Round Calendar with COVID reductions (Weekday)
+SA:73343,June 2022 Weekday Schedule (Weekday)
+SA:76456,May 2022 Weekend Schedule (Weekend)
+MV:77564,Year Round Starting 01.17.22 (Weekday)
+VC:72877,Year Round starting 8/1/22 (Saturday only)
+VC:76144,Year Round starting 8/1/22 (Weekday)
+VC:76944,Year Round ending 7/31/22 (Saturday only)
+VC:76945,Year Round ending 7/31/22 (Weekday)
+CM:73306,Current Schedule (Live)  (Weekday)
+DE:72781,Weekday
+DE:77488,Weekday
+DE:77763,Weekday
+FS:72801,LOCAL August 7 2022 - January 1 2023 (Saturday only)
+FS:75720,LOCAL August 7 2022 - January 1 2023 (Weekday)
+FS:76113,Year Round Starting April 2 - LOCAL (Saturday only)
+FS:76114,Year Round Starting April 2 - LOCAL (Weekday)
+SC:77877,"Thurs, Fri"
+SC:76351,Monday
+SC:76349,"Mon, Tue, Thurs"
+SC:77865,Weekday
+SC:77823,Saturday
+SC:77869,Sunday/Holiday
+SC:77821,Weekday
+SC:77863,"Wed, Thurs"
+SC:77873,Weekday
+SC:77878,Friday
+SC:76350,"Mon, Wed, Fri"
+SC:77872,Weekday
+SC:77870,"Thurs, Fri"
+SC:77858,Wed-Fri
+SC:77888,Thursday
+SC:77880,Thursday
+SC:77881,Thursday
+SC:77868,Saturday
+SC:77884,Friday
+SC:76346,Wednesday
+SC:77780,"Mon, Tue, Thurs, Fri"
+SC:77820,"Wed, Fri"
+SC:77822,Wednesday
+SC:77864,Wed-Fri
+SC:77879,Friday
+SC:77866,Weekday
+SC:77871,Weekday
+SC:77861,Wed-Fri
+SC:77859,Weekday
+SC:77860,Saturday
+SC:77862,Wed-Fri
+SC:76347,"Mon, Tue, Wed, Fri"
+SC:77874,Friday
+SC:77824,Monday
+SC:77825,Monday
+SC:77826,"Mon, Tue, Thurs, Fri"
+SC:77827,"Tue, Thurs"
+SC:77828,"Tue, Thurs"
+SC:77829,"Wed, Fri"
+SC:77830,"Mon, Tue, Thurs"
+SC:77831,"Wed, Fri"
+SC:77832,"Mon, Wed, Fri"
+SC:77833,Weekday
+SC:77834,"Tue, Thurs"
+SC:77835,"Wed, Fri"
+SC:77836,"Mon, Tue"
+SC:77837,Weekday
+SC:77838,Weekday
+SC:77839,Friday
+SC:77840,Weekday
+SC:77841,Wed-Fri
+SC:77842,Friday
+SC:77843,Friday
+SC:77844,Weekday
+SC:77845,Wed-Fri
+SC:77846,Friday
+SC:77847,Weekday
+SC:77848,Friday
+SC:77849,Weekday
+SC:77850,Weekday
+SC:77851,"Wed, Thurs"
+SC:77852,"Tue, Wed, Fri"
+SC:77853,Weekday
+SC:77854,Weekday
+SC:77855,Weekday
+SC:77856,Weekday
+SC:77885,Weekday
+SC:77886,Weekday
+SC:77887,Weekday
+SC:72914,Weekday
+SC:77882,Friday
+SC:72915,"Mon, Tue, Thurs"
+SC:77875,Mon-Thurs
+SC:72916,"Wed, Fri"
+SC:77876,Friday
+SC:76275,"Mon, Wed, Fri"
+SC:76276,"Tue, Thurs"
+SC:76277,"Tue, Thurs"
+SC:76278,"Mon, Wed, Fri"
+SC:76279,Monday
+SC:76280,"Wed, Fri"
+SC:76352,Weekday
+SC:76281,"Mon, Tue, Thurs"
+SC:77889,Weekday
+SC:77867,Weekday
+SC:76353,"Mon, Wed, Fri"
+SC:76282,Weekday
+SC:76354,"Wed, Fri"
+SC:76283,Tue-Fri
+SC:76355,Saturday
+SC:76284,Weekday
+SC:76356,Friday
+SC:76285,"Wed, Fri"
+SC:76357,Weekday
+SC:76286,"Mon, Tue, Thurs"
+SC:76358,Weekday
+SC:76287,"Wed, Fri"
+SC:76359,"Mon, Tue, Thurs"
+SC:76288,"Mon, Tue, Thurs"
+SC:76360,Monday
+SC:76289,Weekday
+SC:76513,Monday
+SC:76290,Mon-Thurs
+SC:77739,Weekday
+SC:76291,"Wed, Fri"
+SC:77740,Weekday
+SC:76292,Weekday
+SC:77806,"Thurs, Fri"
+SC:76293,"Wed, Fri"
+SC:77807,"Thurs, Fri"
+SC:76294,"Mon, Tue, Thurs"
+SC:77808,Weekday
+SC:76295,Weekday
+SC:77883,"Wed, Thurs"
+SC:77809,Weekday
+SC:76296,Weekday
+SC:77810,Thursday
+SC:76297,"Mon, Tue, Thurs"
+SC:77811,"Mon, Tue, Thurs"
+SC:76298,Monday
+SC:77812,Sunday/Holiday
+SC:76299,Weekday
+SC:77813,Weekday
+SC:76300,Weekday
+SC:77814,Sunday
+SC:76301,"Mon, Tue, Thurs, Fri"
+SC:77815,Mon-Thurs
+SC:76302,"Mon, Tue, Thurs"
+SC:77816,Friday
+SC:76342,"Mon, Tue, Wed, Fri"
+SC:77817,"Tue, Thurs"
+SC:76343,Thursday
+SC:77818,"Mon, Wed, Fri"
+SC:76344,"Wed, Fri"
+SC:77819,"Wed, Fri"
+SC:76345,Thursday
+SC:77857,Weekday
+AC:72905,Weekday
+AC:72906,Weekday
+AC:72907,Weekday
+AC:72908,Weekday
+AC:72909,Weekday
+AC:72910,Weekday
+AC:76767,Weekday
+AC:77892,Saturday
+AC:77893,Weekday
+AC:77894,Weekday
+AC:77895,Weekday
+AC:77896,Weekday
+AC:77897,Sunday
+AC:77898,Weekday
+AC:77899,Weekday
+AC:77900,Weekday
+AC:77901,Weekday
+AC:77902,Weekday
+AC:77903,Weekday
+AC:77904,Weekday
+AC:77905,Weekday
+AC:77906,(Previous Day) Sunday
+AC:77907,(Previous Day) Weekday
+AC:77908,(Previous Day) Saturday
+GF:72813,Weekday
+GF:76504,Saturday
+GF:76707,Sunday
+GF:77599,Sunday
+GF:77600,Weekday
+GF:77601,Saturday
+BA:72953,Weekday
+BA:72954,Saturday
+BA:72955,Sunday
+BA:75396,Sunday
+BA:75397,Sunday
+BA:75398,Weekday
+BA:75724,Weekday
+BA:75725,Saturday
+BA:75726,Saturday
+BA:76312,Sunday
+BA:77724,Sunday
+SO:73086,Service Beginning 8-14-22 (Weekend)
+SO:73087,Service Beginning 8-14-22 (Sunday only)
+SO:75492,Service Beginning 8-14-22 (Saturday only)
+SO:75493,Service Beginning 8-14-22 (Weekday)
+SO:76120,Service Ending 8-13-22 (Weekend)
+SO:77388,Service Ending 8-13-22 (Sunday only)
+SO:77389,Service Ending 8-13-22 (Saturday only)
+SO:77390,Service Ending 8-13-22 (Weekday)
+SO:77570,School Trippers Beginning 8-15-22 (Weekday)
+SM:73025,Sunday
+SM:73026,Weekday
+SM:73027,Weekday
+SM:77783,Mon Tue Thu Fri
+SM:77784,Wed
+SM:77785,Thu
+SM:77786,Tue
+SM:77787,Mon Wed Thu Fri
+SM:77788,Wed Fri
+SM:77789,Mon Tue Thu
+SM:77790,Wed Thu
+SM:77791,Mon Tue Wed Fri
+SM:77792,Mon Tue Fri
+SM:77793,Saturday
+SM:77921,Weekday
+SM:77922,Weekday
+SM:77923,Mon Tue Thu Fri
+SM:77926,Wed
+SM:77927,Thu
+SM:77928,Tue
+SM:77929,Mon Wed Thu Fri
+SM:77930,Wed Fri
+SM:77931,Mon Tue Thu
+SM:77932,Wed Thu
+SM:77933,Mon Tue Wed Fri
+SM:77934,Mon Tue Fri
+WC:72889,New Express J (Weekend)
+WC:72890,New Express J (Weekday)
+WC:72891,Local - Sept 18th 2021 (Weekday)
+WC:72892,Routes 11 & 19 Saturday  (Saturday only)
+WC:72893,Lynx (Weekday)
+WC:76916,School Calendar (Wednesday only)
+WC:76917,School Calendar (Weekday)
+WC:76918,School Calendar (MTuThF)
+SF:73692,Weekday
+SF:73693,Saturday
+SF:73694,Sunday
+WH:72989,Saturday
+WH:72990,Sunday
+WH:72991,Wednesday
+WH:77698,Friday
+WH:77699,Tuesday
+WH:77700,Thursday
+WH:77798,Monday
+WH:77799,Saturday
+WH:77800,Sunday
+WH:77801,M-T-TH
+WH:77802,Saturday
+WH:77803,Sunday
+WH:77804,M-T-TH
+SB:72855,Year Round starting 11/8/21 (Weekend)
+SB:72856,Year Round starting 11/8/21 (Weekday)
+SB:75756,P41 Short Hop (Weekend)
+3D:72969,Weekday
+3D:72970,Weekday
+3D:72971,Saturday
+3D:77957,Saturday
+3D:77958,Sunday
+3D:77959,Sunday
+AF:77685,Weekend
+AF:77686,Wed-Fri
+AF:77687,Weekday
+AF:77688,Weekend
+AF:77965,Weekday
+AF:77966,Weekend
+AF:77967,Wed-Fri
+AF:77968,Weekend
+AM:72761,Weekday
+AM:75701,Weekend
+SR:73068,SATURDAY
+SR:77588,Sunday
+SR:77589,WEEKDAY
+GG:73017,Weekday
+GG:75117,Saturday
+GG:75205,Sunday
+MA:72918,Mon-Fri
+MA:76017,Thursday
+MA:76018,Wednesday
+MA:77766,Tuesday
+MA:77767,Friday
+MA:77768,Monday
+MA:77769,Sat
+MA:77770,SunHol
+MA:77771,Stage Peak Mon - Fri
+VN:73047,Year Round Starting 8/14/22 (Sunday only)
+VN:73048,Year Round Starting 8/14/22 (Saturday only)
+VN:73049,Year Round Starting 8/14/22 (Weekday)
+CC:75937,Wednesday
+CC:75938,Saturday
+CC:75939,"Mon, Tue, Thurs, Fri"
+CC:77917,Sunday
+ST:76802,Weekday
+ST:73006,Weekday
+ST:73007,Weekday
+ST:77942,Weekday
+ST:77943,Weekday
+ST:77944,Weekday
+ST:77945,Weekday
+ST:77946,Saturday
+ST:77947,Sunday

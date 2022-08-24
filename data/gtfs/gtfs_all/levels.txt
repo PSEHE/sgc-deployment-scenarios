@@ -1,0 +1,93 @@
+level_id,level_index,level_name
+mtc:powell-street,0,Street
+mtc:powell-bart-platform,-3,BART Platform
+mtc:powell-muni-platform,-2,MUNI Platform
+mtc:powell-concourse,-1,Concourse
+mtc:fruitvale-street-level,0,Fruitvale Street Level
+mtc:fruitvale-bart-level,1,Fruitvale BART Level
+mtc:caltrain-4th-&-king-street,0,Street
+mtc:ground,0,Ground
+mtc:mezzanine,1,Mezzanine
+mtc:platform,0,Platform
+mtc:san-francisco-ferry-terminal-ground,0,Ground
+mtc:el-cerrito-del-norte-bart-street,0,Street
+mtc:el-cerrito-del-norte-bart-platform,1,Platform
+mtc:walnut-creek-bart-street,0,Street
+mtc:walnut-creek-bart-platform,1,Platform
+mtc:richmond-bart/amtrak-mezzanine,-1,Richmond BART/Amtrak Mezzanine
+mtc:richmond-bart-platform,0,Richmond BART Platform
+mtc:richmond-amtrak-platform,0,Richmond Amtrak Platform
+mtc:nevin-avenue-street,0,Nevin Avenue Street
+mtc:16th-street,0,16th Street
+mtc:santa-clara-caltrain-northbound-platform,0,Northbound Platform
+mtc:macarthur-bart-street,0,Street
+mtc:macarthur-bart-platform,1,Platform
+mtc:oak-ground,0,Ground
+mtc:oak-platform,1,Platform
+mtc:vallejo-ferry-terminal-ground,0,Ground
+mtc:palo-alto-station-southbound-platform,0,Southbound Platform
+mtc:palo-alto-station-northbound-platform,0,Northbound Platform
+mtc:palo-alto-station-mitchell-tunnel,-1,Mitchell Tunnel
+mtc:palo-alto-station-north-university-tunnel,-1,North University Tunnel
+mtc:palo-alto-station-south-university-tunnel,-1,South University Tunnel
+mtc:san-rafael-transit-center-street,0,Street
+mtc:sjc-terminal-a,0,Terminal A
+mtc:sjc-terminal-b,0,Terminal B
+mtc:millbrae-bart-west-plaza-&-platform-5,0,West Plaza & Platform 5
+mtc:millbrae-bart-platform-1-&-2,0,Platform 1 & 2
+mtc:millbrae-bart-east-plaza,0,East Plaza
+mtc:millbrae-bart-concourse,1,Concourse
+mtc:millbrae-bart-platform-3-4,0,Platforms 3 & 4
+mtc:millbrae-bart-platform-3,0,Platform 3
+mtc:pleasant-hill-bart-ground,0,Ground
+mtc:pleasant-hill-bart-platform,1,Platform
+mtc:daly-city-bart-ground,0,Ground
+mtc:daly-city-bart-platform,1,Platform
+mtc:oakland-coliseum-bart-airtrain,3,AirTrain
+mtc:oakland-coliseum-bart-platform,2,Platform
+mtc:oakland-coliseum-bart-ground,0,Ground
+mtc:oakland-coliseum-bart-tunnel,-1,Tunnel
+mtc:oakland-coliseum-bart-walkway-stairwell,1,Walkway Stairwell
+mtc:oakland-coliseum-bart-walkway,2,Walkway
+mtc:santa-rosa-transit-mall-ground,0,Ground
+mtc:fairfield-transportation-center-ground,0,Ground
+mtc:12th-st-oakland-city-center-bart-upper-platform,-2,Upper Platform
+mtc:12th-st-oakland-city-center-bart-lower-platform,-3,Lower Platform
+mtc:12th-st-oakland-city-center-bart-street,0,Street
+mtc:12th-st-oakland-city-center-bart-concourse,-1,Concourse
+mtc:19th-st-oakland-bart-street,0,Street
+mtc:19th-st-oakland-bart-concourse,-1,Concourse
+mtc:19th-st-oakland-bart-upper-platform,-2,Upper Platform
+mtc:19th-st-oakland-bart-lower-level,-3,Lower Level
+mtc:embarcadero-bart-street,0,Street
+mtc:embarcadero-bart-concourse,-1,Concourse
+mtc:embarcadero-bart-muni-platform,-2,MUNI Platform
+mtc:embarcadero-bart-bart-platform,-3,BART Platform
+mtc:civic-center-bart-street,0,Street
+mtc:civic-center-bart-concourse,-1,Concourse
+mtc:civic-center-bart-muni-platform,-2,MUNI Platform
+mtc:civic-center-bart-bart-platform,-3,BART Platform
+mtc:petaluma-transit-mall-street,0,Street
+mtc:napa-intermodal-street,0,Street
+mtc:great-america-street,0,Street
+mtc:montgomery-bart-street,0,Street
+mtc:montgomery-bart-concourse,-1,Concourse
+mtc:montgomery-bart-muni-platform,-2,MUNI Platform
+mtc:montgomery-bart-bart-platform,-3,BART Platform
+mtc:sfo-upper-level,0,Upper Level
+mtc:sfo-lower-level,-1,Lower Level
+mtc:mountain-view-station-street,0,Street
+mtc:salesforce-transit-center-street,0,Street
+mtc:salesforce-transit-center-bus-deck,1,Bus Deck
+mtc:union-city-bart-street,0,Street
+mtc:union-city-bart-platform,1,Platform
+mtc:dublin/-pleasanton-bart-street,0,Street
+mtc:dublin/-pleasanton-bart-platform,1,Platform
+mtc:great-mall/milpitas-bart-pededestrian-bridge,1,Pedestrian Bridge
+mtc:san-jose-diridon-station-platform,0,Platform
+mtc:san-jose-diridon-station-underpass,-1,Underpass
+mtc:santa-clara-caltrain-underpass,-1,Underpass
+mtc:santa-clara-caltrain-southbound-platform,0,Southbound Platform
+mtc:great-mall/milpitas-bart-bart-platform,-1,BART Platform
+mtc:great-mall/milpitas-bart-street,0,Street
+mtc:great-mall/milpitas-bart-vta-platform,2,VTA Platform

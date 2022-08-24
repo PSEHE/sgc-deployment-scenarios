@@ -1,0 +1,2 @@
+feed_publisher_name,feed_publisher_url,feed_lang,feed_version,feed_start_date,feed_end_date,default_lang,feed_contact_email,feed_contact_url
+511 SF Bay,https://511.org/open-data/transit,en,,,,,,

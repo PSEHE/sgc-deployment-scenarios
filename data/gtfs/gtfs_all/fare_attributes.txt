@@ -1,0 +1,6 @@
+fare_id,price,currency_type,payment_method,transfers,agency_id,transfer_duration
+MV:158145,0,USD,0,,MV,0
+AF:170746,5,USD,1,0,AF,0
+AF:170745,13,USD,1,0,AF,0
+AF:170744,14,USD,1,0,AF,0
+AF:170743,15,USD,1,0,AF,0

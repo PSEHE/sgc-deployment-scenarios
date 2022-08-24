@@ -1,0 +1,668 @@
+fare_product_id,fare_product_name,rider_category_id,fare_container_id,bundle_amount,duration_start,duration_amount,duration_unit,duration_type,offset_amount,offset_unit,service_id,timeframe_id,timeframe_type,cap_required,eligible_cap_id,amount,min_amount,max_amount,currency
+FS:ten-ride,FAST Transit 10-Ride Pass,,,10,,,,,,,,,,,,17.5,,,USD
+AC:local,AC Transit Disabled Monthly,AC:discount,clipper,,,31,3,1,,,,,,,,34,,,USD
+AC:local,AC Transit Senior Monthly,AC:discount,clipper,,,31,3,1,,,,,,,,34,,,USD
+AC:local,AC Transit Youth 31 Day,AC:discount,clipper,,,31,3,1,,,,,,,,34,,,USD
+AC:local,AC Transit Adult Local 31 Day,,clipper,,,31,3,1,,,,,,,,84.6,,,USD
+AC:day,AC Transit Local Day Pass,,,,,1,3,1,,,,,,,,5.5,,,USD
+AC:day,AC Transit Local Day Pass,,clipper,,,1,3,1,,,,,,2,,5,,,USD
+AC:day,AC Transit Local Day Pass (Disabled),AC:discount,,,,1,3,1,,,,,,,,2.75,,,USD
+AC:day,AC Transit Local Day Pass (Disabled),AC:discount,clipper,,,1,3,1,,,,,,2,,2.5,,,USD
+AC:day,AC Transit Local Day Pass (Senior),AC:discount,,,,1,3,1,,,,,,,,2.75,,,USD
+AC:day,AC Transit Local Day Pass (Senior),AC:discount,clipper,,,1,3,1,,,,,,2,,2.5,,,USD
+AC:day,AC Transit Local Day Pass (Youth),AC:discount,,,,1,3,1,,,,,,,,2.75,,,USD
+AC:day,AC Transit Local Day Pass (Youth),AC:discount,clipper,,,1,3,1,,,,,,2,,2.5,,,USD
+AC:transbay,AC Transit Adult Transbay 31 Day,,clipper,,,31,3,1,,,,,,,,216,,,USD
+CT:1zone:monthly,Caltrain 1 Zone,,clipper,,,1,5,1,,,,,,,,96,,,USD
+CT:1zone:day,Caltrain 1 Zone Day Pass,,,,,1,3,1,,,,,,,,7.5,,,USD
+CT:1zone:day,Caltrain 1 Zone Day Pass (Discount),CT:discount,,,,1,3,1,,,,,,,,3.75,,,USD
+CT:1zone:monthly,Caltrain 1 Zone (Discount),CT:discount,clipper,,,1,5,1,,,,,,,,48,,,USD
+CT:multizone:2:monthly,Caltrain 2 Zone (Discount),CT:discount,clipper,,,1,5,1,,,,,,,,78,,,USD
+CT:multizone:3:monthly,Caltrain 3 Zone (Discount),CT:discount,clipper,,,1,5,1,,,,,,,,108,,,USD
+CT:multizone:4:monthly,Caltrain 4 Zone (Discount),CT:discount,clipper,,,1,5,1,,,,,,,,138,,,USD
+CT:multizone:5:monthly,Caltrain 5 Zone (Discount),CT:discount,clipper,,,1,5,1,,,,,,,,168,,,USD
+CT:multizone:6:monthly,Caltrain 6 Zone (Discount),CT:discount,clipper,,,1,5,1,,,,,,,,198,,,USD
+CT:multizone:2:monthly,Caltrain 2 Zone,,clipper,,,1,5,1,,,,,,,,163.5,,,USD
+CT:multizone:2:day,Caltrain 2 Zone Day Pass,,,,,1,3,1,,,,,,,,12,,,USD
+CT:multizone:2:day,Caltrain 2 Zone Day Pass (Discount),CT:discount,,,,1,3,1,,,,,,,,6,,,USD
+CT:multizone:3:monthly,Caltrain 3 Zone,,clipper,,,1,5,1,,,,,,,,231,,,USD
+CT:multizone:3:day,Caltrain 3 Zone Day Pass,,,,,1,3,1,,,,,,,,16.5,,,USD
+CT:multizone:3:day,Caltrain 3 Zone Day Pass (Discount),CT:discount,,,,1,3,1,,,,,,,,8.25,,,USD
+CT:multizone:4:monthly,Caltrain 4 Zone,,clipper,,,1,5,1,,,,,,,,298.5,,,USD
+CT:multizone:4:day,Caltrain 4 Zone Day Pass,,,,,1,3,1,,,,,,,,21,,,USD
+CT:multizone:4:day,Caltrain 4 Zone Day Pass (Discount),CT:discount,,,,1,3,1,,,,,,,,10.5,,,USD
+CT:multizone:5:monthly,Caltrain 5 Zone,,clipper,,,1,5,1,,,,,,,,366,,,USD
+CT:multizone:5:day,Caltrain 5 Zone Day Pass,,,,,1,3,1,,,,,,,,25.5,,,USD
+CT:multizone:5:day,Caltrain 5 Zone Day Pass (Discount),CT:discount,,,,1,3,1,,,,,,,,12.75,,,USD
+CT:multizone:6:monthly,Caltrain 6 Zone,,clipper,,,1,5,1,,,,,,,,433.5,,,USD
+CT:multizone:6:day,Caltrain 6 Zone Day Pass,,,,,1,3,1,,,,,,,,30,,,USD
+CT:multizone:6:day,Caltrain 6 Zone Day Pass (Discount),CT:discount,,,,1,3,1,,,,,,,,15,,,USD
+SC:express,VTA Express Annual Pass,,,,,1,6,1,,,,,,,,1980,,,USD
+SC:express,VTA Express Day Pass,,clipper,,,1,3,1,,,,,,,,15,,,USD
+SC:express,VTA Express Monthly Pass,,clipper,,,1,5,1,,,,,,,,180,,,USD
+SC:local,VTA Local Annual Pass,,,,,1,6,1,,,,,,,,990,,,USD
+SC:local,VTA Local Annual Pass (Eligible Discount),SC:discount,,,,1,6,1,,,,,,,,330,,,USD
+SC:local,VTA Local Annual Pass (Youth),SC:youth,,,,1,6,1,,,,,,,,385,,,USD
+SC:day,VTA Local Day Pass,,clipper,,,1,3,1,,,,,,,,7.5,,,USD
+SC:day,VTA Local Day Pass (Eligible Discount),SC:discount,clipper,,,1,3,1,,,,,,,,3,,,USD
+SC:day,VTA Local Day Pass (Youth),SC:youth,clipper,,,1,3,1,,,,,,,,3.75,,,USD
+SC:day-lr,VTA 8-Hour Light Rail Pass,,,,,8,2,1,,,,,,,,5,,,USD
+SC:day-lr,VTA 8-Hour Light Rail Pass (Eligible Discount),SC:discount,,,,8,2,1,,,,,,,,2,,,USD
+SC:day-lr,VTA 8-Hour Light Rail Pass (Youth),SC:youth,,,,8,2,1,,,,,,,,2,,,USD
+SC:local,VTA Local Monthly Pass,,clipper,,,1,5,1,,,,,,,,90,,,USD
+SC:local,VTA Local Monthly Pass (Eligible Discount),SC:discount,clipper,,,1,5,1,,,,,,,,30,,,USD
+SC:local,VTA Local Monthly Pass (Youth),SC:youth,clipper,,,1,5,1,,,,,,,,35,,,USD
+SF:a:1day,1-Day Visitor Passport,,,,,1,3,1,,,,,,,,24,,,USD
+SF:a:1day,1-Day Visitor Passport (Clipper),,clipper,,,1,3,1,,,,,,,,13,,,USD
+SF:a:1day:munimobile,Muni Day Pass (MuniMobile),,munimobile,,,1,3,1,,,,,,,,5,,,USD
+SF:a:3day,3-Day Visitor Passport,,,,,3,3,1,,,,,,,,36,,,USD
+SF:a:3day,3-Day Visitor Passport (Clipper),,clipper,,,3,3,1,,,,,,,,31,,,USD
+SF:a:7day,7-Day Visitor Passport,,,,,7,3,1,,,,,,,,47,,,USD
+SF:a:7day,7-Day Visitor Passport (Clipper),,clipper,,,7,3,2,,,,,,,,41,,,USD
+SF:a:monthly,"Muni ""A"" Pass",,clipper,,,1,5,1,,,,,,,,98,,,USD
+SF:a:monthly,Free Muni for People with Disabilities,,clipper,,,1,5,1,,,,,,,,0,,,USD
+SF:a:monthly,"Muni ""M"" Pass (Discount)",,clipper,,,1,5,1,,,,,,,,40,,,USD
+SF:a:monthly,"Muni ""Lifeline"" Pass",,,,,1,5,1,,,,,,,,40,,,USD
+SF:a:monthly,Free Muni for Seniors,,clipper,,,1,5,1,,,,,,,,0,,,USD
+SF:a:monthly,Free Muni for Youth,,clipper,,,1,5,1,,,,,,,,0,,,USD
+SF:m:monthly,"Muni ""M"" Pass",,clipper,,,1,5,1,,,,,,,,81,,,USD
+SM:day,SamTrans Local Day Pass,,,,,1,3,1,,,,,,,,4.5,,,USD
+SM:day,SamTrans Local Day Pass (Eligible Discount),SM:discount,,,,1,3,1,,,,,,,,2,,,USD
+SM:day,SamTrans Local Day Pass (Youth),SM:discount,,,,1,3,1,,,,,,,,2,,,USD
+SM:monthly,SamTrans Local Monthly Pass,,clipper,,,31,3,1,,,,,,,,65,,,USD
+SM:monthly,SamTrans Local Monthly Pass (Eligible Discount),SM:discount,clipper,,,31,3,1,,,,,,,,27,,,USD
+SM:monthly,SamTrans Local Monthly Pass (Youth),SM:discount,clipper,,,31,3,1,,,,,,,,27,,,USD
+DE:transbay,Dumbarton Express Transbay Monthly,,clipper,,,31,3,2,,,,,,,,216,,,USD
+DE:local,Dumbarton Express Local Monthly,,clipper,,,31,3,2,,,,,,,,84.6,,,USD
+DE:local,Dumbarton Express Local Monthly (Youth),DE:discount,clipper,,,31,3,2,,,,,,,,34,,,USD
+DE:transbay,Dumbarton Express Monthly Pass (Senior),DE:discount,clipper,,,31,3,2,,,,,,,,34,,,USD
+DE:transbay,Dumbarton Express Monthly Pass (RTC),DE:discount,clipper,,,31,3,2,,,,,,,,34,,,USD
+AC:local,AC Transit Adult Mobile Week Pass (Disabled),AC:discount,tokentransit,,,7,3,2,,,,,,,,11.2,,,USD
+AC:local,AC Transit Adult Mobile Week Pass (Youth),AC:discount,tokentransit,,,7,3,2,,,,,,,,11.2,,,USD
+AC:local,AC Transit Adult Mobile Week Pass (Senior),AC:discount,tokentransit,,,7,3,2,,,,,,,,11.2,,,USD
+AC:local,AC Transit Adult Mobile Week Pass,,tokentransit,,,7,3,2,,,,,,,,22,,,USD
+SM:express:monthly,SamTrans Express Monthly Pass,,clipper,,,1,5,1,,,,,,,,130,,,USD
+FS:ten-ride,FAST Transit 10-Ride Pass (Youth),FS:youth,,10,,,,,,,,,,,,15,,,USD
+FS:ten-ride,FAST Transit 10-Ride Pass (Senior),FS:senior,,10,,,,,,,,,,,,8.5,,,USD
+FS:ten-ride,FAST Transit 10-Ride Pass (Disabled),FS:discount,,10,,,,,,,,,,,,8.5,,,USD
+FS:monthly,FAST Transit 31-Day Pass,,,,,31,3,2,,,,,,,,60,,,USD
+FS:monthly,FAST Transit 31-Day Pass (Youth),FS:youth,,,,31,3,2,,,,,,,,50,,,USD
+FS:monthly,FAST Transit 31-Day Pass (Senior),FS:senior,,,,31,3,2,,,,,,,,30,,,USD
+FS:monthly,FAST Transit 31-Day Pass (Disabled),FS:discount,,,,31,3,2,,,,,,,,30,,,USD
+CC:monthly:local,East Bay Regional 31-Day Local Pass,,clipper,,,31,3,2,,,,,,,,60,,,USD
+CC:monthly:express,East Bay Regional 31-Day Express Pass,,clipper,,,31,3,2,,,,,,,,70,,,USD
+CC:local:day,East Bay Day Pass,,clipper,,,1,3,2,,,,,,,,3.75,,,USD
+CC:local:day,East Bay Day Pass (Senior),CC:senior,clipper,,,1,3,2,,,,,,,,1.75,,,USD
+CC:local:day,East Bay Day Pass (Discount),CC:discount,clipper,,,1,3,2,,,,,,,,1.75,,,USD
+WH:local:day,Wheels Day Pass,,,,,1,3,2,,,,,,,,3.75,,,USD
+WH:local:day,Wheels Day Pass (Senior),WH:senior,,,,1,3,2,,,,,,,,1.75,,,USD
+WH:local:day,Wheels Day Pass (Discount),WH:discount,,,,1,3,2,,,,,,,,1.75,,,USD
+WH:monthly,Wheels Calendar Month Pass,,,,,1,5,1,,,,,,,,60,,,USD
+WH:monthly,Wheels Calendar Month Pass (Senior),WH:senior,,,,1,5,1,,,,,,,,22,,,USD
+WH:monthly,Wheels Calendar Month Pass (Discount),WH:discount,,,,1,5,1,,,,,,,,22,,,USD
+SA:monthly,SMART 31-Day Pass,,clipper,,,31,3,2,,,,,,,,200,,,USD
+SA:monthly,SMART 31-Day Pass (Senior),SA:senior,clipper,,,31,3,2,,,,,,,,100,,,USD
+SA:monthly,SMART 31-Day Pass (Youth),SA:youth,clipper,,,31,3,2,,,,,,,,100,,,USD
+SA:monthly,SMART 31-Day Pass (Discount),SA:discount,clipper,,,31,3,2,,,,,,,,100,,,USD
+SA:day,SMART Daily Fare Cap,,clipper,,,1,3,1,,,,,,,,23,,,USD
+SA:day,SMART Daily Fare Cap (Senior),SA:senior,clipper,,,1,3,1,,,,,,,,11.5,,,USD
+SA:day,SMART Daily Fare Cap (Youth),SA:youth,clipper,,,1,3,1,,,,,,,,11.5,,,USD
+SA:day,SMART Daily Fare Cap (Discount),SA:discount,clipper,,,1,3,1,,,,,,,,11.5,,,USD
+CE:20:sto:tri,ACE 20-Trips from Stockton to Tri-Valley,,,20,,,,,,,,,,,,131.5,,,USD
+CE:20:sto:fre,ACE 20-Trips from Stockton to Fremont,,,20,,,,,,,,,,,,170.5,,,USD
+CE:20:sto:san,ACE 20-Trips from Stockton to San Jose,,,20,,,,,,,,,,,,210.25,,,USD
+CE:20:lat:tri,ACE 20-Trips from Lathrop/Manteca to Tri-Valley,,,20,,,,,,,,,,,,125.75,,,USD
+CE:20:lat:fre,ACE 20-Trips from Lathrop/Manteca to Fremont,,,20,,,,,,,,,,,,163,,,USD
+CE:20:lat:san,ACE 20-Trips from Lathrop/Manteca to San Jose,,,20,,,,,,,,,,,,201,,,USD
+CE:20:tra:tri,ACE 20-Trips from Tracy to Tri-Valley,,,20,,,,,,,,,,,,88.25,,,USD
+CE:20:tra:fre,ACE 20-Trips from Tracy to Fremont,,,20,,,,,,,,,,,,125.75,,,USD
+CE:20:tra:san,ACE 20-Trips from Tracy to San Jose,,,20,,,,,,,,,,,,163,,,USD
+CE:20:tri:tri,ACE 20-Trips from Tri-Valley to Tri-Valley,,,20,,,,,,,,,,,,50.5,,,USD
+CE:20:tri:fre,ACE 20-Trips from Tri-Valley to Fremont,,,20,,,,,,,,,,,,88.25,,,USD
+CE:20:tri:san,ACE 20-Trips from Tri-Valley to San Jose,,,20,,,,,,,,,,,,125.75,,,USD
+CE:20:fre:tri,ACE 20-Trips from Fremont to Tri-Valley,,,20,,,,,,,,,,,,88.25,,,USD
+CE:20:fre:san,ACE 20-Trips from Fremont to San Jose,,,20,,,,,,,,,,,,88.25,,,USD
+CE:20:san:tri,ACE 20-Trips from Santa Clara to Tri-Valley,,,20,,,,,,,,,,,,125.75,,,USD
+CE:20:san:fre,ACE 20-Trips from Santa Clara to Fremont,,,20,,,,,,,,,,,,88.25,,,USD
+CE:20:san:san,ACE 20-Trips from Santa Clara to San Jose,,,20,,,,,,,,,,,,50.5,,,USD
+CE:monthly:sto:tri,ACE Monthly from Stockton to Tri-Valley,,,,,1,5,1,,,,,,,,241.75,,,USD
+CE:monthly:sto:fre,ACE Monthly from Stockton to Fremont,,,,,1,5,1,,,,,,,,312.85,,,USD
+CE:monthly:sto:san,ACE Monthly from Stockton to San Jose,,,,,1,5,1,,,,,,,,386,,,USD
+CE:monthly:lat:tri,ACE Monthly from Lathrop/Manteca to Tri-Valley,,,,,1,5,1,,,,,,,,231.25,,,USD
+CE:monthly:lat:fre,ACE Monthly from Lathrop/Manteca to Fremont,,,,,1,5,1,,,,,,,,299.75,,,USD
+CE:monthly:lat:san,ACE Monthly from Lathrop/Manteca to San Jose,,,,,1,5,1,,,,,,,,370,,,USD
+CE:monthly:tra:tri,ACE Monthly from Tracy to Tri-Valley,,,,,1,5,1,,,,,,,,161.25,,,USD
+CE:monthly:tra:fre,ACE Monthly from Tracy to Fremont,,,,,1,5,1,,,,,,,,231.25,,,USD
+CE:monthly:tra:san,ACE Monthly from Tracy to San Jose,,,,,1,5,1,,,,,,,,299.75,,,USD
+CE:monthly:tri:tri,ACE Monthly from Tri-Valley to Tri-Valley,,,,,1,5,1,,,,,,,,93.5,,,USD
+CE:monthly:tri:fre,ACE Monthly from Tri-Valley to Fremont,,,,,1,5,1,,,,,,,,161.25,,,USD
+CE:monthly:tri:san,ACE Monthly from Tri-Valley to San Jose,,,,,1,5,1,,,,,,,,231.25,,,USD
+CE:monthly:fre:tri,ACE Monthly from Fremont to Tri-Valley,,,,,1,5,1,,,,,,,,161.25,,,USD
+CE:monthly:fre:san,ACE Monthly from Fremont to San Jose,,,,,1,5,1,,,,,,,,161.25,,,USD
+CE:monthly:san:tri,ACE Monthly from Santa Clara to Tri-Valley,,,,,1,5,1,,,,,,,,231.25,,,USD
+CE:monthly:san:fre,ACE Monthly from Santa Clara to Fremont,,,,,1,5,1,,,,,,,,161.25,,,USD
+CE:monthly:san:san,ACE Monthly from Santa Clara to San Jose,,,,,1,5,1,,,,,,,,93.5,,,USD
+CE:20:sto:tri,ACE 20-Trips from Stockton to Tri-Valley,CE:senior,,20,,,,,,,,,,,,65.75,,,USD
+CE:20:sto:fre,ACE 20-Trips from Stockton to Fremont,CE:senior,,20,,,,,,,,,,,,85.25,,,USD
+CE:20:sto:san,ACE 20-Trips from Stockton to San Jose,CE:senior,,20,,,,,,,,,,,,105.25,,,USD
+CE:20:lat:tri,ACE 20-Trips from Lathrop/Manteca to Tri-Valley,CE:senior,,20,,,,,,,,,,,,63,,,USD
+CE:20:lat:fre,ACE 20-Trips from Lathrop/Manteca to Fremont,CE:senior,,20,,,,,,,,,,,,81.5,,,USD
+CE:20:lat:san,ACE 20-Trips from Lathrop/Manteca to San Jose,CE:senior,,20,,,,,,,,,,,,100.5,,,USD
+CE:20:tra:tri,ACE 20-Trips from Tracy to Tri-Valley,CE:senior,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:tra:fre,ACE 20-Trips from Tracy to Fremont,CE:senior,,20,,,,,,,,,,,,63,,,USD
+CE:20:tra:san,ACE 20-Trips from Tracy to San Jose,CE:senior,,20,,,,,,,,,,,,81.5,,,USD
+CE:20:tri:tri,ACE 20-Trips from Tri-Valley to Tri-Valley,CE:senior,,20,,,,,,,,,,,,25.25,,,USD
+CE:20:tri:fre,ACE 20-Trips from Tri-Valley to Fremont,CE:senior,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:tri:san,ACE 20-Trips from Tri-Valley to San Jose,CE:senior,,20,,,,,,,,,,,,63,,,USD
+CE:20:fre:tri,ACE 20-Trips from Fremont to Tri-Valley,CE:senior,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:fre:san,ACE 20-Trips from Fremont to San Jose,CE:senior,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:san:tri,ACE 20-Trips from Santa Clara to Tri-Valley,CE:senior,,20,,,,,,,,,,,,63,,,USD
+CE:20:san:fre,ACE 20-Trips from Santa Clara to Fremont,CE:senior,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:san:san,ACE 20-Trips from Santa Clara to San Jose,CE:senior,,20,,,,,,,,,,,,25.25,,,USD
+CE:monthly:sto:tri,ACE Monthly from Stockton to Tri-Valley,CE:senior,,,,1,5,1,,,,,,,,121,,,USD
+CE:monthly:sto:fre,ACE Monthly from Stockton to Fremont,CE:senior,,,,1,5,1,,,,,,,,156.5,,,USD
+CE:monthly:sto:san,ACE Monthly from Stockton to San Jose,CE:senior,,,,1,5,1,,,,,,,,193,,,USD
+CE:monthly:lat:tri,ACE Monthly from Lathrop/Manteca to Tri-Valley,CE:senior,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:lat:fre,ACE Monthly from Lathrop/Manteca to Fremont,CE:senior,,,,1,5,1,,,,,,,,150,,,USD
+CE:monthly:lat:san,ACE Monthly from Lathrop/Manteca to San Jose,CE:senior,,,,1,5,1,,,,,,,,185,,,USD
+CE:monthly:tra:tri,ACE Monthly from Tracy to Tri-Valley,CE:senior,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:tra:fre,ACE Monthly from Tracy to Fremont,CE:senior,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:tra:san,ACE Monthly from Tracy to San Jose,CE:senior,,,,1,5,1,,,,,,,,150,,,USD
+CE:monthly:tri:tri,ACE Monthly from Tri-Valley to Tri-Valley,CE:senior,,,,1,5,1,,,,,,,,46.75,,,USD
+CE:monthly:tri:fre,ACE Monthly from Tri-Valley to Fremont,CE:senior,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:tri:san,ACE Monthly from Tri-Valley to San Jose,CE:senior,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:fre:tri,ACE Monthly from Fremont to Tri-Valley,CE:senior,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:fre:san,ACE Monthly from Fremont to San Jose,CE:senior,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:san:tri,ACE Monthly from Santa Clara to Tri-Valley,CE:senior,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:san:fre,ACE Monthly from Santa Clara to Fremont,CE:senior,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:san:san,ACE Monthly from Santa Clara to San Jose,CE:senior,,,,1,5,1,,,,,,,,46.75,,,USD
+CE:20:sto:tri,ACE 20-Trips from Stockton to Tri-Valley,CE:discount,,20,,,,,,,,,,,,65.75,,,USD
+CE:20:sto:fre,ACE 20-Trips from Stockton to Fremont,CE:discount,,20,,,,,,,,,,,,85.25,,,USD
+CE:20:sto:san,ACE 20-Trips from Stockton to San Jose,CE:discount,,20,,,,,,,,,,,,105.25,,,USD
+CE:20:lat:tri,ACE 20-Trips from Lathrop/Manteca to Tri-Valley,CE:discount,,20,,,,,,,,,,,,63,,,USD
+CE:20:lat:fre,ACE 20-Trips from Lathrop/Manteca to Fremont,CE:discount,,20,,,,,,,,,,,,81.5,,,USD
+CE:20:lat:san,ACE 20-Trips from Lathrop/Manteca to San Jose,CE:discount,,20,,,,,,,,,,,,100.5,,,USD
+CE:20:tra:tri,ACE 20-Trips from Tracy to Tri-Valley,CE:discount,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:tra:fre,ACE 20-Trips from Tracy to Fremont,CE:discount,,20,,,,,,,,,,,,63,,,USD
+CE:20:tra:san,ACE 20-Trips from Tracy to San Jose,CE:discount,,20,,,,,,,,,,,,81.5,,,USD
+CE:20:tri:tri,ACE 20-Trips from Tri-Valley to Tri-Valley,CE:discount,,20,,,,,,,,,,,,25.25,,,USD
+CE:20:tri:fre,ACE 20-Trips from Tri-Valley to Fremont,CE:discount,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:tri:san,ACE 20-Trips from Tri-Valley to San Jose,CE:discount,,20,,,,,,,,,,,,63,,,USD
+CE:20:fre:tri,ACE 20-Trips from Fremont to Tri-Valley,CE:discount,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:fre:san,ACE 20-Trips from Fremont to San Jose,CE:discount,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:san:tri,ACE 20-Trips from Santa Clara to Tri-Valley,CE:discount,,20,,,,,,,,,,,,63,,,USD
+CE:20:san:fre,ACE 20-Trips from Santa Clara to Fremont,CE:discount,,20,,,,,,,,,,,,44.25,,,USD
+CE:20:san:san,ACE 20-Trips from Santa Clara to San Jose,CE:discount,,20,,,,,,,,,,,,25.25,,,USD
+CE:monthly:sto:tri,ACE Monthly from Stockton to Tri-Valley,CE:discount,,,,1,5,1,,,,,,,,121,,,USD
+CE:monthly:sto:fre,ACE Monthly from Stockton to Fremont,CE:discount,,,,1,5,1,,,,,,,,156.5,,,USD
+CE:monthly:sto:san,ACE Monthly from Stockton to San Jose,CE:discount,,,,1,5,1,,,,,,,,193,,,USD
+CE:monthly:lat:tri,ACE Monthly from Lathrop/Manteca to Tri-Valley,CE:discount,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:lat:fre,ACE Monthly from Lathrop/Manteca to Fremont,CE:discount,,,,1,5,1,,,,,,,,150,,,USD
+CE:monthly:lat:san,ACE Monthly from Lathrop/Manteca to San Jose,CE:discount,,,,1,5,1,,,,,,,,185,,,USD
+CE:monthly:tra:tri,ACE Monthly from Tracy to Tri-Valley,CE:discount,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:tra:fre,ACE Monthly from Tracy to Fremont,CE:discount,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:tra:san,ACE Monthly from Tracy to San Jose,CE:discount,,,,1,5,1,,,,,,,,150,,,USD
+CE:monthly:tri:tri,ACE Monthly from Tri-Valley to Tri-Valley,CE:discount,,,,1,5,1,,,,,,,,46.75,,,USD
+CE:monthly:tri:fre,ACE Monthly from Tri-Valley to Fremont,CE:discount,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:tri:san,ACE Monthly from Tri-Valley to San Jose,CE:discount,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:fre:tri,ACE Monthly from Fremont to Tri-Valley,CE:discount,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:fre:san,ACE Monthly from Fremont to San Jose,CE:discount,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:san:tri,ACE Monthly from Santa Clara to Tri-Valley,CE:discount,,,,1,5,1,,,,,,,,115.75,,,USD
+CE:monthly:san:fre,ACE Monthly from Santa Clara to Fremont,CE:discount,,,,1,5,1,,,,,,,,80.75,,,USD
+CE:monthly:san:san,ACE Monthly from Santa Clara to San Jose,CE:discount,,,,1,5,1,,,,,,,,46.75,,,USD
+AM:10:arn:rln,Capitol Corridor 10-Ride from ARN to RLN,,,10,,,,,,,,,,,,53,,,USD
+AM:10:arn:rsv,Capitol Corridor 10-Ride from ARN to RSV,,,10,,,,,,,,,,,,61,,,USD
+AM:10:arn:sac,Capitol Corridor 10-Ride from ARN to SAC,,,10,,,,,,,,,,,,87,,,USD
+AM:10:arn:dav,Capitol Corridor 10-Ride from ARN to DAV,,,10,,,,,,,,,,,,100,,,USD
+AM:10:arn:ffv,Capitol Corridor 10-Ride from ARN to FFV,,,10,,,,,,,,,,,,137,,,USD
+AM:10:arn:sui,Capitol Corridor 10-Ride from ARN to SUI,,,10,,,,,,,,,,,,145,,,USD
+AM:10:arn:mtz,Capitol Corridor 10-Ride from ARN to MTZ,,,10,,,,,,,,,,,,171,,,USD
+AM:10:arn:ric,Capitol Corridor 10-Ride from ARN to RIC,,,10,,,,,,,,,,,,195,,,USD
+AM:10:arn:brk,Capitol Corridor 10-Ride from ARN to BRK,,,10,,,,,,,,,,,,195,,,USD
+AM:10:arn:emy,Capitol Corridor 10-Ride from ARN to EMY,,,10,,,,,,,,,,,,195,,,USD
+AM:10:arn:sfc,Capitol Corridor 10-Ride from ARN to SFC,,,10,,,,,,,,,,,,214,,,USD
+AM:10:arn:okj,Capitol Corridor 10-Ride from ARN to OKJ,,,10,,,,,,,,,,,,195,,,USD
+AM:10:arn:oac,Capitol Corridor 10-Ride from ARN to OAC,,,10,,,,,,,,,,,,195,,,USD
+AM:10:arn:hay,Capitol Corridor 10-Ride from ARN to HAY,,,10,,,,,,,,,,,,216,,,USD
+AM:10:arn:fmt,Capitol Corridor 10-Ride from ARN to FMT,,,10,,,,,,,,,,,,237,,,USD
+AM:10:arn:gac,Capitol Corridor 10-Ride from ARN to GAC,,,10,,,,,,,,,,,,237,,,USD
+AM:10:arn:scc,Capitol Corridor 10-Ride from ARN to SCC,,,10,,,,,,,,,,,,246,,,USD
+AM:10:arn:sjc,Capitol Corridor 10-Ride from ARN to SJC,,,10,,,,,,,,,,,,265,,,USD
+AM:10:rln:rsv,Capitol Corridor 10-Ride from RLN to RSV,,,10,,,,,,,,,,,,47,,,USD
+AM:10:rln:sac,Capitol Corridor 10-Ride from RLN to SAC,,,10,,,,,,,,,,,,66,,,USD
+AM:10:rln:dav,Capitol Corridor 10-Ride from RLN to DAV,,,10,,,,,,,,,,,,87,,,USD
+AM:10:rln:ffv,Capitol Corridor 10-Ride from RLN to FFV,,,10,,,,,,,,,,,,120,,,USD
+AM:10:rln:sui,Capitol Corridor 10-Ride from RLN to SUI,,,10,,,,,,,,,,,,128,,,USD
+AM:10:rln:mtz,Capitol Corridor 10-Ride from RLN to MTZ,,,10,,,,,,,,,,,,161,,,USD
+AM:10:rln:ric,Capitol Corridor 10-Ride from RLN to RIC,,,10,,,,,,,,,,,,178,,,USD
+AM:10:rln:brk,Capitol Corridor 10-Ride from RLN to BRK,,,10,,,,,,,,,,,,191,,,USD
+AM:10:rln:emy,Capitol Corridor 10-Ride from RLN to EMY,,,10,,,,,,,,,,,,191,,,USD
+AM:10:rln:sfc,Capitol Corridor 10-Ride from RLN to SFC,,,10,,,,,,,,,,,,214,,,USD
+AM:10:rln:okj,Capitol Corridor 10-Ride from RLN to OKJ,,,10,,,,,,,,,,,,195,,,USD
+AM:10:rln:oac,Capitol Corridor 10-Ride from RLN to OAC,,,10,,,,,,,,,,,,195,,,USD
+AM:10:rln:hay,Capitol Corridor 10-Ride from RLN to HAY,,,10,,,,,,,,,,,,205,,,USD
+AM:10:rln:fmt,Capitol Corridor 10-Ride from RLN to FMT,,,10,,,,,,,,,,,,231,,,USD
+AM:10:rln:gac,Capitol Corridor 10-Ride from RLN to GAC,,,10,,,,,,,,,,,,237,,,USD
+AM:10:rln:scc,Capitol Corridor 10-Ride from RLN to SCC,,,10,,,,,,,,,,,,246,,,USD
+AM:10:rln:sjc,Capitol Corridor 10-Ride from RLN to SJC,,,10,,,,,,,,,,,,265,,,USD
+AM:10:rsv:sac,Capitol Corridor 10-Ride from RSV to SAC,,,10,,,,,,,,,,,,61,,,USD
+AM:10:rsv:dav,Capitol Corridor 10-Ride from RSV to DAV,,,10,,,,,,,,,,,,76,,,USD
+AM:10:rsv:ffv,Capitol Corridor 10-Ride from RSV to FFV,,,10,,,,,,,,,,,,105,,,USD
+AM:10:rsv:sui,Capitol Corridor 10-Ride from RSV to SUI,,,10,,,,,,,,,,,,111,,,USD
+AM:10:rsv:mtz,Capitol Corridor 10-Ride from RSV to MTZ,,,10,,,,,,,,,,,,148,,,USD
+AM:10:rsv:ric,Capitol Corridor 10-Ride from RSV to RIC,,,10,,,,,,,,,,,,178,,,USD
+AM:10:rsv:brk,Capitol Corridor 10-Ride from RSV to BRK,,,10,,,,,,,,,,,,191,,,USD
+AM:10:rsv:emy,Capitol Corridor 10-Ride from RSV to EMY,,,10,,,,,,,,,,,,191,,,USD
+AM:10:rsv:sfc,Capitol Corridor 10-Ride from RSV to SFC,,,10,,,,,,,,,,,,214,,,USD
+AM:10:rsv:okj,Capitol Corridor 10-Ride from RSV to OKJ,,,10,,,,,,,,,,,,191,,,USD
+AM:10:rsv:oac,Capitol Corridor 10-Ride from RSV to OAC,,,10,,,,,,,,,,,,191,,,USD
+AM:10:rsv:hay,Capitol Corridor 10-Ride from RSV to HAY,,,10,,,,,,,,,,,,205,,,USD
+AM:10:rsv:fmt,Capitol Corridor 10-Ride from RSV to FMT,,,10,,,,,,,,,,,,231,,,USD
+AM:10:rsv:gac,Capitol Corridor 10-Ride from RSV to GAC,,,10,,,,,,,,,,,,231,,,USD
+AM:10:rsv:scc,Capitol Corridor 10-Ride from RSV to SCC,,,10,,,,,,,,,,,,246,,,USD
+AM:10:rsv:sjc,Capitol Corridor 10-Ride from RSV to SJC,,,10,,,,,,,,,,,,265,,,USD
+AM:10:sac:dav,Capitol Corridor 10-Ride from SAC to DAV,,,10,,,,,,,,,,,,60,,,USD
+AM:10:sac:ffv,Capitol Corridor 10-Ride from SAC to FFV,,,10,,,,,,,,,,,,97,,,USD
+AM:10:sac:sui,Capitol Corridor 10-Ride from SAC to SUI,,,10,,,,,,,,,,,,107,,,USD
+AM:10:sac:mtz,Capitol Corridor 10-Ride from SAC to MTZ,,,10,,,,,,,,,,,,125,,,USD
+AM:10:sac:ric,Capitol Corridor 10-Ride from SAC to RIC,,,10,,,,,,,,,,,,175,,,USD
+AM:10:sac:brk,Capitol Corridor 10-Ride from SAC to BRK,,,10,,,,,,,,,,,,191,,,USD
+AM:10:sac:emy,Capitol Corridor 10-Ride from SAC to EMY,,,10,,,,,,,,,,,,191,,,USD
+AM:10:sac:sfc,Capitol Corridor 10-Ride from SAC to SFC,,,10,,,,,,,,,,,,214,,,USD
+AM:10:sac:okj,Capitol Corridor 10-Ride from SAC to OKJ,,,10,,,,,,,,,,,,191,,,USD
+AM:10:sac:oac,Capitol Corridor 10-Ride from SAC to OAC,,,10,,,,,,,,,,,,191,,,USD
+AM:10:sac:hay,Capitol Corridor 10-Ride from SAC to HAY,,,10,,,,,,,,,,,,198,,,USD
+AM:10:sac:fmt,Capitol Corridor 10-Ride from SAC to FMT,,,10,,,,,,,,,,,,219,,,USD
+AM:10:sac:gac,Capitol Corridor 10-Ride from SAC to GAC,,,10,,,,,,,,,,,,231,,,USD
+AM:10:sac:scc,Capitol Corridor 10-Ride from SAC to SCC,,,10,,,,,,,,,,,,246,,,USD
+AM:10:sac:sjc,Capitol Corridor 10-Ride from SAC to SJC,,,10,,,,,,,,,,,,265,,,USD
+AM:10:dav:ffv,Capitol Corridor 10-Ride from DAV to FFV,,,10,,,,,,,,,,,,86,,,USD
+AM:10:dav:sui,Capitol Corridor 10-Ride from DAV to SUI,,,10,,,,,,,,,,,,93,,,USD
+AM:10:dav:mtz,Capitol Corridor 10-Ride from DAV to MTZ,,,10,,,,,,,,,,,,107,,,USD
+AM:10:dav:ric,Capitol Corridor 10-Ride from DAV to RIC,,,10,,,,,,,,,,,,152,,,USD
+AM:10:dav:brk,Capitol Corridor 10-Ride from DAV to BRK,,,10,,,,,,,,,,,,156,,,USD
+AM:10:dav:emy,Capitol Corridor 10-Ride from DAV to EMY,,,10,,,,,,,,,,,,175,,,USD
+AM:10:dav:sfc,Capitol Corridor 10-Ride from DAV to SFC,,,10,,,,,,,,,,,,201,,,USD
+AM:10:dav:okj,Capitol Corridor 10-Ride from DAV to OKJ,,,10,,,,,,,,,,,,175,,,USD
+AM:10:dav:oac,Capitol Corridor 10-Ride from DAV to OAC,,,10,,,,,,,,,,,,175,,,USD
+AM:10:dav:hay,Capitol Corridor 10-Ride from DAV to HAY,,,10,,,,,,,,,,,,191,,,USD
+AM:10:dav:fmt,Capitol Corridor 10-Ride from DAV to FMT,,,10,,,,,,,,,,,,205,,,USD
+AM:10:dav:gac,Capitol Corridor 10-Ride from DAV to GAC,,,10,,,,,,,,,,,,219,,,USD
+AM:10:dav:scc,Capitol Corridor 10-Ride from DAV to SCC,,,10,,,,,,,,,,,,231,,,USD
+AM:10:dav:sjc,Capitol Corridor 10-Ride from DAV to SJC,,,10,,,,,,,,,,,,231,,,USD
+AM:10:ffv:sui,Capitol Corridor 10-Ride from FFV to SUI,,,10,,,,,,,,,,,,73,,,USD
+AM:10:ffv:mtz,Capitol Corridor 10-Ride from FFV to MTZ,,,10,,,,,,,,,,,,84,,,USD
+AM:10:ffv:ric,Capitol Corridor 10-Ride from FFV to RIC,,,10,,,,,,,,,,,,115,,,USD
+AM:10:ffv:brk,Capitol Corridor 10-Ride from FFV to BRK,,,10,,,,,,,,,,,,122,,,USD
+AM:10:ffv:emy,Capitol Corridor 10-Ride from FFV to EMY,,,10,,,,,,,,,,,,126,,,USD
+AM:10:ffv:sfc,Capitol Corridor 10-Ride from FFV to SFC,,,10,,,,,,,,,,,,154,,,USD
+AM:10:ffv:okj,Capitol Corridor 10-Ride from FFV to OKJ,,,10,,,,,,,,,,,,132,,,USD
+AM:10:ffv:oac,Capitol Corridor 10-Ride from FFV to OAC,,,10,,,,,,,,,,,,132,,,USD
+AM:10:ffv:hay,Capitol Corridor 10-Ride from FFV to HAY,,,10,,,,,,,,,,,,162,,,USD
+AM:10:ffv:fmt,Capitol Corridor 10-Ride from FFV to FMT,,,10,,,,,,,,,,,,178,,,USD
+AM:10:ffv:gac,Capitol Corridor 10-Ride from FFV to GAC,,,10,,,,,,,,,,,,200,,,USD
+AM:10:ffv:scc,Capitol Corridor 10-Ride from FFV to SCC,,,10,,,,,,,,,,,,211,,,USD
+AM:10:ffv:sjc,Capitol Corridor 10-Ride from FFV to SJC,,,10,,,,,,,,,,,,211,,,USD
+AM:10:sui:mtz,Capitol Corridor 10-Ride from SUI to MTZ,,,10,,,,,,,,,,,,79,,,USD
+AM:10:sui:ric,Capitol Corridor 10-Ride from SUI to RIC,,,10,,,,,,,,,,,,107,,,USD
+AM:10:sui:brk,Capitol Corridor 10-Ride from SUI to BRK,,,10,,,,,,,,,,,,115,,,USD
+AM:10:sui:emy,Capitol Corridor 10-Ride from SUI to EMY,,,10,,,,,,,,,,,,121,,,USD
+AM:10:sui:sfc,Capitol Corridor 10-Ride from SUI to SFC,,,10,,,,,,,,,,,,143,,,USD
+AM:10:sui:okj,Capitol Corridor 10-Ride from SUI to OKJ,,,10,,,,,,,,,,,,121,,,USD
+AM:10:sui:oac,Capitol Corridor 10-Ride from SUI to OAC,,,10,,,,,,,,,,,,121,,,USD
+AM:10:sui:hay,Capitol Corridor 10-Ride from SUI to HAY,,,10,,,,,,,,,,,,156,,,USD
+AM:10:sui:fmt,Capitol Corridor 10-Ride from SUI to FMT,,,10,,,,,,,,,,,,172,,,USD
+AM:10:sui:gac,Capitol Corridor 10-Ride from SUI to GAC,,,10,,,,,,,,,,,,193,,,USD
+AM:10:sui:scc,Capitol Corridor 10-Ride from SUI to SCC,,,10,,,,,,,,,,,,205,,,USD
+AM:10:sui:sjc,Capitol Corridor 10-Ride from SUI to SJC,,,10,,,,,,,,,,,,205,,,USD
+AM:10:mtz:ric,Capitol Corridor 10-Ride from MTZ to RIC,,,10,,,,,,,,,,,,79,,,USD
+AM:10:mtz:brk,Capitol Corridor 10-Ride from MTZ to BRK,,,10,,,,,,,,,,,,87,,,USD
+AM:10:mtz:emy,Capitol Corridor 10-Ride from MTZ to EMY,,,10,,,,,,,,,,,,87,,,USD
+AM:10:mtz:sfc,Capitol Corridor 10-Ride from MTZ to SFC,,,10,,,,,,,,,,,,111,,,USD
+AM:10:mtz:okj,Capitol Corridor 10-Ride from MTZ to OKJ,,,10,,,,,,,,,,,,93,,,USD
+AM:10:mtz:oac,Capitol Corridor 10-Ride from MTZ to OAC,,,10,,,,,,,,,,,,107,,,USD
+AM:10:mtz:hay,Capitol Corridor 10-Ride from MTZ to HAY,,,10,,,,,,,,,,,,119,,,USD
+AM:10:mtz:fmt,Capitol Corridor 10-Ride from MTZ to FMT,,,10,,,,,,,,,,,,132,,,USD
+AM:10:mtz:gac,Capitol Corridor 10-Ride from MTZ to GAC,,,10,,,,,,,,,,,,156,,,USD
+AM:10:mtz:scc,Capitol Corridor 10-Ride from MTZ to SCC,,,10,,,,,,,,,,,,166,,,USD
+AM:10:mtz:sjc,Capitol Corridor 10-Ride from MTZ to SJC,,,10,,,,,,,,,,,,175,,,USD
+AM:10:ric:brk,Capitol Corridor 10-Ride from RIC to BRK,,,10,,,,,,,,,,,,60,,,USD
+AM:10:ric:emy,Capitol Corridor 10-Ride from RIC to EMY,,,10,,,,,,,,,,,,60,,,USD
+AM:10:ric:sfc,Capitol Corridor 10-Ride from RIC to SFC,,,10,,,,,,,,,,,,85,,,USD
+AM:10:ric:okj,Capitol Corridor 10-Ride from RIC to OKJ,,,10,,,,,,,,,,,,66,,,USD
+AM:10:ric:oac,Capitol Corridor 10-Ride from RIC to OAC,,,10,,,,,,,,,,,,79,,,USD
+AM:10:ric:hay,Capitol Corridor 10-Ride from RIC to HAY,,,10,,,,,,,,,,,,87,,,USD
+AM:10:ric:fmt,Capitol Corridor 10-Ride from RIC to FMT,,,10,,,,,,,,,,,,107,,,USD
+AM:10:ric:gac,Capitol Corridor 10-Ride from RIC to GAC,,,10,,,,,,,,,,,,121,,,USD
+AM:10:ric:scc,Capitol Corridor 10-Ride from RIC to SCC,,,10,,,,,,,,,,,,127,,,USD
+AM:10:ric:sjc,Capitol Corridor 10-Ride from RIC to SJC,,,10,,,,,,,,,,,,132,,,USD
+AM:10:brk:emy,Capitol Corridor 10-Ride from BRK to EMY,,,10,,,,,,,,,,,,50,,,USD
+AM:10:brk:sfc,Capitol Corridor 10-Ride from BRK to SFC,,,10,,,,,,,,,,,,74,,,USD
+AM:10:brk:okj,Capitol Corridor 10-Ride from BRK to OKJ,,,10,,,,,,,,,,,,60,,,USD
+AM:10:brk:oac,Capitol Corridor 10-Ride from BRK to OAC,,,10,,,,,,,,,,,,66,,,USD
+AM:10:brk:hay,Capitol Corridor 10-Ride from BRK to HAY,,,10,,,,,,,,,,,,79,,,USD
+AM:10:brk:fmt,Capitol Corridor 10-Ride from BRK to FMT,,,10,,,,,,,,,,,,100,,,USD
+AM:10:brk:gac,Capitol Corridor 10-Ride from BRK to GAC,,,10,,,,,,,,,,,,115,,,USD
+AM:10:brk:scc,Capitol Corridor 10-Ride from BRK to SCC,,,10,,,,,,,,,,,,121,,,USD
+AM:10:brk:sjc,Capitol Corridor 10-Ride from BRK to SJC,,,10,,,,,,,,,,,,121,,,USD
+AM:10:emy:okj,Capitol Corridor 10-Ride from EMY to OKJ,,,10,,,,,,,,,,,,47,,,USD
+AM:10:emy:oac,Capitol Corridor 10-Ride from EMY to OAC,,,10,,,,,,,,,,,,60,,,USD
+AM:10:emy:hay,Capitol Corridor 10-Ride from EMY to HAY,,,10,,,,,,,,,,,,79,,,USD
+AM:10:emy:fmt,Capitol Corridor 10-Ride from EMY to FMT,,,10,,,,,,,,,,,,93,,,USD
+AM:10:emy:gac,Capitol Corridor 10-Ride from EMY to GAC,,,10,,,,,,,,,,,,115,,,USD
+AM:10:emy:scc,Capitol Corridor 10-Ride from EMY to SCC,,,10,,,,,,,,,,,,121,,,USD
+AM:10:emy:sjc,Capitol Corridor 10-Ride from EMY to SJC,,,10,,,,,,,,,,,,121,,,USD
+AM:10:okj:oac,Capitol Corridor 10-Ride from OKJ to OAC,,,10,,,,,,,,,,,,50,,,USD
+AM:10:okj:hay,Capitol Corridor 10-Ride from OKJ to HAY,,,10,,,,,,,,,,,,66,,,USD
+AM:10:okj:fmt,Capitol Corridor 10-Ride from OKJ to FMT,,,10,,,,,,,,,,,,87,,,USD
+AM:10:okj:gac,Capitol Corridor 10-Ride from OKJ to GAC,,,10,,,,,,,,,,,,107,,,USD
+AM:10:okj:scc,Capitol Corridor 10-Ride from OKJ to SCC,,,10,,,,,,,,,,,,113,,,USD
+AM:10:okj:sjc,Capitol Corridor 10-Ride from OKJ to SJC,,,10,,,,,,,,,,,,113,,,USD
+AM:10:oac:hay,Capitol Corridor 10-Ride from OAC to HAY,,,10,,,,,,,,,,,,60,,,USD
+AM:10:oac:fmt,Capitol Corridor 10-Ride from OAC to FMT,,,10,,,,,,,,,,,,79,,,USD
+AM:10:oac:gac,Capitol Corridor 10-Ride from OAC to GAC,,,10,,,,,,,,,,,,100,,,USD
+AM:10:oac:scc,Capitol Corridor 10-Ride from OAC to SCC,,,10,,,,,,,,,,,,107,,,USD
+AM:10:oac:sjc,Capitol Corridor 10-Ride from OAC to SJC,,,10,,,,,,,,,,,,107,,,USD
+AM:10:hay:fmt,Capitol Corridor 10-Ride from HAY to FMT,,,10,,,,,,,,,,,,66,,,USD
+AM:10:hay:gac,Capitol Corridor 10-Ride from HAY to GAC,,,10,,,,,,,,,,,,83,,,USD
+AM:10:hay:scc,Capitol Corridor 10-Ride from HAY to SCC,,,10,,,,,,,,,,,,93,,,USD
+AM:10:hay:sjc,Capitol Corridor 10-Ride from HAY to SJC,,,10,,,,,,,,,,,,100,,,USD
+AM:10:fmt:gac,Capitol Corridor 10-Ride from FMT to GAC,,,10,,,,,,,,,,,,66,,,USD
+AM:10:fmt:scc,Capitol Corridor 10-Ride from FMT to SCC,,,10,,,,,,,,,,,,72,,,USD
+AM:10:fmt:sjc,Capitol Corridor 10-Ride from FMT to SJC,,,10,,,,,,,,,,,,79,,,USD
+AM:10:gac:scc,Capitol Corridor 10-Ride from GAC to SCC,,,10,,,,,,,,,,,,41,,,USD
+AM:10:gac:sjc,Capitol Corridor 10-Ride from GAC to SJC,,,10,,,,,,,,,,,,57,,,USD
+AM:10:scc:sjc,Capitol Corridor 10-Ride from SCC to SJC,,,10,,,,,,,,,,,,41,,,USD
+AM:monthly:arn:rln,Capitol Corridor Monthly from ARN to RLN,,,,,,,,,,,,,,,154,,,USD
+AM:monthly:arn:rsv,Capitol Corridor Monthly from ARN to RSV,,,,,,,,,,,,,,,177,,,USD
+AM:monthly:arn:sac,Capitol Corridor Monthly from ARN to SAC,,,,,,,,,,,,,,,243,,,USD
+AM:monthly:arn:dav,Capitol Corridor Monthly from ARN to DAV,,,,,,,,,,,,,,,287,,,USD
+AM:monthly:arn:ffv,Capitol Corridor Monthly from ARN to FFV,,,,,,,,,,,,,,,396,,,USD
+AM:monthly:arn:sui,Capitol Corridor Monthly from ARN to SUI,,,,,,,,,,,,,,,422,,,USD
+AM:monthly:arn:mtz,Capitol Corridor Monthly from ARN to MTZ,,,,,,,,,,,,,,,501,,,USD
+AM:monthly:arn:ric,Capitol Corridor Monthly from ARN to RIC,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:arn:brk,Capitol Corridor Monthly from ARN to BRK,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:arn:emy,Capitol Corridor Monthly from ARN to EMY,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:arn:sfc,Capitol Corridor Monthly from ARN to SFC,,,,,,,,,,,,,,,620,,,USD
+AM:monthly:arn:okj,Capitol Corridor Monthly from ARN to OKJ,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:arn:oac,Capitol Corridor Monthly from ARN to OAC,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:arn:hay,Capitol Corridor Monthly from ARN to HAY,,,,,,,,,,,,,,,632,,,USD
+AM:monthly:arn:fmt,Capitol Corridor Monthly from ARN to FMT,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:arn:gac,Capitol Corridor Monthly from ARN to GAC,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:arn:scc,Capitol Corridor Monthly from ARN to SCC,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:arn:sjc,Capitol Corridor Monthly from ARN to SJC,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:rln:rsv,Capitol Corridor Monthly from RLN to RSV,,,,,,,,,,,,,,,139,,,USD
+AM:monthly:rln:sac,Capitol Corridor Monthly from RLN to SAC,,,,,,,,,,,,,,,192,,,USD
+AM:monthly:rln:dav,Capitol Corridor Monthly from RLN to DAV,,,,,,,,,,,,,,,248,,,USD
+AM:monthly:rln:ffv,Capitol Corridor Monthly from RLN to FFV,,,,,,,,,,,,,,,356,,,USD
+AM:monthly:rln:sui,Capitol Corridor Monthly from RLN to SUI,,,,,,,,,,,,,,,381,,,USD
+AM:monthly:rln:mtz,Capitol Corridor Monthly from RLN to MTZ,,,,,,,,,,,,,,,466,,,USD
+AM:monthly:rln:ric,Capitol Corridor Monthly from RLN to RIC,,,,,,,,,,,,,,,501,,,USD
+AM:monthly:rln:brk,Capitol Corridor Monthly from RLN to BRK,,,,,,,,,,,,,,,502,,,USD
+AM:monthly:rln:emy,Capitol Corridor Monthly from RLN to EMY,,,,,,,,,,,,,,,519,,,USD
+AM:monthly:rln:sfc,Capitol Corridor Monthly from RLN to SFC,,,,,,,,,,,,,,,572,,,USD
+AM:monthly:rln:okj,Capitol Corridor Monthly from RLN to OKJ,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:rln:oac,Capitol Corridor Monthly from RLN to OAC,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:rln:hay,Capitol Corridor Monthly from RLN to HAY,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:rln:fmt,Capitol Corridor Monthly from RLN to FMT,,,,,,,,,,,,,,,632,,,USD
+AM:monthly:rln:gac,Capitol Corridor Monthly from RLN to GAC,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:rln:scc,Capitol Corridor Monthly from RLN to SCC,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:rln:sjc,Capitol Corridor Monthly from RLN to SJC,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:rsv:sac,Capitol Corridor Monthly from RSV to SAC,,,,,,,,,,,,,,,177,,,USD
+AM:monthly:rsv:dav,Capitol Corridor Monthly from RSV to DAV,,,,,,,,,,,,,,,226,,,USD
+AM:monthly:rsv:ffv,Capitol Corridor Monthly from RSV to FFV,,,,,,,,,,,,,,,305,,,USD
+AM:monthly:rsv:sui,Capitol Corridor Monthly from RSV to SUI,,,,,,,,,,,,,,,324,,,USD
+AM:monthly:rsv:mtz,Capitol Corridor Monthly from RSV to MTZ,,,,,,,,,,,,,,,431,,,USD
+AM:monthly:rsv:ric,Capitol Corridor Monthly from RSV to RIC,,,,,,,,,,,,,,,501,,,USD
+AM:monthly:rsv:brk,Capitol Corridor Monthly from RSV to BRK,,,,,,,,,,,,,,,502,,,USD
+AM:monthly:rsv:emy,Capitol Corridor Monthly from RSV to EMY,,,,,,,,,,,,,,,519,,,USD
+AM:monthly:rsv:sfc,Capitol Corridor Monthly from RSV to SFC,,,,,,,,,,,,,,,572,,,USD
+AM:monthly:rsv:okj,Capitol Corridor Monthly from RSV to OKJ,,,,,,,,,,,,,,,519,,,USD
+AM:monthly:rsv:oac,Capitol Corridor Monthly from RSV to OAC,,,,,,,,,,,,,,,519,,,USD
+AM:monthly:rsv:hay,Capitol Corridor Monthly from RSV to HAY,,,,,,,,,,,,,,,566,,,USD
+AM:monthly:rsv:fmt,Capitol Corridor Monthly from RSV to FMT,,,,,,,,,,,,,,,632,,,USD
+AM:monthly:rsv:gac,Capitol Corridor Monthly from RSV to GAC,,,,,,,,,,,,,,,632,,,USD
+AM:monthly:rsv:scc,Capitol Corridor Monthly from RSV to SCC,,,,,,,,,,,,,,,681,,,USD
+AM:monthly:rsv:sjc,Capitol Corridor Monthly from RSV to SJC,,,,,,,,,,,,,,,697,,,USD
+AM:monthly:sac:dav,Capitol Corridor Monthly from SAC to DAV,,,,,,,,,,,,,,,157,,,USD
+AM:monthly:sac:ffv,Capitol Corridor Monthly from SAC to FFV,,,,,,,,,,,,,,,254,,,USD
+AM:monthly:sac:sui,Capitol Corridor Monthly from SAC to SUI,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:sac:mtz,Capitol Corridor Monthly from SAC to MTZ,,,,,,,,,,,,,,,329,,,USD
+AM:monthly:sac:ric,Capitol Corridor Monthly from SAC to RIC,,,,,,,,,,,,,,,462,,,USD
+AM:monthly:sac:brk,Capitol Corridor Monthly from SAC to BRK,,,,,,,,,,,,,,,497,,,USD
+AM:monthly:sac:emy,Capitol Corridor Monthly from SAC to EMY,,,,,,,,,,,,,,,497,,,USD
+AM:monthly:sac:sfc,Capitol Corridor Monthly from SAC to SFC,,,,,,,,,,,,,,,561,,,USD
+AM:monthly:sac:okj,Capitol Corridor Monthly from SAC to OKJ,,,,,,,,,,,,,,,497,,,USD
+AM:monthly:sac:oac,Capitol Corridor Monthly from SAC to OAC,,,,,,,,,,,,,,,497,,,USD
+AM:monthly:sac:hay,Capitol Corridor Monthly from SAC to HAY,,,,,,,,,,,,,,,537,,,USD
+AM:monthly:sac:fmt,Capitol Corridor Monthly from SAC to FMT,,,,,,,,,,,,,,,606,,,USD
+AM:monthly:sac:gac,Capitol Corridor Monthly from SAC to GAC,,,,,,,,,,,,,,,620,,,USD
+AM:monthly:sac:scc,Capitol Corridor Monthly from SAC to SCC,,,,,,,,,,,,,,,641,,,USD
+AM:monthly:sac:sjc,Capitol Corridor Monthly from SAC to SJC,,,,,,,,,,,,,,,693,,,USD
+AM:monthly:dav:ffv,Capitol Corridor Monthly from DAV to FFV,,,,,,,,,,,,,,,224,,,USD
+AM:monthly:dav:sui,Capitol Corridor Monthly from DAV to SUI,,,,,,,,,,,,,,,243,,,USD
+AM:monthly:dav:mtz,Capitol Corridor Monthly from DAV to MTZ,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:dav:ric,Capitol Corridor Monthly from DAV to RIC,,,,,,,,,,,,,,,399,,,USD
+AM:monthly:dav:brk,Capitol Corridor Monthly from DAV to BRK,,,,,,,,,,,,,,,409,,,USD
+AM:monthly:dav:emy,Capitol Corridor Monthly from DAV to EMY,,,,,,,,,,,,,,,462,,,USD
+AM:monthly:dav:sfc,Capitol Corridor Monthly from DAV to SFC,,,,,,,,,,,,,,,527,,,USD
+AM:monthly:dav:okj,Capitol Corridor Monthly from DAV to OKJ,,,,,,,,,,,,,,,462,,,USD
+AM:monthly:dav:oac,Capitol Corridor Monthly from DAV to OAC,,,,,,,,,,,,,,,462,,,USD
+AM:monthly:dav:hay,Capitol Corridor Monthly from DAV to HAY,,,,,,,,,,,,,,,497,,,USD
+AM:monthly:dav:fmt,Capitol Corridor Monthly from DAV to FMT,,,,,,,,,,,,,,,537,,,USD
+AM:monthly:dav:gac,Capitol Corridor Monthly from DAV to GAC,,,,,,,,,,,,,,,583,,,USD
+AM:monthly:dav:scc,Capitol Corridor Monthly from DAV to SCC,,,,,,,,,,,,,,,606,,,USD
+AM:monthly:dav:sjc,Capitol Corridor Monthly from DAV to SJC,,,,,,,,,,,,,,,606,,,USD
+AM:monthly:ffv:sui,Capitol Corridor Monthly from FFV to SUI,,,,,,,,,,,,,,,214,,,USD
+AM:monthly:ffv:mtz,Capitol Corridor Monthly from FFV to MTZ,,,,,,,,,,,,,,,222,,,USD
+AM:monthly:ffv:ric,Capitol Corridor Monthly from FFV to RIC,,,,,,,,,,,,,,,300,,,USD
+AM:monthly:ffv:brk,Capitol Corridor Monthly from FFV to BRK,,,,,,,,,,,,,,,323,,,USD
+AM:monthly:ffv:emy,Capitol Corridor Monthly from FFV to EMY,,,,,,,,,,,,,,,332,,,USD
+AM:monthly:ffv:sfc,Capitol Corridor Monthly from FFV to SFC,,,,,,,,,,,,,,,392,,,USD
+AM:monthly:ffv:okj,Capitol Corridor Monthly from FFV to OKJ,,,,,,,,,,,,,,,347,,,USD
+AM:monthly:ffv:oac,Capitol Corridor Monthly from FFV to OAC,,,,,,,,,,,,,,,347,,,USD
+AM:monthly:ffv:hay,Capitol Corridor Monthly from FFV to HAY,,,,,,,,,,,,,,,426,,,USD
+AM:monthly:ffv:fmt,Capitol Corridor Monthly from FFV to FMT,,,,,,,,,,,,,,,467,,,USD
+AM:monthly:ffv:gac,Capitol Corridor Monthly from FFV to GAC,,,,,,,,,,,,,,,522,,,USD
+AM:monthly:ffv:scc,Capitol Corridor Monthly from FFV to SCC,,,,,,,,,,,,,,,551,,,USD
+AM:monthly:ffv:sjc,Capitol Corridor Monthly from FFV to SJC,,,,,,,,,,,,,,,551,,,USD
+AM:monthly:sui:mtz,Capitol Corridor Monthly from SUI to MTZ,,,,,,,,,,,,,,,209,,,USD
+AM:monthly:sui:ric,Capitol Corridor Monthly from SUI to RIC,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:sui:brk,Capitol Corridor Monthly from SUI to BRK,,,,,,,,,,,,,,,302,,,USD
+AM:monthly:sui:emy,Capitol Corridor Monthly from SUI to EMY,,,,,,,,,,,,,,,302,,,USD
+AM:monthly:sui:sfc,Capitol Corridor Monthly from SUI to SFC,,,,,,,,,,,,,,,360,,,USD
+AM:monthly:sui:okj,Capitol Corridor Monthly from SUI to OKJ,,,,,,,,,,,,,,,320,,,USD
+AM:monthly:sui:oac,Capitol Corridor Monthly from SUI to OAC,,,,,,,,,,,,,,,320,,,USD
+AM:monthly:sui:hay,Capitol Corridor Monthly from SUI to HAY,,,,,,,,,,,,,,,409,,,USD
+AM:monthly:sui:fmt,Capitol Corridor Monthly from SUI to FMT,,,,,,,,,,,,,,,450,,,USD
+AM:monthly:sui:gac,Capitol Corridor Monthly from SUI to GAC,,,,,,,,,,,,,,,502,,,USD
+AM:monthly:sui:scc,Capitol Corridor Monthly from SUI to SCC,,,,,,,,,,,,,,,537,,,USD
+AM:monthly:sui:sjc,Capitol Corridor Monthly from SUI to SJC,,,,,,,,,,,,,,,537,,,USD
+AM:monthly:mtz:ric,Capitol Corridor Monthly from MTZ to RIC,,,,,,,,,,,,,,,209,,,USD
+AM:monthly:mtz:brk,Capitol Corridor Monthly from MTZ to BRK,,,,,,,,,,,,,,,225,,,USD
+AM:monthly:mtz:emy,Capitol Corridor Monthly from MTZ to EMY,,,,,,,,,,,,,,,225,,,USD
+AM:monthly:mtz:sfc,Capitol Corridor Monthly from MTZ to SFC,,,,,,,,,,,,,,,288,,,USD
+AM:monthly:mtz:okj,Capitol Corridor Monthly from MTZ to OKJ,,,,,,,,,,,,,,,242,,,USD
+AM:monthly:mtz:oac,Capitol Corridor Monthly from MTZ to OAC,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:mtz:hay,Capitol Corridor Monthly from MTZ to HAY,,,,,,,,,,,,,,,313,,,USD
+AM:monthly:mtz:fmt,Capitol Corridor Monthly from MTZ to FMT,,,,,,,,,,,,,,,247,,,USD
+AM:monthly:mtz:gac,Capitol Corridor Monthly from MTZ to GAC,,,,,,,,,,,,,,,409,,,USD
+AM:monthly:mtz:scc,Capitol Corridor Monthly from MTZ to SCC,,,,,,,,,,,,,,,433,,,USD
+AM:monthly:mtz:sjc,Capitol Corridor Monthly from MTZ to SJC,,,,,,,,,,,,,,,462,,,USD
+AM:monthly:ric:brk,Capitol Corridor Monthly from RIC to BRK,,,,,,,,,,,,,,,157,,,USD
+AM:monthly:ric:emy,Capitol Corridor Monthly from RIC to EMY,,,,,,,,,,,,,,,157,,,USD
+AM:monthly:ric:sfc,Capitol Corridor Monthly from RIC to SFC,,,,,,,,,,,,,,,221,,,USD
+AM:monthly:ric:okj,Capitol Corridor Monthly from RIC to OKJ,,,,,,,,,,,,,,,173,,,USD
+AM:monthly:ric:oac,Capitol Corridor Monthly from RIC to OAC,,,,,,,,,,,,,,,209,,,USD
+AM:monthly:ric:hay,Capitol Corridor Monthly from RIC to HAY,,,,,,,,,,,,,,,225,,,USD
+AM:monthly:ric:fmt,Capitol Corridor Monthly from RIC to FMT,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:ric:gac,Capitol Corridor Monthly from RIC to GAC,,,,,,,,,,,,,,,320,,,USD
+AM:monthly:ric:scc,Capitol Corridor Monthly from RIC to SCC,,,,,,,,,,,,,,,337,,,USD
+AM:monthly:ric:sjc,Capitol Corridor Monthly from RIC to SJC,,,,,,,,,,,,,,,347,,,USD
+AM:monthly:brk:emy,Capitol Corridor Monthly from BRK to EMY,,,,,,,,,,,,,,,129,,,USD
+AM:monthly:brk:sfc,Capitol Corridor Monthly from BRK to SFC,,,,,,,,,,,,,,,196,,,USD
+AM:monthly:brk:okj,Capitol Corridor Monthly from BRK to OKJ,,,,,,,,,,,,,,,157,,,USD
+AM:monthly:brk:oac,Capitol Corridor Monthly from BRK to OAC,,,,,,,,,,,,,,,173,,,USD
+AM:monthly:brk:hay,Capitol Corridor Monthly from BRK to HAY,,,,,,,,,,,,,,,209,,,USD
+AM:monthly:brk:fmt,Capitol Corridor Monthly from BRK to FMT,,,,,,,,,,,,,,,261,,,USD
+AM:monthly:brk:gac,Capitol Corridor Monthly from BRK to GAC,,,,,,,,,,,,,,,302,,,USD
+AM:monthly:brk:scc,Capitol Corridor Monthly from BRK to SCC,,,,,,,,,,,,,,,320,,,USD
+AM:monthly:brk:sjc,Capitol Corridor Monthly from BRK to SJC,,,,,,,,,,,,,,,320,,,USD
+AM:monthly:emy:okj,Capitol Corridor Monthly from EMY to OKJ,,,,,,,,,,,,,,,121,,,USD
+AM:monthly:emy:oac,Capitol Corridor Monthly from EMY to OAC,,,,,,,,,,,,,,,157,,,USD
+AM:monthly:emy:hay,Capitol Corridor Monthly from EMY to HAY,,,,,,,,,,,,,,,209,,,USD
+AM:monthly:emy:fmt,Capitol Corridor Monthly from EMY to FMT,,,,,,,,,,,,,,,243,,,USD
+AM:monthly:emy:gac,Capitol Corridor Monthly from EMY to GAC,,,,,,,,,,,,,,,302,,,USD
+AM:monthly:emy:scc,Capitol Corridor Monthly from EMY to SCC,,,,,,,,,,,,,,,320,,,USD
+AM:monthly:emy:sjc,Capitol Corridor Monthly from EMY to SJC,,,,,,,,,,,,,,,320,,,USD
+AM:monthly:okj:oac,Capitol Corridor Monthly from OKJ to OAC,,,,,,,,,,,,,,,130,,,USD
+AM:monthly:okj:hay,Capitol Corridor Monthly from OKJ to HAY,,,,,,,,,,,,,,,173,,,USD
+AM:monthly:okj:fmt,Capitol Corridor Monthly from OKJ to FMT,,,,,,,,,,,,,,,225,,,USD
+AM:monthly:okj:gac,Capitol Corridor Monthly from OKJ to GAC,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:okj:scc,Capitol Corridor Monthly from OKJ to SCC,,,,,,,,,,,,,,,295,,,USD
+AM:monthly:okj:sjc,Capitol Corridor Monthly from OKJ to SJC,,,,,,,,,,,,,,,295,,,USD
+AM:monthly:oac:hay,Capitol Corridor Monthly from OAC to HAY,,,,,,,,,,,,,,,157,,,USD
+AM:monthly:oac:fmt,Capitol Corridor Monthly from OAC to FMT,,,,,,,,,,,,,,,209,,,USD
+AM:monthly:oac:gac,Capitol Corridor Monthly from OAC to GAC,,,,,,,,,,,,,,,261,,,USD
+AM:monthly:oac:scc,Capitol Corridor Monthly from OAC to SCC,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:oac:sjc,Capitol Corridor Monthly from OAC to SJC,,,,,,,,,,,,,,,277,,,USD
+AM:monthly:hay:fmt,Capitol Corridor Monthly from HAY to FMT,,,,,,,,,,,,,,,173,,,USD
+AM:monthly:hay:gac,Capitol Corridor Monthly from HAY to GAC,,,,,,,,,,,,,,,212,,,USD
+AM:monthly:hay:scc,Capitol Corridor Monthly from HAY to SCC,,,,,,,,,,,,,,,243,,,USD
+AM:monthly:hay:sjc,Capitol Corridor Monthly from HAY to SJC,,,,,,,,,,,,,,,261,,,USD
+AM:monthly:fmt:gac,Capitol Corridor Monthly from FMT to GAC,,,,,,,,,,,,,,,173,,,USD
+AM:monthly:fmt:scc,Capitol Corridor Monthly from FMT to SCC,,,,,,,,,,,,,,,192,,,USD
+AM:monthly:fmt:sjc,Capitol Corridor Monthly from FMT to SJC,,,,,,,,,,,,,,,209,,,USD
+AM:monthly:gac:scc,Capitol Corridor Monthly from GAC to SCC,,,,,,,,,,,,,,,105,,,USD
+AM:monthly:gac:sjc,Capitol Corridor Monthly from GAC to SJC,,,,,,,,,,,,,,,148,,,USD
+AM:monthly:scc:sjc,Capitol Corridor Monthly from SCC to SJC,,,,,,,,,,,,,,,105,,,USD
+3D:day,Tri Delta Transit Day Pass,,,,,1,3,1,,,,,,,,3.75,,,USD
+3D:day,Tri Delta Transit Day Pass,3D:senior,,,,1,3,1,,,,,,,,1.75,,,USD
+3D:day,Tri Delta Transit Day Pass,3D:discount,,,,1,3,1,,,,,,,,1.75,,,USD
+3D:31-day,Tri Delta Transit Day Pass,,,,,31,3,1,,,,,,,,57,,,USD
+3D:20-ride,Tri Delta Transit Day Pass,,,20,,,,,,,,,,,,33,,,USD
+3D:20-ride,Tri Delta Transit Day Pass,3D:senior,,20,,,,,,,,,,,,17,,,USD
+3D:20-ride,Tri Delta Transit Day Pass,3D:discount,,20,,,,,,,,,,,,17,,,USD
+MA:1-day,Marin Transit Day Pass,,,,,1,3,1,,,,,,,,5,,,USD
+MA:1-day,Marin Transit Day Pass,MA:youth,,,,1,3,1,,,,,,,,2.5,,,USD
+MA:1-day,Marin Transit Day Pass,MA:senior,,,,1,3,1,,,,,,,,2.5,,,USD
+MA:1-day,Marin Transit Day Pass,MA:discount,,,,1,3,1,,,,,,,,2.5,,,USD
+MA:31-day,Marin Transit 31-Day Pass,,,,,31,3,1,,,,,,,,40,,,USD
+MA:31-day,Marin Transit 31-Day Pass,MA:youth,,,,31,3,1,,,,,,,,40,,,USD
+MA:31-day,Marin Transit 31-Day Pass,MA:senior,,,,31,3,1,,,,,,,,20,,,USD
+MA:31-day,Marin Transit 31-Day Pass,MA:discount,,,,31,3,1,,,,,,,,20,,,USD
+ST:day-local,Solano County Transit Day Local Pass,,,,,1,3,1,,,,,,,,4.5,,,USD
+ST:day-local,Solano County Transit Day Local Pass,ST:senior,,,,1,3,1,,,,,,,,2.25,,,USD
+ST:day-local,Solano County Transit Day Local Pass,ST:youth,,,,1,3,1,,,,,,,,3.5,,,USD
+ST:day-local,Solano County Transit Day Local Pass,ST:discount,,,,1,3,1,,,,,,,,2.25,,,USD
+ST:day-outside,Solano County Transit Day Outside County Express Pass,,,,,1,3,1,,,,,,,,10,,,USD
+ST:day-outside,Solano County Transit Day Outside County Express Pass,ST:senior,,,,1,3,1,,,,,,,,5,,,USD
+ST:day-outside,Solano County Transit Day Outside County Express Pass,ST:youth,,,,1,3,1,,,,,,,,8,,,USD
+ST:day-outside,Solano County Transit Day Outside County Express Pass,ST:discount,,,,1,3,1,,,,,,,,5,,,USD
+ST:10-ride-local,Solano County Transit 10-Ride Pass,,,10,,,,,,,,,,,,18,,,USD
+ST:10-ride-local,Solano County Transit 10-Ride Pass,ST:senior,,10,,,,,,,,,,,,9,,,USD
+ST:10-ride-local,Solano County Transit 10-Ride Pass,ST:youth,,10,,,,,,,,,,,,15,,,USD
+ST:10-ride-local,Solano County Transit 10-Ride Pass,ST:discount,,10,,,,,,,,,,,,9,,,USD
+ST:31-day-local,Solano County Transit 31-Day Local Pass,,,,,31,3,1,,,,,,,,60,,,USD
+ST:31-day-local,Solano County Transit 31-Day Local Pass,ST:senior,,,,31,3,1,,,,,,,,30,,,USD
+ST:31-day-local,Solano County Transit 31-Day Local Pass,ST:youth,,,,31,3,1,,,,,,,,46,,,USD
+ST:31-day-local,Solano County Transit 31-Day Local Pass,ST:discount,,,,31,3,1,,,,,,,,30,,,USD
+ST:31-day-outside,Solano County Transit 31-Day Outside County Express Pass,,,,,31,3,1,,,,,,,,114,,,USD
+ST:31-day-outside,Solano County Transit 31-Day Outside County Express Pass,ST:senior,,,,31,3,1,,,,,,,,57,,,USD
+ST:31-day-outside,Solano County Transit 31-Day Outside County Express Pass,ST:discount,,,,31,3,1,,,,,,,,57,,,USD
+ST:day-inside,Solano County Transit Day Inside County Express Pass,,,,,1,3,1,,,,,,,,5.5,,,USD
+ST:day-inside,Solano County Transit Day Inside County Express Pass,ST:senior,,,,1,3,1,,,,,,,,2.75,,,USD
+ST:day-inside,Solano County Transit Day Inside County Express Pass,ST:youth,,,,1,3,1,,,,,,,,4,,,USD
+ST:day-inside,Solano County Transit Day Inside County Express Pass,ST:discount,,,,1,3,1,,,,,,,,2.75,,,USD
+ST:31-day-inside,Solano County Transit 31-Day Inside County Express Pass,,,,,31,3,1,,,,,,,,70,,,USD
+ST:31-day-inside,Solano County Transit 31-Day Inside County Express Pass,ST:senior,,,,31,3,1,,,,,,,,35,,,USD
+ST:31-day-inside,Solano County Transit 31-Day Inside County Express Pass,ST:discount,,,,31,3,1,,,,,,,,35,,,USD
+ST:31-express,Solano County Transit 31-Day Pass Express,,,,,31,3,1,,,,,,,,130,,,USD
+ST:31-express,Solano County Transit 31-Day Pass Express,ST:senior,,,,31,3,1,,,,,,,,65,,,USD
+ST:31-express,Solano County Transit 31-Day Pass Express,ST:discount,,,,31,3,1,,,,,,,,65,,,USD
+ST:day-express,Solano County Transit Day Pass Express,,,,,1,3,1,,,,,,,,11.5,,,USD
+ST:day-express,Solano County Transit Day Pass Express,ST:senior,,,,1,3,1,,,,,,,,5.75,,,USD
+ST:day-express,Solano County Transit Day Pass Express,ST:youth,,,,1,3,1,,,,,,,,9.5,,,USD
+ST:day-express,Solano County Transit Day Pass Express,ST:discount,,,,1,3,1,,,,,,,,5.75,,,USD
+SR:1-day,Santa Rosa CityBus Day Pass,,,,,1,3,1,,,,,,,,4,,,USD
+SR:1-day,Santa Rosa CityBus Day Pass,SR:youth,,,,1,3,1,,,,,,,,3,,,USD
+SR:1-day,Santa Rosa CityBus Day Pass,SR:senior,,,,1,3,1,,,,,,,,2,,,USD
+SR:1-day,Santa Rosa CityBus Day Pass,SR:discount,,,,1,3,1,,,,,,,,2,,,USD
+SR:1-day,Santa Rosa CityBus Day Pass,SR:veteran,,,,1,3,1,,,,,,,,0,,,USD
+SR:1-day,Santa Rosa CityBus Day Pass,SR:student,,,,1,3,1,,,,,,,,0,,,USD
+SR:31-day,Santa Rosa CityBus 31-Day Pass,,,,,31,3,1,,,,,,,,50,,,USD
+SR:31-day,Santa Rosa CityBus 31-Day Pass,SR:youth,,,,31,3,1,,,,,,,,25,,,USD
+SR:31-day,Santa Rosa CityBus 31-Day Pass,SR:senior,,,,31,3,1,,,,,,,,25,,,USD
+SR:31-day,Santa Rosa CityBus 31-Day Pass,SR:discount,,,,31,3,1,,,,,,,,25,,,USD
+SR:31-day,Santa Rosa CityBus 31-Day Pass,SR:veteran,,,,31,3,1,,,,,,,,0,,,USD
+SR:31-day,Santa Rosa CityBus 31-Day Pass,SR:student,,,,31,3,1,,,,,,,,0,,,USD
+VC:day,Vacaville City Coach Day Pass,,,,,1,3,1,,,,,,,,3.25,,,USD
+VC:day,Vacaville City Coach Day Pass,VC:senior,,,,1,3,1,,,,,,,,2,,,USD
+VC:day,Vacaville City Coach Day Pass,VC:discount,,,,1,3,1,,,,,,,,2,,,USD
+VC:half,Vacaville City Coach Half Month Pass,,,,,14,3,1,,,,,,,,18,,,USD
+VC:30-ride,Vacaville City Coach 30-Ride Pass,,,30,,,,,,,,,,,,19,,,USD
+VC:monthly,Vacaville City Coach Monthly Pass,,,,,31,3,1,,,,,,,,36,,,USD
+VC:monthly,Vacaville City Coach Monthly Pass,VC:youth,,,,31,3,1,,,,,,,,21,,,USD
+VC:monthly,Vacaville City Coach Monthly Pass,VC:college,,,,31,3,1,,,,,,,,21,,,USD
+VC:monthly,Vacaville City Coach Monthly Pass,VC:senior,,,,31,3,1,,,,,,,,18,,,USD
+VC:monthly,Vacaville City Coach Monthly Pass,VC:discount,,,,31,3,1,,,,,,,,18,,,USD
+VN:day,Vine Day Pass,,,,,1,3,1,,,,,,,,6.5,,,USD
+VN:day,Vine Day Pass,VN:senior,,,,1,3,1,,,,,,,,3.25,,,USD
+VN:day,Vine Day Pass,VN:discount,,,,1,3,1,,,,,,,,3.25,,,USD
+VN:day,Vine Day Pass,VN:youth,,,,1,3,1,,,,,,,,4.5,,,USD
+VN:20-ride,Vine 20-Ride Pass,,,20,,,,,,,,,,,,29,,,USD
+VN:20-ride,Vine 20-Ride Pass,VN:senior,,20,,,,,,,,,,,,14.5,,,USD
+VN:20-ride,Vine 20-Ride Pass,VN:discount,,20,,,,,,,,,,,,14.5,,,USD
+VN:20-ride,Vine 20-Ride Pass,VN:youth,,20,,,,,,,,,,,,20,,,USD
+VN:31-day,Vine 31-Day Pass,,,,,31,3,1,,,,,,,,53,,,USD
+VN:31-day,Vine 31-Day Pass,VN:senior,,,,31,3,1,,,,,,,,26.5,,,USD
+VN:31-day,Vine 31-Day Pass,VN:discount,,,,31,3,1,,,,,,,,26.5,,,USD
+VN:31-day,Vine 31-Day Pass,VN:youth,,,,31,3,1,,,,,,,,36,,,USD
+VN:BART,Vine BART 31-Day Pass,,,,,31,3,1,,,,,,,,120,,,USD
+VN:BART,Vine BART 31-Day Pass,VN:senior,,,,31,3,1,,,,,,,,120,,,USD
+VN:BART,Vine BART 31-Day Pass,VN:discount,,,,31,3,1,,,,,,,,120,,,USD
+VN:BART,Vine BART 31-Day Pass,VN:youth,,,,31,3,1,,,,,,,,120,,,USD
+WC:10-ride,WestCAT 10-Ride,,,10,,,,,,,,,,,,50,,,USD
+WC:10-ride,WestCAT 10-Ride,WC:senior,,10,,,,,,,,,,,,20,,,USD
+WC:10-ride,WestCAT 10-Ride,WC:discount,,10,,,,,,,,,,,,20,,,USD
+WC:31-day:lynx,WestCAT 31-Day Lynx Pass,,,,,31,3,1,,,,,,,,140,,,USD
+WC:31-day:lynx,WestCAT 31-Day Lynx Pass,WC:senior,,,,31,3,1,,,,,,,,70,,,USD
+WC:31-day:lynx,WestCAT 31-Day Lynx Pass,WC:discount,,,,31,3,1,,,,,,,,70,,,USD
+WC:31-day:local,WestCAT 31-Day Local Pass,,,,,31,3,1,,,,,,,,40,,,USD
+WC:31-day:local,WestCAT 31-Day Local Pass,WC:senior,,,,31,3,1,,,,,,,,20,,,USD
+WC:31-day:local,WestCAT 31-Day Local Pass,WC:discount,,,,31,3,1,,,,,,,,20,,,USD
+WC:day,WestCAT Day Pass,,,,,1,3,1,,,,,,,,3.5,,,USD
+WC:day,WestCAT Day Pass,WC:senior,,,,1,3,1,,,,,,,,1.5,,,USD
+WC:day,WestCAT Day Pass,WC:discount,,,,1,3,1,,,,,,,,1.5,,,USD
+RV:monthly,Rio Vista Monthly Pass,,,,,31,3,1,,,,,,,,120,,,USD
+RV:monthly,Rio Vista Monthly Pass,RV:senior,,,,31,3,1,,,,,,,,60,,,USD
+RV:monthly,Rio Vista Monthly Pass,RV:discount,,,,31,3,1,,,,,,,,60,,,USD
+PE:monthly,Petaluma Transit Monthly Pass,,,,,1,5,1,,,,,,,,30,,,USD
+PE:monthly,Petaluma Transit Monthly Pass,PE:youth,,,,1,5,1,,,,,,,,20,,,USD
+PE:monthly,Petaluma Transit Monthly Pass,PE:senior,,,,1,5,1,,,,,,,,15,,,USD
+PE:monthly,Petaluma Transit Monthly Pass,PE:discount,,,,1,5,1,,,,,,,,15,,,USD
+PE:quarterly,Petaluma Transit Monthly Pass,PE:youth,,,,3,5,1,,,,,,,,40,,,USD
+UC:31-day,Union City Transit 31-Day Pass,,clipper,,,31,3,1,,,,,,,,55,,,USD
+UC:31-day,Union City Transit 31-Day Pass,UC:youth,clipper,,,31,3,1,,,,,,,,35,,,USD
+UC:31-day,Union City Transit 31-Day Pass,UC:senior,clipper,,,31,3,1,,,,,,,,26,,,USD
+UC:31-day,Union City Transit 31-Day Pass,UC:discount,clipper,,,31,3,1,,,,,,,,26,,,USD
+SO:monthly,Sonoma County Transit Monthly Pass,,,,,1,5,1,,,,,,,,62.5,,,USD
+SO:monthly,Sonoma County Transit Monthly Pass,SO:youth,,,,1,5,1,,,,,,,,47,,,USD
+SO:monthly,Sonoma County Transit Monthly Pass,SO:senior,,,,1,5,1,,,,,,,,31.25,,,USD
+SO:monthly,Sonoma County Transit Monthly Pass,SO:discount,,,,1,5,1,,,,,,,,31.25,,,USD
+SO:31-day,Sonoma County Transit 31-Day Pass,,,,,31,3,1,,,,,,,,62.5,,,USD
+SO:31-day,Sonoma County Transit 31-Day Pass,SO:youth,,,,31,3,1,,,,,,,,47,,,USD
+SO:31-day,Sonoma County Transit 31-Day Pass,SO:senior,,,,31,3,1,,,,,,,,31.25,,,USD
+SO:31-day,Sonoma County Transit 31-Day Pass,SO:discount,,,,31,3,1,,,,,,,,31.25,,,USD
+SO:superpass-PE-SR,"SuperPass: Sonoma County Transit, Petaluma Transit, Santa Rosa CityBus",,,,,31,3,1,,,,,,,,142,,,USD
+SO:superpass-PE-SR,"SuperPass: Sonoma County Transit, Petaluma Transit, Santa Rosa CityBus",SO:youth,,,,31,3,1,,,,,,,,92,,,USD
+SO:superpass-PE-SR,"SuperPass: Sonoma County Transit, Petaluma Transit, Santa Rosa CityBus",SO:senior,,,,31,3,1,,,,,,,,71.25,,,USD
+SO:superpass-PE-SR,"SuperPass: Sonoma County Transit, Petaluma Transit, Santa Rosa CityBus",SO:discount,,,,31,3,1,,,,,,,,71.25,,,USD
+SO:superpass-PE,"SuperPass: Sonoma County Transit, Petaluma Transit",,,,,31,3,1,,,,,,,,92.5,,,USD
+SO:superpass-PE,"SuperPass: Sonoma County Transit, Petaluma Transit",SO:youth,,,,31,3,1,,,,,,,,67,,,USD
+SO:superpass-PE,"SuperPass: Sonoma County Transit, Petaluma Transit",SO:senior,,,,31,3,1,,,,,,,,46.25,,,USD
+SO:superpass-PE,"SuperPass: Sonoma County Transit, Petaluma Transit",SO:discount,,,,31,3,1,,,,,,,,46.25,,,USD
+SO:superpass-SR,"SuperPass: Sonoma County Transit, Santa Rosa CityBus",,,,,31,3,1,,,,,,,,112.5,,,USD
+SO:superpass-SR,"SuperPass: Sonoma County Transit, Santa Rosa CityBus",SO:youth,,,,31,3,1,,,,,,,,72,,,USD
+SO:superpass-SR,"SuperPass: Sonoma County Transit, Santa Rosa CityBus",SO:senior,,,,31,3,1,,,,,,,,56.25,,,USD
+SO:superpass-SR,"SuperPass: Sonoma County Transit, Santa Rosa CityBus",SO:discount,,,,31,3,1,,,,,,,,56.25,,,USD

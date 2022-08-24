@@ -1,0 +1,5 @@
+fare_product_id,eligible_cap_id,fare_container_id,duration_amount,duration_unit,duration_type,offset_amount,offset_unit,service_id,timeframe_id,area_id,network_id,cap_amount,currency
+AC:day,AC:day,clipper,,,,,,,,,,,
+SC:day,SC:day,clipper,,,,,,,,,,,
+CC:local:day,CC:local:day,clipper,,,,,,,,,,,
+SA:day,SA:day,clipper,,,,,,,,,,,

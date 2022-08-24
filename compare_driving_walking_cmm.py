@@ -2,8 +2,6 @@
 # centroids, and particularly compares walking and driving routes for the five
 # longest driving routes.
 
-# ATTEMPT AT MAPBOX MAPPING -- DOES NOT WORK RIGHT NOW
-
 import osmnx as ox
 from osmnx import utils_graph
 import networkx as nx
@@ -37,9 +35,12 @@ drive_csv = pd.read_csv(r'data/distance_matrices/distmatrix_contracosta.csv').se
 drive_csv.index.names = [None]
 #walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cfcontracosta.csv').set_index('Unnamed: 0')
 #walk_csv_edited.index.names = [None]
-walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cf_overpasses_contracosta.csv').set_index('Unnamed: 0')
+#walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cfcontracosta.csv').set_index('Unnamed: 0')
+walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_wilmington.csv').set_index('Unnamed: 0')
 walk_csv_edited.index.names = [None]
-
+#walk_csv_transit = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cf_transit_contracosta.csv').set_index('Unnamed: 0')
+walk_csv_transit = pd.read_csv(r'data/distance_matrices/distmatrix_walk_transit_wilmington.csv').set_index('Unnamed: 0')
+walk_csv_transit.index.names = [None]
 # Calculate the number of differences (walking vs driving)
 walk_tf = walk_csv.notna()
 drive_tf = drive_csv.notna()
@@ -84,6 +85,35 @@ plt.xlim(0, 25)
 plt.ylim(0, 25)
 plt.plot(range(25), color = 'black')
 plt.show()
+
+# Graph distances walking (cf) vs walking (cf+transit
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.scatter(walk_csv_edited,walk_csv_transit)
+plt.xlabel("Walking Distance (Custom Filter)")
+plt.ylabel("Walking (Custom Filter + Transit) Distance")
+#plt.xlim(0, 1)
+#plt.ylim(0, 1290)
+plt.axline((0, 0), slope = 1/.00077767, color = 'black')
+#plt.plot(range(25), color = 'black')
+plt.show()
+
+# count distances that are included/excluded in walking vs transit + Walking
+walk_new = walk_csv_edited.copy()
+walk_new[walk_new < 1] = None # get all distances greater than 1 mile
+transit_new = walk_csv_transit.copy()
+transit_new[transit_new > 1290] = None # keep all distances less than 1290 seconds
+walk_new = walk_new.notna()
+transit_new = transit_new.notna()
+(np.logical_and(walk_new, transit_new)).sum().sum()
+
+walk_new = walk_csv_edited.copy()
+walk_new[walk_new >= 1] = None # get all distances less than 1 mile
+transit_new = walk_csv_transit.copy()
+transit_new[transit_new <= 1290] = None # keep all distances greater than 1290 seconds
+walk_new = walk_new.notna()
+transit_new = transit_new.notna()
+(np.logical_and(walk_new, transit_new)).sum().sum()
 
 # Investigate a long driving distance/short walking distance point
 # load graphs

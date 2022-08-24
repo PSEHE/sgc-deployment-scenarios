@@ -1,0 +1,2 @@
+feed_publisher_name,feed_publisher_url,feed_lang,default_lang,feed_start_date,feed_end_date,feed_version,feed_contact_email,feed_contact_url
+GMV Syncromatics,https://gmvsyncromatics.com,en-US,en-US,20200417,,"45-4.30.22 New Run Cut,30-BH First new stop,44-Inbound & Outbound,47-North CE DASH 430 run cut,183-Remove Layover for D and E",support@gmvsync.com,https://gmvsyncromatics.com/contact

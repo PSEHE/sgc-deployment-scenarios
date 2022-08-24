@@ -31,8 +31,8 @@ from data_cleaning_cmm import (blockgroup_pop_dict, blockgroup_walkability_dict,
                                dist_to_site_wilmington_df, dist_to_site_wilmington_dict,
                                dist_to_site_wilmington_walk_df, dist_to_site_wilmington_walk_dict,
                                survey_distance_dict,
-                           county_prop_ealp_dict, site_kw_occ_dict,
-                           site_sqft_dict, site_cost_dict)
+                           county_prop_ealp_dict, site_kw_occ_dict_48,
+                           site_sqft_dict, site_cost_dict_48)
 
 import deployment_models_cmm
 import importlib
@@ -47,9 +47,9 @@ def model_pop_served_max(dist_to_site_df, max_cost, max_distance = 10000000, to_
     #     model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
     #     model_dict = dict()
     if walk_pop == False:
-        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
+        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict_48, site_kw_occ_dict_48, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
     else:
-        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_no_car_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
+        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict_48, site_kw_occ_dict_48, blockgroup_no_car_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
     model_dict = dict()
 
     # Demand maximization objective and constraint for total cost and to meet defined proportion of total population
@@ -79,9 +79,9 @@ def model_pop_served_max_survey(dist_to_site_df, max_cost, to_build = [], CES = 
     #     model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
     #     model_dict = dict()
     if walk_pop == False:
-        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
+        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict_48, site_kw_occ_dict_48, blockgroup_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
     else:
-        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict, site_kw_occ_dict, blockgroup_no_car_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
+        model_base, bg_with_no_hub = deployment_models_cmm.build_base_model(site_cost_dict_48, site_kw_occ_dict_48, blockgroup_no_car_pop_dict, bg_ces_dict, blockgroup_walkability_dict, dist_to_site_df)
     model_dict = dict()
 
     # Demand maximization objective and constraint for total cost and to meet defined proportion of total population

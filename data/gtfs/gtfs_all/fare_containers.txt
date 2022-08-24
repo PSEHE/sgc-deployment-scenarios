@@ -1,0 +1,6 @@
+fare_container_id,fare_container_name,minimum_initial_purchase,amount,currency,rider_category_id
+clipper,Clipper,,3,USD,
+munimobile,SFMTA MuniMobile,,0,USD,
+ezfare,VTA VTA EZFare,,0,USD,
+tokentransit,Token Transit,,0,USD,
+cash,Cash,,0,USD,

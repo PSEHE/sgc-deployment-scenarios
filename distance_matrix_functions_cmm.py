@@ -132,7 +132,7 @@ def get_coords_and_nearest_node(in_pt, in_colname, in_pt_gdf, in_graph):
 
     return(pt_nearest_node)
 
-# Calculate distances in km(?) between a given blockgroup lat/long and a list of site lat/longs
+# Calculate distances in miles between a given blockgroup lat/long and a list of site lat/longs
 def calculate_haversine_distances(bg_lat,bg_lon,sites_lats,sites_lons):
     R = 3958.8
 
@@ -163,12 +163,12 @@ def get_nearby_sites_lat_long(bg_row, sites_county_gdf,k,max_distance):
         k_nearest_distance = np.max(distances)
 #     k_nearest_idx = distances<k_nearest_distance
 #     close_enough_idx = distances<max_distance
-    max_distance = max((k_nearest_distance,max_distance))
+    distance = max((k_nearest_distance,max_distance))
 #     k_nearest_idx = np.argpartition(distances,k)[:k].tolist()
 #     close_enough_idx = list(np.where(distances<max_distance)[0])
 #     print(type(close_enough_idx))
 #     print(np.unique(close_enough_idx+k_nearest_idx))
-    bg_nearest_sites = sites_county_gdf.loc[distances<max_distance,'id_site'].to_list()
+    bg_nearest_sites = sites_county_gdf.loc[distances<distance,'id_site'].to_list()
     return bg_nearest_sites
 
 # Don't know what the following is for

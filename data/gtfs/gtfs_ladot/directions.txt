@@ -1,0 +1,94 @@
+route_id,direction_id,direction
+573,0,Clockwise
+589,0,Loop
+605,0,Counterclockwise
+575,0,Clockwise
+571,0,Clockwise
+572,0,Counterclockwise
+603,0,Counterclockwise
+564,0,Clockwise
+565,0,Wilshire Blvd
+565,1,Hollywood Blvd
+4577,0,Los Feliz
+4577,1,Observatory
+562,0,Red Line Station
+562,1,Beachwood Canyon 
+563,0,Cedars-Sinai
+563,1,Wilshire Boulevard
+566,0,Highland Park
+566,1,Loop
+4868,0,El Sereno
+4868,1,City Terrace
+4869,0,Echo Park
+4869,1,Pico Union
+576,0,Loop
+576,1,Loop
+567,1,Clockwise
+568,0,Counterclockwise
+4867,0,Southbound
+4867,1,Northbound
+604,0,Counterclockwise
+574,0,Clockwise
+871,0,Inbound
+871,1,Outbound
+1756,0,Loop
+713,0,Clockwise
+714,0,Counterclockwise
+26,0,Westwood
+26,1,Downtown
+1524,0,Westwood
+1524,1,Downtown
+28,0,Inbound
+28,1,Outbound
+27,0,Redondo
+27,1,Downtown
+1458,0,Marine P-R
+1458,1,Downtown
+4290,0,Inbound
+4290,1,Downtown
+900,0,Bunker Hill
+900,1,Union Station
+712,0,Westbound
+712,1,Eastbound
+1757,0,Clockwise
+1758,0,Counterclockwise
+710,0,Loop
+708,0,Clockwise
+716,0,Counterclockwise
+858,0,Venice
+858,1,Downtown
+4291,0,Inbound
+4291,1,Outbound
+711,0,Loop
+870,0,San Pedro
+870,1,Long Beach
+715,0,Clockwise
+29,0,Sylmar
+29,1,Downtown
+856,0,Encino
+856,1,Pasadena
+31,0,Calabasas
+31,1,Downtown
+30,0,Thousand Oaks
+30,1,Downtown
+869,0,Sylmar
+869,1,Redondo Beach
+867,0,Chatsworth
+867,1,Downtown
+801,0,Clockwise
+804,0,Counterclockwise
+798,0,Loop
+868,0,Chatsworth
+868,1,Century City
+4278,0,Marine P-R
+4278,1,Downtown
+799,0,Clockwise
+800,0,Counterclockwise
+5285,0,loop
+4443,0,Chinatown/Financial District
+4445,0,Financial District/USC
+4444,0,Westlake/Fashion District
+4444,1,Westlake/Fashion District
+4446,0,Union Station/South Park
+4446,1,Union Station/South Park
+4447,0,Little Tokyo/City West

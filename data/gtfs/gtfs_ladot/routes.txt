@@ -1,0 +1,63 @@
+route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color
+1458,45,"438B","CE438B ",Commuter Express 438B - Imperial-Aviation,3,,FF051E,FFFFFF
+1524,45,"431B","CE431B",CE431B,3,,2B6B0B,FFFFFF
+1756,45,"Pueblo Del Rio","DASH Pueblo Del Rio",Pueblo Del Rio,3,,E58427,FFFFFF
+1757,45,"Southeast Clockwise","DASH Southeast Clockwise",Southeast Clockwise,3,,E47E1C,FFFFFF
+1758,45,"Southeast Counterclockwise","DASH Southeast Counterclockwise",Southeast Counterclockwise,3,,F0C184,FFFFFF
+26,45,"431","CE431",CE431,3,,2B6B0B,FFFFFF
+27,45,"438","CE438",CE438 Redondo,3,,FF4112,FFFFFF
+28,45,"448","CE448 ",CE448 - Rancho Palos Verdes,3,,0C61C2,FFFFFF
+29,47,"409","CE409",Commuter Express 409,3,,0DFFFF,000000
+30,47,"422","CE422",Commuter Express 422,3,,122AFF,FFFFFF
+31,47,"423","CE423",Commuter Express 423,3,,FF250D,FFFFFF
+4278,47,"438","CE438",Commuter Express 438,3,,960DFF,FFFFFF
+4290,45,"437B","CE437B",CE437B - Playa Vista,3,,FF1CF0,FFFFFF
+4291,45,"439","CE439 ",CE439 ,3,,9D43D9,FFFFFF
+4443,183,"B","DASH B",Chinatown/Financial District,3,,703E7E,FFFFFF
+4444,183,"E","DASH E",City West/Fashion District,3,,E20A16,FFFFFF
+4445,183,"F","DASH F",Financial District/USC,3,,DE1F82,FFFFFF
+4446,183,"D","DASH D",Union Station/South Park,3,,F38D1F,FFFFFF
+4447,183,"A","DASH A",Little Tokyo/City West,3,,5F93BF,FFFFFF
+4577,30,"Observatory/Los Feliz","DASH Observatory/Los Feliz",Los Feliz,3,,00447B,FFFFFF
+4867,30,"Boyle Heights","DASH Boyle Heights",Boyle Heights/East LA Route,3,,843C10,FFFFFF
+4868,30,"El Sereno/City Terrace","DASH El Sereno/City Terrace",El Sereno/City Terrace,3,,A30059,FFFFFF
+4869,30,"Pico Union/Echo Park","DASH Pico Union/Echo Park",Pico Union/Echo Park,3,,43C4B7,FFFFFF
+5285,47,"Sylmar","DASH Sylmar",Sylmar,3,,4F5BFF,FFFFFF
+562,30,"Beachwood Canyon","DASH Beachwood Canyon",Hollywood Sign,3,,33460C,FFFFFF
+563,30,"Fairfax","DASH Fairfax",Fairfax District,3,,8A2528,FFFFFF
+564,30,"Hollywood Clockwise","DASH Hollywood Clockwise",Clockwise,3,,00ADC5,FFFFFF
+565,30,"Hollywood/Wilshire","DASH Hollywood/Wilshire",Hollywood / Wilshire,3,,6A727A,FFFFFF
+566,30,"Highland Park/Eagle Rock","DASH Highland Park/Eagle Rock",Highland Park/Eagle Rock,3,,DD9AA5,FFFFFF
+567,30,"Lincoln Heights/Chinatown Clockwise","DASH Lincoln Heights/Chinatown Clockwise",Lincoln Heights/Chinatown Clockwise,3,,9B7D0C,FFFFFF
+568,30,"Lincoln Heights/Chinatown Counterclockwise","DASH Lincoln Heights/Chinatown Counterclockwise",Lincoln Heights/Chinatown Counterclockwise,3,,CCB67A,FFFFFF
+571,30,"Wilshire Center/Koreatown Clockwise","DASH Wilshire Center/Koreatown Clockwise",Clockwise,3,,F0649B,FFFFFF
+572,30,"Wilshire Center/Koreatown Counterclockwise","DASH Wilshire Center/Koreatown Counterclockwise",Wilshire Center/Koreatown Counterclockwise,3,,F7B1C7,FFFFFF
+573,30,"Crenshaw Clockwise","DASH Crenshaw Clockwise",Clockwise,3,,007DC3,FFFFFF
+574,30,"King East Clockwise","DASH King East Clockwise",King East Clockwise,3,,4B63AD,FFFFFF
+575,30,"Leimert/Slauson Clockwise","DASH Leimert/Slauson Clockwise",Leimert/Slauson Clockwise,3,,00703B,FFFFFF
+576,30,"Midtown","DASH Midtown",Midtown,3,,BFAD00,FFFFFF
+589,30,"Crenshaw Counterclockwise","DASH Crenshaw Counterclockwise",Counterclockwise,3,,8BB0DD,FFFFFF
+603,30,"Hollywood Counterclockwise","DASH Hollywood Counterclockwise",Counterclockwise,3,,7DD0DE,FFFFFF
+604,30,"King East Counterclockwise","DASH King East Counterclockwise",King East Counterclockwise,3,,99A0D1,FFFFFF
+605,30,"Leimert/Slauson Counterclockwise","DASH Leimert/Slauson Counterclockwise",Leimert/Slauson Counterclockwise,3,,68A687,FFFFFF
+708,45,"Wilmington Clockwise","DASH Wilmington Clockwise",Wilmington Clockwise,3,,FAAB5E,000000
+710,45,"Wilmington Counterclockwise","DASH Wilmington Counterclockwise",Wilmington Counterclockwise,3,,FDCB9A,FFFFFF
+711,45,"San Pedro","DASH San Pedro",San Pedro,3,,50D899,FFFFFF
+712,45,"Chesterfield Square","DASH Chesterfield Square",Chesterfield Square,3,,D39100,FFFFFF
+713,45,"Watts Clockwise","DASH Watts Clockwise",Watts Clockwise,3,,9D9DC5,FFFFFF
+714,45,"Watts Counterclockwise","DASH Watts Counterclockwise",Counterclockwise,3,,A392B7,FFFFFF
+715,45,"Vermont/Main Clockwise","DASH Vermont/Main Clockwise",Vermont/Main Clockwise,3,,2EB456,FFFFFF
+716,45,"Vermont/Main Counterclockwise","DASH Vermont/Main Counterclockwise",Vermont/Main Counterclockwise,3,,12AD2A,FFFFFF
+798,47,"Northridge","DASH Northridge",Northridge,3,,8D54FF,FFFFFF
+799,47,"Van Nuys/Studio City Clockwise","DASH Van Nuys/Studio City Clockwise",Van Nuys/Studio City Clockwise,3,,C24D23,FFFFFF
+800,47,"Van Nuys/Studio City Counterclockwise","DASH Van Nuys/Studio City Counterclockwise",Van Nuys/Studio City Counterclockwise,3,,361AA3,FFFFFF
+801,47,"Panorama City/Van Nuys Clockwise","DASH Panorama City/Van Nuys Clockwise",Panorama City/Van Nuys Clockwise,3,,FF643D,FFFFFF
+804,47,"Panorama City/Van Nuys Counterclockwise","DASH Panorama City/Van Nuys Counterclockwise",Panorama City/Van Nuys Counterclockwise,3,,2D960E,FFFFFF
+856,47,"549","CE549 ",Commuter Express 549,3,,55FF42,FFFFFF
+858,45,"437A","CE437A",437A,3,,FF1CF0,FFFFFF
+867,47,"419","CE419 ",Commuter Express 419,3,,FF0AE7,FFFFFF
+868,47,"573","CE573 ",Commuter Express 573,3,,488A4C,FFFFFF
+869,47,"574","CE574 ",Commuter Express 574,3,,7A0573,FFFFFF
+870,45,"142","CE142",Long Beach/San Pedro,3,,1B0AFF,FFFFFF
+871,45,"534","CE534 ",CE534 ,3,,9E3F46,FFFFFF
+900,45,"Union Station/Bunker Hill Shuttle","CE Union Station/Bunker Hill Shuttle",Union Station/Bunker Hill Shuttle (PM Trips Only),3,,9085D6,FFFFFF
