@@ -120,10 +120,13 @@ def get_coords_and_nearest_node(in_pt, in_colname, in_pt_gdf, in_graph):
 def calculate_haversine_distances(bg_lat,bg_lon,sites_lats,sites_lons):
     R = 3958.8
 
-    dlons = sites_lons - bg_lon
-    dlats = sites_lats - bg_lat
+    # convert decimal degrees to radians
+    bg_lon_c, bg_lat_c, sites_lons_c, sites_lats_c = map(radians, [bg_lon, bg_lat, sites_lons, sites_lats])
 
-    a = np.sin(dlats / 2)**2 + np.cos(sites_lats) * np.cos(bg_lat) * np.sin(dlons / 2)**2
+    dlons = sites_lons_c - bg_lon_c
+    dlats = sites_lats_c - bg_lat_c
+
+    a = np.sin(dlats / 2)**2 + np.cos(sites_lats_c) * np.cos(bg_lat_c) * np.sin(dlons / 2)**2
     c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a))
     distances = R * c
     return distances
