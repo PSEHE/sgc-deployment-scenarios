@@ -101,7 +101,7 @@ for index, row in site_df_wilmington.iterrows():
 
 site_cost_dict_wilmington = dict()
 for index, row in site_df_wilmington.iterrows():
-    site_cost_dict_wilmington[str(row["id_site"])] = np.median(list(site_cost_dict_48.values()))
+    site_cost_dict_wilmington[str(row["id_site"])] = row["pv_cost_dollars_95_48"] + row["ba_cost_dollars_95_48"]
 
 dist_to_site_contra_costa_df = pd.read_csv('data/distance_matrices/distmatrix_contracosta.csv',index_col = 0)
 
@@ -148,6 +148,15 @@ for cengeo in dist_to_site_wilmington_df.index:
     for hub in dist_to_site_wilmington_df.columns:
         if dist_to_site_wilmington_df.loc[cengeo, hub] == dist_to_site_wilmington_df.loc[cengeo, hub]:
             dist_to_site_wilmington_dict[tuple([cengeo, hub])] = dist_to_site_wilmington_df.loc[cengeo, hub]
+
+dist_to_site_wilmington_old_sites_df = pd.read_csv('data/distance_matrices/distmatrix_wilmington_old_sites.csv',index_col = 0)
+
+dist_to_site_wilmington_old_sites_dict = {}
+
+for cengeo in dist_to_site_wilmington_old_sites_df.index:
+    for hub in dist_to_site_wilmington_old_sites_df.columns:
+        if dist_to_site_wilmington_old_sites_df.loc[cengeo, hub] == dist_to_site_wilmington_old_sites_df.loc[cengeo, hub]:
+            dist_to_site_wilmington_old_sites_dict[tuple([cengeo, hub])] = dist_to_site_wilmington_old_sites_df.loc[cengeo, hub]
 
 dist_to_site_wilmington_walk_df = pd.read_csv('data/distance_matrices/distmatrix_walk_wilmington.csv',index_col = 0)
 

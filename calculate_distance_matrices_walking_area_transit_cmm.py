@@ -23,6 +23,10 @@ warnings.filterwarnings('ignore')
 
 #CLAIRE: change distance matrix file to edited file
 from distance_matrix_functions_cmm import *
+import distance_matrix_functions_cmm
+
+import importlib
+importlib.reload(distance_matrix_functions_cmm)
 
 k_neighbors = 10 # Find this many nearest neighbors
 max_distance = 1 * 60 * 60 # Find all neighbors within this time (seconds)

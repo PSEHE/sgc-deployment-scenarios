@@ -1,4 +1,4 @@
-# This code calculates driving distance matrices for "areas" (from shapefiles)
+# This code calculates walking distance matrices for "areas" (from shapefiles)
 # rather than counties.
 
 # %% codecell
@@ -23,8 +23,12 @@ warnings.filterwarnings('ignore')
 
 #CLAIRE: change distance matrix file to edited file
 from distance_matrix_functions_cmm import *
+import distance_matrix_functions_cmm
 
-k_neighbors = 100 # Find this many nearest neighbors
+import importlib
+importlib.reload(distance_matrix_functions_cmm)
+
+k_neighbors = 10 # Find this many nearest neighbors
 max_distance = 4 # Find all neighbors within this number of miles
 # Read in county boundaries
 county_gdf = gpd.read_file(os.path.join("data","cb_2018_us_county_500k.zip"))
@@ -139,25 +143,6 @@ for area in ca_areas:
                 except:
                     dist_to_site_df.loc[bg_row['GISJOIN'], site] = None
 
-# for _, bg_row in bgs_area_gdf.iterrows():
-#     distances = calculate_haversine_distances(bg_row["LAT"],bg_row["LON"],
-#                                           sites_area_gdf["LAT"].to_numpy(),sites_area_gdf["LON"].to_numpy())
-#     print(distances)
-#     if len(distances)>k_neighbors:
-#         k_nearest_distance = np.partition(distances,k_neighbors)[k_neighbors]
-#         print(k_nearest_distance)
-#     else:
-#         k_nearest_distance = np.max(distances)
-# #     k_nearest_idx = distances<k_nearest_distance
-# #     close_enough_idx = distances<max_distance
-#     max_distance = max((k_nearest_distance,max_distance))
-#     print(max_distance)
-# #     k_nearest_idx = np.argpartition(distances,k)[:k].tolist()
-# #     close_enough_idx = list(np.where(distances<max_distance)[0])
-# #     print(type(close_enough_idx))
-# #     print(np.unique(close_enough_idx+k_nearest_idx))
-#     bg_nearest_sites = sites_area_gdf.loc[distances<max_distance,'id_site'].to_list()
-#     print(bg_nearest_sites)
 
 dist_to_site_df
 dist_to_site_df.to_csv(output_file_name)
