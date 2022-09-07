@@ -33,14 +33,14 @@ walk_csv = pd.read_csv(r'data/distance_matrices/distmatrix_walk_contracosta.csv'
 walk_csv.index.names = [None]
 drive_csv = pd.read_csv(r'data/distance_matrices/distmatrix_contracosta.csv').set_index('Unnamed: 0')
 drive_csv.index.names = [None]
-#walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cfcontracosta.csv').set_index('Unnamed: 0')
-#walk_csv_edited.index.names = [None]
-#walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cfcontracosta.csv').set_index('Unnamed: 0')
-walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_wilmington.csv').set_index('Unnamed: 0')
+walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cfcontracosta.csv').set_index('Unnamed: 0')
 walk_csv_edited.index.names = [None]
+
+#walk_csv_edited = pd.read_csv(r'data/distance_matrices/distmatrix_walk_wilmington.csv').set_index('Unnamed: 0')
+#walk_csv_edited.index.names = [None]
 #walk_csv_transit = pd.read_csv(r'data/distance_matrices/distmatrix_walk_cf_transit_contracosta.csv').set_index('Unnamed: 0')
-walk_csv_transit = pd.read_csv(r'data/distance_matrices/distmatrix_walk_transit_wilmington.csv').set_index('Unnamed: 0')
-walk_csv_transit.index.names = [None]
+#walk_csv_transit = pd.read_csv(r'data/distance_matrices/distmatrix_walk_transit_wilmington.csv').set_index('Unnamed: 0')
+#walk_csv_transit.index.names = [None]
 # Calculate the number of differences (walking vs driving)
 walk_tf = walk_csv.notna()
 drive_tf = drive_csv.notna()
@@ -80,9 +80,9 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.scatter(walk_csv,walk_csv_edited)
 plt.xlabel("Walking Distance")
-plt.ylabel("Walking (Custom Filter + No Underpasses) Distance")
-plt.xlim(0, 25)
-plt.ylim(0, 25)
+plt.ylabel("Walking (Custom Filter) Distance")
+plt.xlim(0, 30)
+plt.ylim(0, 30)
 plt.plot(range(25), color = 'black')
 plt.show()
 
@@ -114,6 +114,22 @@ transit_new[transit_new <= 1290] = None # keep all distances greater than 1290 s
 walk_new = walk_new.notna()
 transit_new = transit_new.notna()
 (np.logical_and(walk_new, transit_new)).sum().sum()
+
+walk_new = walk_csv_edited.copy()
+walk_new[walk_new < 1] = None # get all custom filter distances greater than 1 mile
+walk_old = walk_csv.copy()
+walk_old[walk_old > 1] = None # keep all old distances less than 1 mile
+walk_new = walk_new.notna()
+walk_old = walk_old.notna()
+(np.logical_and(walk_new, walk_old)).sum().sum()
+
+walk_new = walk_csv_edited.copy()
+walk_new[walk_new > 1] = None # get all custom filter distances less than 1 mile
+walk_old = walk_csv.copy()
+walk_old[walk_old < 1] = None # keep all old distances greater than one mile
+walk_new = walk_new.notna()
+walk_old = walk_old.notna()
+(np.logical_and(walk_new, walk_old)).sum().sum()
 
 # Investigate a long driving distance/short walking distance point
 # load graphs
